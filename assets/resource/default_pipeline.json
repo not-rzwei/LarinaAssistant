@@ -1,0 +1,6 @@
+{
+    "Default": {
+        "rate_limit": 2000, // 2 seconds
+        "timeout": 10000 // 10 seconds
+    }
+}

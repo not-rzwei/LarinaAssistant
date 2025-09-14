@@ -1,0 +1,142 @@
+{
+    "Login_LaunchGame": {
+        "recognition": {
+            "type": "DirectHit",
+            "param": {}
+        },
+        "action": {
+            "type": "StartApp",
+            "param": {
+                "package": "com.GentleManiac.HorizonWalker"
+            }
+        },
+        "next": [
+            "Login_ProceedLogin",
+            "Login_Lobby"
+        ]
+    },
+    "Login_ProceedLogin": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "Touch the screen to continue",
+                    "Touch the screen"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {}
+        },
+        "timeout": 90000,
+        "rate_limit": 10000,
+        "next": [
+            "Login_WaitForLobby"
+        ],
+        "interrupt": [
+            "Login_ProceedDownload"
+        ]
+    },
+    "Login_ProceedDownload": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "Download"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {}
+        },
+        "next": [
+            "Login_ProceedDownload"
+        ]
+    },
+    "Login_CloseNotice": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    1089,
+                    21,
+                    92,
+                    83
+                ],
+                "template": [
+                    "close-button-1.png",
+                    "close-button-2.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {}
+        },
+        "next": [
+            "Login_WaitForLobby"
+        ]
+    },
+    "Login_WaitForLobby": {
+        "recognition": {
+            "type": "DirectHit",
+            "param": {}
+        },
+        "action": {
+            "type": "DoNothing",
+            "param": {}
+        },
+        "timeout": 90000,
+        "next": [
+            "Login_CloseNotice",
+            "Login_CloseLoginBonus",
+            "Login_Lobby"
+        ]
+    },
+    "Login_CloseLoginBonus": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "close-button-1.png",
+                    "close-button-2.png"
+                ],
+                "roi": [
+                    1084,
+                    47,
+                    125,
+                    124
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {}
+        },
+        "next": [
+            "Login_WaitForLobby"
+        ]
+    },
+    "Login_Lobby": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "lobby/phonebook.png"
+                ],
+                "roi": [
+                    791,
+                    593,
+                    141,
+                    127
+                ]
+            }
+        },
+        "action": {
+            "type": "DoNothing",
+            "param": {}
+        }
+    }
+}

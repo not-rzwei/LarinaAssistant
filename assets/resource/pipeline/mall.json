@@ -1,0 +1,338 @@
+{
+    "Mall_GoToMall": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "Store"
+                ],
+                "roi": [
+                    817,
+                    33,
+                    154,
+                    130
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target_offset": [
+                    10,
+                    50,
+                    10,
+                    10
+                ]
+            }
+        },
+        "next": [
+            "Mall_Entrypoint"
+        ]
+    },
+    "Mall_DailyLimited": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "Daily Limited"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {}
+        },
+        "post_delay": 1000,
+        "next": [
+            "Mall_DailyLimited_CheckGiftBox",
+            "Mall_DailyLimited_CheckBContract",
+            "Mall_DailyLimited_CheckARankContract",
+            "Mall_DailyLimited_CheckSRankContract"
+        ]
+    },
+    "Mall_DailyLimited_CheckBContract": {
+        "recognition": {
+            "type": "Custom",
+            "param": {
+                "custom_recognition": "CheckShopItem",
+                "custom_recognition_param": "B Rank Contract"
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {}
+        },
+        "next": [
+            "Mall_DailyLimited_OrderForm"
+        ]
+    },
+    "Mall_MaxQuantity": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "Max"
+                ],
+                "roi": [
+                    420,
+                    444,
+                    437,
+                    84
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {}
+        },
+        "next": [
+            "Mall_DailyLimited_Purchase"
+        ]
+    },
+    "Mall_DailyLimited_OrderForm": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "Order Form"
+                ],
+                "roi": [
+                    531,
+                    91,
+                    203,
+                    53
+                ]
+            }
+        },
+        "action": {
+            "type": "DoNothing",
+            "param": {}
+        },
+        "next": [
+            "Mall_MaxQuantity",
+            "Mall_DailyLimited_Purchase"
+        ]
+    },
+    "Mall_DailyLimited_Purchase": {
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "lower": [
+                    149,
+                    75,
+                    239
+                ],
+                "upper": [
+                    252,
+                    250,
+                    255
+                ],
+                "method": 4,
+                "roi": [
+                    543,
+                    607,
+                    176,
+                    39
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {}
+        },
+        "next": [
+            "Mall_DailyLimited_Confirm"
+        ]
+    },
+    "Mall_DailyLimited_Confirm": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "Confirm"
+                ],
+                "roi": [
+                    404,
+                    380,
+                    477,
+                    181
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {}
+        },
+        "pre_delay": 1000,
+        "next": [
+            "Mall_DailyLimited_PurchaseNotification"
+        ]
+    },
+    "Mall_DailyLimited_CheckARankContract": {
+        "recognition": {
+            "type": "Custom",
+            "param": {
+                "custom_recognition": "CheckShopItem",
+                "custom_recognition_param": "A Rank Contract"
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {}
+        },
+        "next": [
+            "Mall_DailyLimited_OrderForm"
+        ]
+    },
+    "Mall_DailyLimited_CheckSRankContract": {
+        "recognition": {
+            "type": "Custom",
+            "param": {
+                "custom_recognition": "CheckShopItem",
+                "custom_recognition_param": "S Rank Contract"
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {}
+        },
+        "next": [
+            "Mall_DailyLimited_OrderForm"
+        ]
+    },
+    "Mall_DailyLimited_CheckGiftBox": {
+        "recognition": {
+            "type": "Custom",
+            "param": {
+                "custom_recognition": "CheckShopItem",
+                "custom_recognition_param": "^.*Gift Box$"
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {}
+        },
+        "next": [
+            "Mall_DailyLimited_OrderForm"
+        ]
+    },
+    "Mall_DailyLimited_PurchaseNotification": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "Touch the screen"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {}
+        },
+        "pre_delay": 400,
+        "next": [
+            "Mall_DailyLimited"
+        ]
+    },
+    "Mall_CashShop": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "Cash Shop"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {}
+        },
+        "post_delay": 1000,
+        "next": [
+            "Mall_CashShop_SupportFund"
+        ]
+    },
+    "Mall_CashShop_SupportFund": {
+        "recognition": {
+            "type": "Custom",
+            "param": {
+                "custom_recognition": "CheckShopItem",
+                "custom_recognition_param": "FairyNet Support Fund"
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {}
+        },
+        "next": [
+            "Mall_CashShop_Purchase"
+        ]
+    },
+    "Mall_CashShop_Purchase": {
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "lower": [
+                    173,
+                    100,
+                    48
+                ],
+                "upper": [
+                    254,
+                    254,
+                    253
+                ],
+                "method": 4,
+                "roi": [
+                    543,
+                    607,
+                    176,
+                    39
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {}
+        },
+        "next": [
+            "Mall_CashShop"
+        ]
+    },
+    "Mall_Entrypoint": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "Product of the Month",
+                    "Next Market",
+                    "Recommended Products"
+                ]
+            }
+        },
+        "action": {
+            "type": "DoNothing",
+            "param": {}
+        }
+    },
+    "Mall_GoToLobby": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "mall/home-button.png"
+                ],
+                "roi": [
+                    1152,
+                    0,
+                    128,
+                    140
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {}
+        }
+    }
+}
