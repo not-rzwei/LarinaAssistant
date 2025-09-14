@@ -11,8 +11,7 @@
             }
         },
         "next": [
-            "Login_ProceedLogin",
-            "Login_Lobby"
+            "Login_ProceedLogin"
         ]
     },
     "Login_ProceedLogin": {
@@ -32,7 +31,8 @@
         "timeout": 90000,
         "rate_limit": 10000,
         "next": [
-            "Login_WaitForLobby"
+            "Login_WaitForLobby",
+            "Login_ProceedLogin"
         ],
         "interrupt": [
             "Login_ProceedDownload"
@@ -55,7 +55,7 @@
             "Login_ProceedDownload"
         ]
     },
-    "Login_CloseNotice": {
+    "Login_NoticeClose": {
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -90,12 +90,12 @@
         },
         "timeout": 90000,
         "next": [
-            "Login_CloseNotice",
-            "Login_CloseLoginBonus",
-            "Login_Lobby"
+            "Login_NoticeClose",
+            "Login_BonusClaim",
+            "Login_LobbyArrived"
         ]
     },
-    "Login_CloseLoginBonus": {
+    "Login_BonusClose": {
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -119,7 +119,7 @@
             "Login_WaitForLobby"
         ]
     },
-    "Login_Lobby": {
+    "Login_LobbyArrived": {
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -138,5 +138,23 @@
             "type": "DoNothing",
             "param": {}
         }
+    },
+    "Login_BonusClaim": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "Claim All",
+                    "Claim"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {}
+        },
+        "next": [
+            "Login_BonusClose"
+        ]
     }
 }
