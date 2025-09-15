@@ -1,5 +1,12 @@
 {
-    "Mall_GoToMall": {
+    "__mpe_config_Mall": {
+        "__mpe_code": {
+            "prefix": "Mall",
+            "filename": "Mall",
+            "version": "v0.5.2"
+        }
+    },
+    "Mall_Entrypoint": {
         "recognition": {
             "type": "OCR",
             "param": {
@@ -19,14 +26,20 @@
             "param": {
                 "target_offset": [
                     10,
-                    50,
+                    100,
                     10,
                     10
                 ]
             }
         },
+        "__mpe_code": {
+            "position": {
+                "x": 0,
+                "y": 0
+            }
+        },
         "next": [
-            "Mall_Entrypoint"
+            "Mall_Landing"
         ]
     },
     "Mall_DailyLimited": {
@@ -43,6 +56,12 @@
             "param": {}
         },
         "post_delay": 1000,
+        "__mpe_code": {
+            "position": {
+                "x": 0,
+                "y": 767
+            }
+        },
         "next": [
             "Mall_DailyLimited_CheckGiftBox",
             "Mall_DailyLimited_CheckBContract",
@@ -61,6 +80,12 @@
         "action": {
             "type": "Click",
             "param": {}
+        },
+        "__mpe_code": {
+            "position": {
+                "x": 290,
+                "y": 438
+            }
         },
         "next": [
             "Mall_DailyLimited_OrderForm"
@@ -85,6 +110,12 @@
             "type": "Click",
             "param": {}
         },
+        "__mpe_code": {
+            "position": {
+                "x": 870,
+                "y": 453
+            }
+        },
         "next": [
             "Mall_DailyLimited_Purchase"
         ]
@@ -107,6 +138,12 @@
         "action": {
             "type": "DoNothing",
             "param": {}
+        },
+        "__mpe_code": {
+            "position": {
+                "x": 580,
+                "y": 513
+            }
         },
         "next": [
             "Mall_MaxQuantity",
@@ -140,6 +177,13 @@
             "type": "Click",
             "param": {}
         },
+        "post_delay": 1000,
+        "__mpe_code": {
+            "position": {
+                "x": 1160,
+                "y": 468
+            }
+        },
         "next": [
             "Mall_DailyLimited_Confirm"
         ]
@@ -163,7 +207,12 @@
             "type": "Click",
             "param": {}
         },
-        "pre_delay": 1000,
+        "__mpe_code": {
+            "position": {
+                "x": 1450,
+                "y": 513
+            }
+        },
         "next": [
             "Mall_DailyLimited_PurchaseNotification"
         ]
@@ -179,6 +228,12 @@
         "action": {
             "type": "Click",
             "param": {}
+        },
+        "__mpe_code": {
+            "position": {
+                "x": 290,
+                "y": 657
+            }
         },
         "next": [
             "Mall_DailyLimited_OrderForm"
@@ -196,6 +251,12 @@
             "type": "Click",
             "param": {}
         },
+        "__mpe_code": {
+            "position": {
+                "x": 290,
+                "y": 876
+            }
+        },
         "next": [
             "Mall_DailyLimited_OrderForm"
         ]
@@ -212,6 +273,12 @@
             "type": "Click",
             "param": {}
         },
+        "__mpe_code": {
+            "position": {
+                "x": 290,
+                "y": 219
+            }
+        },
         "next": [
             "Mall_DailyLimited_OrderForm"
         ]
@@ -221,7 +288,14 @@
             "type": "OCR",
             "param": {
                 "expected": [
+                    "Touch the screen to continue",
                     "Touch the screen"
+                ],
+                "roi": [
+                    429,
+                    605,
+                    343,
+                    52
                 ]
             }
         },
@@ -229,7 +303,13 @@
             "type": "Click",
             "param": {}
         },
-        "pre_delay": 400,
+        "pre_delay": 1000,
+        "__mpe_code": {
+            "position": {
+                "x": 1740,
+                "y": 807
+            }
+        },
         "next": [
             "Mall_DailyLimited"
         ]
@@ -248,6 +328,12 @@
             "param": {}
         },
         "post_delay": 1000,
+        "__mpe_code": {
+            "position": {
+                "x": 290,
+                "y": 1155
+            }
+        },
         "next": [
             "Mall_CashShop_SupportFund"
         ]
@@ -263,6 +349,13 @@
         "action": {
             "type": "Click",
             "param": {}
+        },
+        "post_delay": 1000,
+        "__mpe_code": {
+            "position": {
+                "x": 580,
+                "y": 1095
+            }
         },
         "next": [
             "Mall_CashShop_Purchase"
@@ -295,11 +388,17 @@
             "type": "Click",
             "param": {}
         },
+        "__mpe_code": {
+            "position": {
+                "x": 870,
+                "y": 1125
+            }
+        },
         "next": [
-            "Mall_CashShop"
+            "Mall_CashShop_PurchaseNotification"
         ]
     },
-    "Mall_Entrypoint": {
+    "Mall_Landing": {
         "recognition": {
             "type": "OCR",
             "param": {
@@ -313,9 +412,15 @@
         "action": {
             "type": "DoNothing",
             "param": {}
+        },
+        "__mpe_code": {
+            "position": {
+                "x": 290,
+                "y": 30
+            }
         }
     },
-    "Mall_GoToLobby": {
+    "Mall_BackToLobby": {
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -333,6 +438,41 @@
         "action": {
             "type": "Click",
             "param": {}
+        },
+        "__mpe_code": {
+            "position": {
+                "x": 0,
+                "y": 986
+            }
+        }
+    },
+    "Mall_CashShop_PurchaseNotification": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "Touch the screen to continue",
+                    "Touch the screen",
+                    "PURCHASE"
+                ],
+                "roi": [
+                    429,
+                    605,
+                    343,
+                    52
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {}
+        },
+        "pre_delay": 1000,
+        "__mpe_code": {
+            "position": {
+                "x": 1159,
+                "y": 1147
+            }
         }
     }
 }

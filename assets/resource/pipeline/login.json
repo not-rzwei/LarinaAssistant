@@ -11,7 +11,13 @@
             }
         },
         "next": [
-            "Login_ProceedLogin"
+            "Login_WaitForLogin"
+        ],
+        "interrupt": [
+            "Login_WaitForLobby"
+        ],
+        "on_error": [
+            "Login_RestartGame"
         ]
     },
     "Login_ProceedLogin": {
@@ -26,16 +32,18 @@
         },
         "action": {
             "type": "Click",
-            "param": {}
+            "param": {
+                "target_offset": [
+                    0,
+                    -100,
+                    100,
+                    100
+                ]
+            }
         },
-        "timeout": 90000,
-        "rate_limit": 10000,
         "next": [
             "Login_WaitForLobby",
             "Login_ProceedLogin"
-        ],
-        "interrupt": [
-            "Login_ProceedDownload"
         ]
     },
     "Login_ProceedDownload": {
@@ -52,7 +60,7 @@
             "param": {}
         },
         "next": [
-            "Login_ProceedDownload"
+            "Login_WaitForLogin"
         ]
     },
     "Login_NoticeClose": {
@@ -76,6 +84,7 @@
             "param": {}
         },
         "next": [
+            "Login_NoticeClose",
             "Login_WaitForLobby"
         ]
     },
@@ -116,6 +125,7 @@
             "param": {}
         },
         "next": [
+            "Login_BonusClose",
             "Login_WaitForLobby"
         ]
     },
@@ -155,6 +165,37 @@
         },
         "next": [
             "Login_BonusClose"
+        ]
+    },
+    "Login_WaitForLogin": {
+        "recognition": {
+            "type": "DirectHit",
+            "param": {}
+        },
+        "action": {
+            "type": "DoNothing",
+            "param": {}
+        },
+        "timeout": 90000,
+        "next": [
+            "Login_ProceedLogin",
+            "Login_ProceedDownload"
+        ]
+    },
+    "Login_RestartGame": {
+        "recognition": {
+            "type": "DirectHit",
+            "param": {}
+        },
+        "action": {
+            "type": "StopApp",
+            "param": {
+                "package": "com.GentleManiac.HorizonWalker"
+            }
+        },
+        "post_delay": 10000,
+        "next": [
+            "Login_LaunchGame"
         ]
     }
 }

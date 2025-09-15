@@ -1,0 +1,274 @@
+{
+    "__mpe_config_Lobby": {
+        "__mpe_code": {
+            "prefix": "Lobby",
+            "filename": "Lobby",
+            "version": "v0.5.2"
+        }
+    },
+    "Lobby_TributeReward": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "^Devotion.*$",
+                    "^[0-9]+$"
+                ],
+                "roi": [
+                    707,
+                    131,
+                    80,
+                    133
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {}
+        },
+        "__mpe_code": {
+            "position": {
+                "x": 0,
+                "y": 637
+            }
+        },
+        "next": [
+            "Lobby_TributeReceive"
+        ]
+    },
+    "Lobby_TributeClose": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    1071,
+                    125,
+                    141,
+                    98
+                ],
+                "template": [
+                    "close-button-1.png",
+                    "close-button-2.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {}
+        },
+        "__mpe_code": {
+            "position": {
+                "x": 870,
+                "y": 637
+            }
+        }
+    },
+    "Lobby_TributeReceive": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "^Receive.*Tribute$"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {}
+        },
+        "post_wait_freezes": 1000,
+        "__mpe_code": {
+            "position": {
+                "x": 290,
+                "y": 637
+            }
+        },
+        "next": [
+            "Lobby_TributeReceive_PopupClose",
+            "Lobby_TributeClose"
+        ]
+    },
+    "Lobby_TributeReceive_PopupClose": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "Touch the screen to continue",
+                    "Touch the screen",
+                    "Confirm"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target_offset": [
+                    0,
+                    -100,
+                    100,
+                    100
+                ]
+            }
+        },
+        "__mpe_code": {
+            "position": {
+                "x": 580,
+                "y": 697
+            }
+        },
+        "next": [
+            "Lobby_TributeClose"
+        ]
+    },
+    "Lobby_Mail_Entrypoint": {
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "lower": [
+                    [
+                        20,
+                        25,
+                        29
+                    ]
+                ],
+                "upper": [
+                    [
+                        255,
+                        224,
+                        230
+                    ]
+                ],
+                "roi": [
+                    998,
+                    636,
+                    69,
+                    76
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {}
+        },
+        "__mpe_code": {
+            "position": {
+                "x": 0,
+                "y": 174
+            }
+        },
+        "next": [
+            "Lobby_Mail_Landing"
+        ]
+    },
+    "Lobby_Mail_Claim": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "^Claim.+$"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {}
+        },
+        "post_wait_freezes": 1000,
+        "__mpe_code": {
+            "position": {
+                "x": 580,
+                "y": 0
+            }
+        },
+        "next": [
+            "Lobby_Mal_Claim_Close"
+        ]
+    },
+    "Lobby_Mal_Claim_Close": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "Touch the screen to continue",
+                    "Touch the screen",
+                    "Confirm"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target_offset": [
+                    0,
+                    -100,
+                    100,
+                    100
+                ]
+            }
+        },
+        "__mpe_code": {
+            "position": {
+                "x": 870,
+                "y": 60
+            }
+        },
+        "next": [
+            "Lobby_Mail_Landing"
+        ]
+    },
+    "Lobby_Mail_Delete": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "Delete read"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {}
+        },
+        "post_wait_freezes": 1000,
+        "__mpe_code": {
+            "position": {
+                "x": 580,
+                "y": 239
+            }
+        },
+        "next": [
+            "Lobby_Mail_Landing"
+        ]
+    },
+    "Lobby_Mail_Landing": {
+        "recognition": {
+            "type": "DirectHit",
+            "param": {}
+        },
+        "action": {
+            "type": "DoNothing",
+            "param": {}
+        },
+        "__mpe_code": {
+            "position": {
+                "x": 290,
+                "y": 219
+            }
+        },
+        "next": [
+            "Lobby_Mail_Claim",
+            "Lobby_Mail_Delete"
+        ],
+        "interrupt": [
+            "Navigation_BackToLobby"
+        ]
+    },
+    "__mpe_external_Navigation_BackToLobby_Lobby": {
+        "__mpe_code": {
+            "position": {
+                "x": 0,
+                "y": 0
+            }
+        }
+    }
+}
