@@ -1,0 +1,433 @@
+{
+    "__mpe_config_Wish": {
+        "__mpe_code": {
+            "prefix": "Wish",
+            "filename": "Wish",
+            "version": "v0.5.2"
+        }
+    },
+    "Stage_Entrypoint": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "Stage"
+                ],
+                "roi": [
+                    956,
+                    241,
+                    235,
+                    179
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {}
+        },
+        "post_wait_freezes": 1000,
+        "__mpe_code": {
+            "position": {
+                "x": 1365,
+                "y": 848
+            }
+        },
+        "next": [
+            "Wish_Entrypoint"
+        ]
+    },
+    "Wish_Entrypoint": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "^[123]/3$"
+                ],
+                "roi": [
+                    41,
+                    377,
+                    220,
+                    191
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {}
+        },
+        "post_wait_freezes": 1000,
+        "__mpe_code": {
+            "position": {
+                "x": 1740,
+                "y": 854
+            }
+        },
+        "next": [
+            "Wish_Landing"
+        ]
+    },
+    "Wish_SelectCredit": {
+        "recognition": {
+            "type": "Custom",
+            "param": {
+                "custom_recognition": "SelectHighestLevelWish",
+                "custom_recognition_param": "Credit"
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {}
+        },
+        "post_delay": 1000,
+        "__mpe_code": {
+            "position": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "next": [
+            "Wish_Prepare"
+        ]
+    },
+    "Wish_SelectVanguard": {
+        "recognition": {
+            "type": "Custom",
+            "param": {
+                "custom_recognition": "SelectHighestLevelWish",
+                "custom_recognition_param": "Vanguard"
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {}
+        },
+        "post_delay": 1000,
+        "__mpe_code": {
+            "position": {
+                "x": 0,
+                "y": 249
+            }
+        },
+        "next": [
+            "Wish_Prepare"
+        ]
+    },
+    "Wish_SelectWeapon": {
+        "recognition": {
+            "type": "Custom",
+            "param": {
+                "custom_recognition": "SelectHighestLevelWish",
+                "custom_recognition_param": "Weapon"
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {}
+        },
+        "post_delay": 1000,
+        "__mpe_code": {
+            "position": {
+                "x": -2,
+                "y": 495
+            }
+        },
+        "next": [
+            "Wish_Prepare"
+        ]
+    },
+    "Wish_Deploy": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "3/1",
+                    "2/1",
+                    "1/1"
+                ],
+                "roi": [
+                    800,
+                    587,
+                    198,
+                    133
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {}
+        },
+        "__mpe_code": {
+            "position": {
+                "x": 1160,
+                "y": 140
+            }
+        },
+        "next": [
+            "Wish_Battle_Wait"
+        ]
+    },
+    "Wish_Prepare": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "Rewards"
+                ],
+                "roi": [
+                    592,
+                    84,
+                    288,
+                    159
+                ]
+            }
+        },
+        "action": {
+            "type": "DoNothing",
+            "param": {}
+        },
+        "__mpe_code": {
+            "position": {
+                "x": 290,
+                "y": 140
+            }
+        },
+        "next": [
+            "Wish_Squad_Show"
+        ]
+    },
+    "Wish_Squad_Show": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "^.[0-9]$"
+                ],
+                "roi": [
+                    1075,
+                    1,
+                    205,
+                    149
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {}
+        },
+        "__mpe_code": {
+            "position": {
+                "x": 580,
+                "y": 140
+            }
+        },
+        "next": [
+            "Wish_Squad_Select"
+        ]
+    },
+    "Wish_Squad_Select": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "^.1$",
+                    "^.2$",
+                    "^.3$",
+                    "^.4$",
+                    "^.5$",
+                    "^.6$",
+                    "^.7$",
+                    "^.8$"
+                ],
+                "roi": [
+                    1120,
+                    105,
+                    127,
+                    456
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {}
+        },
+        "__mpe_code": {
+            "position": {
+                "x": 870,
+                "y": 140
+            }
+        },
+        "next": [
+            "Wish_Deploy"
+        ],
+        "interrupt": [
+            "Wish_Squad_Show"
+        ]
+    },
+    "Wish_Battle_AutoToggle": {
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "lower": [
+                    [
+                        79,
+                        87,
+                        96
+                    ]
+                ],
+                "upper": [
+                    [
+                        237,
+                        237,
+                        237
+                    ]
+                ],
+                "method": 4,
+                "roi": [
+                    115,
+                    41,
+                    12,
+                    19
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    94,
+                    30,
+                    33,
+                    37
+                ]
+            }
+        },
+        "post_wait_freezes": 500,
+        "__mpe_code": {
+            "position": {
+                "x": 1160,
+                "y": 443
+            }
+        },
+        "next": [
+            "Wish_Battle_Completed",
+            "Wish_Battle_Failed",
+            "Wish_Battle_AutoToggle",
+            "Wish_Battle_Wait"
+        ]
+    },
+    "Wish_Battle_Wait": {
+        "recognition": {
+            "type": "DirectHit",
+            "param": {}
+        },
+        "action": {
+            "type": "DoNothing",
+            "param": {}
+        },
+        "post_wait_freezes": 1000,
+        "rate_limit": 10000,
+        "__mpe_code": {
+            "position": {
+                "x": 1450,
+                "y": 150
+            }
+        },
+        "next": [
+            "Wish_Battle_Completed",
+            "Wish_Battle_AutoToggle",
+            "Wish_Battle_Failed",
+            "Wish_Battle_Wait"
+        ]
+    },
+    "Wish_Battle_Completed": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "Next",
+                    "Exit"
+                ],
+                "roi": [
+                    944,
+                    559,
+                    336,
+                    161
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {}
+        },
+        "post_delay": 400,
+        "timeout": 60000,
+        "__mpe_code": {
+            "position": {
+                "x": 1740,
+                "y": 296
+            }
+        },
+        "next": [
+            "Wish_Battle_Completed",
+            "Wish_Landing"
+        ]
+    },
+    "Wish_Battle_Failed": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "Exit"
+                ],
+                "roi": [
+                    494,
+                    607,
+                    296,
+                    88
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {}
+        },
+        "timeout": 60000,
+        "__mpe_code": {
+            "position": {
+                "x": 1740,
+                "y": 605
+            }
+        },
+        "next": [
+            "Wish_Battle_Failed",
+            "Wish_Landing"
+        ]
+    },
+    "Wish_Landing": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "^View.+",
+                    ""
+                ],
+                "roi": [
+                    0,
+                    164,
+                    224,
+                    149
+                ]
+            }
+        },
+        "action": {
+            "type": "DoNothing",
+            "param": {}
+        },
+        "__mpe_code": {
+            "position": {
+                "x": 2030,
+                "y": 737
+            }
+        }
+    }
+}

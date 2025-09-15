@@ -18,31 +18,28 @@ def main():
         AgentServer.start_up(socket_id)
         AgentServer.join()
 
+    def signal_handler(signum, frame):
+        print(f"\nReceived signal {signum}, terminating immediately...")
+        os._exit(0)
+
+    # Register signal handlers BEFORE starting the server thread
+    signal.signal(signal.SIGINT, signal_handler)
+    signal.signal(signal.SIGTERM, signal_handler)
+
     server_thread = threading.Thread(target=run_server)
-    server_thread.daemon = True  # Make sure thread does not block exit
+    server_thread.daemon = True
     server_thread.start()
 
-    def force_exit(signum=None, frame=None):
-        print("Forcefully killing process...")
-        os._exit(1)
-
-    # Register signal handlers for utmost priority exit
-    signal.signal(signal.SIGINT, force_exit)
-    signal.signal(signal.SIGTERM, force_exit)
-
     try:
-        while True:
+        # Simple wait for server thread
+        while server_thread.is_alive():
             server_thread.join(timeout=0.5)
-            if not server_thread.is_alive():
-                break
+    except KeyboardInterrupt:
+        print("\nKeyboardInterrupt received, terminating...")
+        os._exit(0)
     except Exception as e:
-        # On any exception, force exit
-        print(f"Exception occurred: {e}, forcefully killing process...")
+        print(f"Exception occurred: {e}, terminating...")
         os._exit(1)
-    finally:
-        # In case shutdown is called from other exceptions, still force kill if needed
-        if server_thread.is_alive():
-            os._exit(1)
 
 if __name__ == "__main__":
     main()
