@@ -3,10 +3,10 @@
         "__mpe_code": {
             "prefix": "Mall",
             "filename": "Mall",
-            "version": "v0.5.2"
+            "version": "v0.5.3"
         }
     },
-    "Mall_Entry": {
+    "Mall_StoreFront_Enter": {
         "recognition": {
             "type": "OCR",
             "param": {
@@ -34,39 +34,54 @@
         },
         "__mpe_code": {
             "position": {
-                "x": 0,
-                "y": 0
+                "x": 290,
+                "y": 323
             }
         },
         "next": [
-            "Mall_Main"
+            "Mall_StoreFront",
+            "Mall_StoreFront_Enter"
         ]
     },
-    "Mall_DailyLimited": {
+    "Mall_DailyLimited_Front": {
         "recognition": {
             "type": "OCR",
             "param": {
                 "expected": [
-                    "Daily Limited"
+                    "refreshed daily",
+                    "daily"
+                ],
+                "roi": [
+                    219,
+                    119,
+                    702,
+                    69
                 ]
             }
         },
         "action": {
-            "type": "Click",
-            "param": {}
+            "type": "Custom",
+            "param": {
+                "custom_action": "DisableNode",
+                "custom_action_param": "Mall_DailyLimited_Entry"
+            }
         },
-        "post_delay": 1000,
+        "pre_delay": 1000,
         "__mpe_code": {
             "position": {
-                "x": 0,
-                "y": 767
+                "x": 1160,
+                "y": 393
             }
         },
         "next": [
+            "Mall_StoreFront"
+        ],
+        "interrupt": [
             "Mall_DailyLimited_Buy_GiftBox",
             "Mall_DailyLimited_Buy_BRankContract",
             "Mall_DailyLimited_Buy_ARankContract",
-            "Mall_DailyLimited_Buy_SRankContract"
+            "Mall_DailyLimited_Buy_SRankContract",
+            "Mall_Back_StoreFront"
         ]
     },
     "Mall_DailyLimited_Buy_BRankContract": {
@@ -83,15 +98,15 @@
         },
         "__mpe_code": {
             "position": {
-                "x": 290,
-                "y": 438
+                "x": 1450,
+                "y": 0
             }
         },
         "next": [
-            "Mall_DailyLimited_OrderForm"
+            "Mall_OrderForm"
         ]
     },
-    "Mall_SelectMaxQuantity": {
+    "Mall_OrderForm_SelectMaxQuantity": {
         "recognition": {
             "type": "OCR",
             "param": {
@@ -112,15 +127,15 @@
         },
         "__mpe_code": {
             "position": {
-                "x": 870,
-                "y": 453
+                "x": 2030,
+                "y": 287
             }
         },
         "next": [
-            "Mall_DailyLimited_Purchase"
+            "Mall_OrderForm_Purchase"
         ]
     },
-    "Mall_DailyLimited_OrderForm": {
+    "Mall_OrderForm": {
         "recognition": {
             "type": "OCR",
             "param": {
@@ -141,35 +156,27 @@
         },
         "__mpe_code": {
             "position": {
-                "x": 580,
-                "y": 513
+                "x": 1740,
+                "y": 347
             }
         },
         "next": [
-            "Mall_SelectMaxQuantity",
-            "Mall_DailyLimited_Purchase"
+            "Mall_OrderForm_SelectMaxQuantity",
+            "Mall_OrderForm_Purchase"
         ]
     },
-    "Mall_DailyLimited_Purchase": {
+    "Mall_OrderForm_Purchase": {
         "recognition": {
-            "type": "ColorMatch",
+            "type": "OCR",
             "param": {
-                "lower": [
-                    149,
-                    75,
-                    239
-                ],
-                "upper": [
-                    252,
-                    250,
-                    255
-                ],
-                "method": 4,
                 "roi": [
                     543,
                     607,
                     176,
                     39
+                ],
+                "expected": [
+                    "Purchase"
                 ]
             }
         },
@@ -180,41 +187,15 @@
         "post_delay": 1000,
         "__mpe_code": {
             "position": {
-                "x": 1160,
-                "y": 468
+                "x": 2320,
+                "y": 332
             }
         },
         "next": [
-            "Mall_DailyLimited_Confirm"
-        ]
-    },
-    "Mall_DailyLimited_Confirm": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "expected": [
-                    "Confirm"
-                ],
-                "roi": [
-                    404,
-                    380,
-                    477,
-                    181
-                ]
-            }
-        },
-        "action": {
-            "type": "Click",
-            "param": {}
-        },
-        "__mpe_code": {
-            "position": {
-                "x": 1450,
-                "y": 513
-            }
-        },
-        "next": [
-            "Mall_DailyLimited_ClosePopup"
+            "TouchToContinue"
+        ],
+        "interrupt": [
+            "Confirm"
         ]
     },
     "Mall_DailyLimited_Buy_ARankContract": {
@@ -231,12 +212,12 @@
         },
         "__mpe_code": {
             "position": {
-                "x": 290,
-                "y": 657
+                "x": 1450,
+                "y": 219
             }
         },
         "next": [
-            "Mall_DailyLimited_OrderForm"
+            "Mall_OrderForm"
         ]
     },
     "Mall_DailyLimited_Buy_SRankContract": {
@@ -253,12 +234,12 @@
         },
         "__mpe_code": {
             "position": {
-                "x": 290,
-                "y": 876
+                "x": 1450,
+                "y": 438
             }
         },
         "next": [
-            "Mall_DailyLimited_OrderForm"
+            "Mall_OrderForm"
         ]
     },
     "Mall_DailyLimited_Buy_GiftBox": {
@@ -275,67 +256,12 @@
         },
         "__mpe_code": {
             "position": {
-                "x": 290,
-                "y": 219
+                "x": 1450,
+                "y": 657
             }
         },
         "next": [
-            "Mall_DailyLimited_OrderForm"
-        ]
-    },
-    "Mall_DailyLimited_ClosePopup": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "expected": [
-                    "Touch the screen to continue",
-                    "Touch the screen"
-                ],
-                "roi": [
-                    429,
-                    605,
-                    343,
-                    52
-                ]
-            }
-        },
-        "action": {
-            "type": "Click",
-            "param": {}
-        },
-        "pre_delay": 1000,
-        "__mpe_code": {
-            "position": {
-                "x": 1740,
-                "y": 807
-            }
-        },
-        "next": [
-            "Mall_DailyLimited"
-        ]
-    },
-    "Mall_CashShop": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "expected": [
-                    "Cash Shop"
-                ]
-            }
-        },
-        "action": {
-            "type": "Click",
-            "param": {}
-        },
-        "post_delay": 1000,
-        "__mpe_code": {
-            "position": {
-                "x": 290,
-                "y": 1155
-            }
-        },
-        "next": [
-            "Mall_CashShop_SupportFund"
+            "Mall_OrderForm"
         ]
     },
     "Mall_CashShop_SupportFund": {
@@ -350,55 +276,20 @@
             "type": "Click",
             "param": {}
         },
-        "post_delay": 1000,
         "__mpe_code": {
             "position": {
-                "x": 580,
+                "x": 1450,
                 "y": 1095
             }
         },
         "next": [
-            "Mall_CashShop_Purchase"
+            "Mall_OrderForm"
+        ],
+        "interrupt": [
+            "Mall_CashShop_SupportFund_Disable"
         ]
     },
-    "Mall_CashShop_Purchase": {
-        "recognition": {
-            "type": "ColorMatch",
-            "param": {
-                "lower": [
-                    173,
-                    100,
-                    48
-                ],
-                "upper": [
-                    254,
-                    254,
-                    253
-                ],
-                "method": 4,
-                "roi": [
-                    543,
-                    607,
-                    176,
-                    39
-                ]
-            }
-        },
-        "action": {
-            "type": "Click",
-            "param": {}
-        },
-        "__mpe_code": {
-            "position": {
-                "x": 870,
-                "y": 1125
-            }
-        },
-        "next": [
-            "Mall_CashShop_ClosePopup"
-        ]
-    },
-    "Mall_Main": {
+    "Mall_StoreFront": {
         "recognition": {
             "type": "OCR",
             "param": {
@@ -415,25 +306,93 @@
         },
         "__mpe_code": {
             "position": {
-                "x": 290,
-                "y": 30
+                "x": 580,
+                "y": 518
+            }
+        },
+        "next": [
+            "LobbyFlag"
+        ],
+        "interrupt": [
+            "Mall_DailyLimited_Entry",
+            "Mall_CashShop_Entry",
+            "BackToLobby"
+        ]
+    },
+    "__mpe_external_BackToLobby_Mall": {
+        "__mpe_code": {
+            "position": {
+                "x": 870,
+                "y": 892
             }
         }
     },
-    "Mall_CashShop_ClosePopup": {
+    "Mall_Entry": {
+        "recognition": {
+            "type": "DirectHit",
+            "param": {}
+        },
+        "action": {
+            "type": "DoNothing",
+            "param": {}
+        },
+        "__mpe_code": {
+            "position": {
+                "x": 0,
+                "y": 585
+            }
+        },
+        "next": [
+            "Mall_StoreFront_Enter",
+            "Mall_StoreFront"
+        ],
+        "interrupt": [
+            "BackToLobby"
+        ]
+    },
+    "__mpe_external_LobbyFlag_Mall": {
+        "__mpe_code": {
+            "position": {
+                "x": 870,
+                "y": 328
+            }
+        }
+    },
+    "Mall_DailyLimited_Entry": {
+        "recognition": {
+            "type": "DirectHit",
+            "param": {}
+        },
+        "action": {
+            "type": "DoNothing",
+            "param": {}
+        },
+        "__mpe_code": {
+            "position": {
+                "x": 870,
+                "y": 423
+            }
+        },
+        "next": [
+            "Mall_DailyLimited_Front"
+        ],
+        "interrupt": [
+            "Mall_DailyLimited_Enter"
+        ]
+    },
+    "Mall_DailyLimited_Enter": {
         "recognition": {
             "type": "OCR",
             "param": {
                 "expected": [
-                    "Touch the screen to continue",
-                    "Touch the screen",
-                    "PURCHASE"
+                    "Daily Limited",
+                    "Daily"
                 ],
                 "roi": [
-                    429,
-                    605,
-                    343,
-                    52
+                    0,
+                    153,
+                    205,
+                    566
                 ]
             }
         },
@@ -441,11 +400,158 @@
             "type": "Click",
             "param": {}
         },
+        "__mpe_code": {
+            "position": {
+                "x": 1160,
+                "y": 831
+            }
+        }
+    },
+    "__mpe_external_TouchToContinue_Mall": {
+        "__mpe_code": {
+            "position": {
+                "x": 2610,
+                "y": 362
+            }
+        }
+    },
+    "__mpe_external_Confirm_Mall": {
+        "__mpe_code": {
+            "position": {
+                "x": 2610,
+                "y": 457
+            }
+        }
+    },
+    "Mall_Back_StoreFront": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "Best"
+                ],
+                "roi": [
+                    0,
+                    153,
+                    205,
+                    566
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {}
+        },
+        "__mpe_code": {
+            "position": {
+                "x": 1450,
+                "y": 876
+            }
+        }
+    },
+    "Mall_CashShop_Entry": {
+        "recognition": {
+            "type": "DirectHit",
+            "param": {}
+        },
+        "action": {
+            "type": "DoNothing",
+            "param": {}
+        },
+        "__mpe_code": {
+            "position": {
+                "x": 870,
+                "y": 1003
+            }
+        },
+        "next": [
+            "Mall_CashShop_Front"
+        ],
+        "interrupt": [
+            "Mall_CashShop_Enter"
+        ]
+    },
+    "Mall_CashShop_Enter": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "Cash Shop",
+                    "Cash"
+                ],
+                "roi": [
+                    0,
+                    153,
+                    205,
+                    566
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {}
+        },
+        "__mpe_code": {
+            "position": {
+                "x": 1160,
+                "y": 1359
+            }
+        }
+    },
+    "Mall_CashShop_Front": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "a limited time",
+                    "high-efficiency"
+                ],
+                "roi": [
+                    219,
+                    119,
+                    702,
+                    69
+                ]
+            }
+        },
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "DisableNode",
+                "custom_action_param": "Mall_CashShop_Entry"
+            }
+        },
         "pre_delay": 1000,
         "__mpe_code": {
             "position": {
-                "x": 1159,
-                "y": 1147
+                "x": 1160,
+                "y": 1050
+            }
+        },
+        "next": [
+            "Mall_CashShop_SupportFund"
+        ],
+        "interrupt": [
+            "Mall_StoreFront"
+        ]
+    },
+    "Mall_CashShop_SupportFund_Disable": {
+        "recognition": {
+            "type": "DirectHit",
+            "param": {}
+        },
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "DisableNode",
+                "custom_action_param": "Mall_CashShop_SupportFund"
+            }
+        },
+        "pre_delay": 1000,
+        "__mpe_code": {
+            "position": {
+                "x": 1763,
+                "y": 1068
             }
         }
     }

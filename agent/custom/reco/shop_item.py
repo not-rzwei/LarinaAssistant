@@ -3,6 +3,9 @@ from maa.custom_recognition import CustomRecognition
 from maa.context import Context
 
 
+from utils import logger
+
+
 @AgentServer.custom_recognition("CheckShopItem")
 class CheckShopItem(CustomRecognition):
     """
@@ -40,7 +43,8 @@ class CheckShopItem(CustomRecognition):
             },
         )
 
-        if reco_detail == None:
+        if reco_detail is None:
+            logger.info(f"[CheckShopItem] Item '{item_name}' not found.")
             return CustomRecognition.AnalyzeResult(
                 box=None, detail="Item not available"
             )
@@ -71,8 +75,10 @@ class CheckShopItem(CustomRecognition):
         )
 
         if sold_out_detail is not None:
+            logger.info(f"[CheckShopItem] Item '{item_name}' is sold out.")
             return CustomRecognition.AnalyzeResult(box=None, detail="Item sold out")
 
+        logger.info(f"[CheckShopItem] Item '{item_name}' is available for purchase.")
         return CustomRecognition.AnalyzeResult(
             box=reco_detail.box, detail="Item available"
         )

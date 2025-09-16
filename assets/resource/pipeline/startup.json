@@ -3,7 +3,7 @@
         "__mpe_code": {
             "prefix": "Startup",
             "filename": "Startup",
-            "version": "v0.5.2"
+            "version": "v0.5.3"
         }
     },
     "Startup_Entry": {
@@ -21,11 +21,11 @@
         "__mpe_code": {
             "position": {
                 "x": 0,
-                "y": 556
+                "y": 606
             }
         },
         "next": [
-            "Startup_LobbyFlag",
+            "LobbyFlag",
             "Startup_EnterGame"
         ],
         "interrupt": [
@@ -49,11 +49,11 @@
         "__mpe_code": {
             "position": {
                 "x": 290,
-                "y": 955
+                "y": 856
             }
         },
         "next": [
-            "Startup_Disable_LaunchGame"
+            "Startup_LaunchGame_Disable"
         ]
     },
     "Startup_EnterGame": {
@@ -81,7 +81,7 @@
         "__mpe_code": {
             "position": {
                 "x": 290,
-                "y": 313
+                "y": 171
             }
         },
         "next": [
@@ -111,39 +111,13 @@
         "__mpe_code": {
             "position": {
                 "x": 290,
-                "y": 651
+                "y": 491
             }
         },
         "next": [
             "Confirm",
             "Startup_ProceedDownload"
         ]
-    },
-    "Startup_LobbyFlag": {
-        "recognition": {
-            "type": "TemplateMatch",
-            "param": {
-                "template": [
-                    "lobby/phonebook.png"
-                ],
-                "roi": [
-                    791,
-                    593,
-                    141,
-                    127
-                ]
-            }
-        },
-        "action": {
-            "type": "DoNothing",
-            "param": {}
-        },
-        "__mpe_code": {
-            "position": {
-                "x": 870,
-                "y": 0
-            }
-        }
     },
     "Startup_Signin_Bonus_Claim": {
         "recognition": {
@@ -162,11 +136,11 @@
         "__mpe_code": {
             "position": {
                 "x": 870,
-                "y": 445
+                "y": 595
             }
         }
     },
-    "Startup_Disable_LaunchGame": {
+    "Startup_LaunchGame_Disable": {
         "recognition": {
             "type": "DirectHit",
             "param": {}
@@ -181,7 +155,7 @@
         "__mpe_code": {
             "position": {
                 "x": 580,
-                "y": 940
+                "y": 841
             }
         }
     },
@@ -189,7 +163,7 @@
         "__mpe_code": {
             "position": {
                 "x": 870,
-                "y": 883
+                "y": 784
             }
         }
     },
@@ -208,11 +182,11 @@
         "__mpe_code": {
             "position": {
                 "x": 580,
-                "y": 313
+                "y": 171
             }
         },
         "next": [
-            "Startup_LobbyFlag"
+            "LobbyFlag"
         ],
         "interrupt": [
             "Startup_Blank_Loading",
@@ -225,7 +199,7 @@
         "__mpe_code": {
             "position": {
                 "x": 580,
-                "y": 713
+                "y": 553
             }
         }
     },
@@ -233,7 +207,7 @@
         "__mpe_code": {
             "position": {
                 "x": 870,
-                "y": 219
+                "y": 344
             }
         }
     },
@@ -270,7 +244,15 @@
         "__mpe_code": {
             "position": {
                 "x": 870,
-                "y": 634
+                "y": 95
+            }
+        }
+    },
+    "__mpe_external_LobbyFlag_Startup": {
+        "__mpe_code": {
+            "position": {
+                "x": 870,
+                "y": 0
             }
         }
     }

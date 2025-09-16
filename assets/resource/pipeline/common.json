@@ -3,10 +3,10 @@
         "__mpe_code": {
             "prefix": "",
             "filename": "Common",
-            "version": "v0.5.2"
+            "version": "v0.5.3"
         }
     },
-    "Navigation_BackToLobby": {
+    "BackToLobby": {
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -113,8 +113,8 @@
         },
         "__mpe_code": {
             "position": {
-                "x": 280,
-                "y": 213
+                "x": 0,
+                "y": 438
             }
         }
     },
@@ -139,8 +139,8 @@
         },
         "__mpe_code": {
             "position": {
-                "x": 292,
-                "y": -200
+                "x": 0,
+                "y": 687
             }
         }
     },
@@ -159,8 +159,63 @@
         },
         "__mpe_code": {
             "position": {
-                "x": 1,
-                "y": 424
+                "x": 0,
+                "y": 906
+            }
+        }
+    },
+    "LobbyFlag": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "lobby/phonebook.png"
+                ],
+                "roi": [
+                    791,
+                    593,
+                    141,
+                    127
+                ]
+            }
+        },
+        "action": {
+            "type": "DoNothing",
+            "param": {}
+        },
+        "__mpe_code": {
+            "position": {
+                "x": 0,
+                "y": 1095
+            }
+        }
+    },
+    "TouchToContinue": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "Touch the screen to continue",
+                    "Touch the screen",
+                    "Touch"
+                ],
+                "roi": [
+                    311,
+                    565,
+                    744,
+                    154
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {}
+        },
+        "pre_wait_freezes": 1000,
+        "__mpe_code": {
+            "position": {
+                "x": 0,
+                "y": 1314
             }
         }
     }

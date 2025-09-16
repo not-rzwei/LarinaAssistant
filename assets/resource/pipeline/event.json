@@ -63,7 +63,7 @@
         "next": [
             "Event_Bonus_Claim",
             "Event_Mission",
-            "Navigation_BackToLobby"
+            "BackToLobby"
         ]
     },
     "Event_ClosePopup": {
@@ -106,7 +106,7 @@
             "Event_Bonus_Close"
         ]
     },
-    "__mpe_external_Navigation_BackToLobby_Event": {
+    "__mpe_external_BackToLobby_Event": {
         "__mpe_code": {
             "position": {
                 "x": 580,

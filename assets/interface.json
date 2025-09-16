@@ -31,8 +31,13 @@
             "check": true
         },
         {
-            "name": "Receive Tribute",
+            "name": "Devotion Reward",
             "entry": "Lobby_Tribute_Entry",
+            "check": true
+        },
+        {
+            "name": "Fairy Mall",
+            "entry": "Mall_Entry",
             "check": true
         }
     ],

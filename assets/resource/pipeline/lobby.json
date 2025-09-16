@@ -250,10 +250,10 @@
         "next": [
             "Lobby_Mail_Claim",
             "Lobby_Mail_Delete",
-            "Navigation_BackToLobby"
+            "BackToLobby"
         ]
     },
-    "__mpe_external_Navigation_BackToLobby_Lobby": {
+    "__mpe_external_BackToLobby_Lobby": {
         "__mpe_code": {
             "position": {
                 "x": 580,
@@ -503,7 +503,7 @@
         "next": [
             "Lobby_Mission_Schedule",
             "Lobby_Mission_Pass",
-            "Navigation_BackToLobby"
+            "BackToLobby"
         ]
     },
     "Lobby_Mission_Pass": {
