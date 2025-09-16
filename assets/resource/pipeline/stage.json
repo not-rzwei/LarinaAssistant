@@ -258,7 +258,7 @@
         ],
         "interrupt": [
             "Stage_Squad_Show",
-            "Alert_Confirm"
+            "Confirm"
         ]
     },
     "Stage_Battle_AutoToggle": {

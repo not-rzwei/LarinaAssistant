@@ -26,8 +26,8 @@
     },
     "task": [
         {
-            "name": "Start Game",
-            "entry": "Login_LaunchGame",
+            "name": "Start",
+            "entry": "Startup_Entry",
             "check": true
         },
         {

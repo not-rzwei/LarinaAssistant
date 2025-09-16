@@ -1,0 +1,277 @@
+{
+    "__mpe_config_Startup": {
+        "__mpe_code": {
+            "prefix": "Startup",
+            "filename": "Startup",
+            "version": "v0.5.2"
+        }
+    },
+    "Startup_Entry": {
+        "recognition": {
+            "type": "DirectHit",
+            "param": {}
+        },
+        "action": {
+            "type": "DoNothing",
+            "param": {}
+        },
+        "timeout": 60000,
+        "post_wait_freezes": 300,
+        "rate_limit": 5000,
+        "__mpe_code": {
+            "position": {
+                "x": 0,
+                "y": 556
+            }
+        },
+        "next": [
+            "Startup_LobbyFlag",
+            "Startup_EnterGame"
+        ],
+        "interrupt": [
+            "Startup_ProceedDownload",
+            "Startup_Signin_Bonus_Claim",
+            "ClosePopupX",
+            "Startup_LaunchGame"
+        ]
+    },
+    "Startup_LaunchGame": {
+        "recognition": {
+            "type": "DirectHit",
+            "param": {}
+        },
+        "action": {
+            "type": "StartApp",
+            "param": {
+                "package": "com.GentleManiac.HorizonWalker"
+            }
+        },
+        "__mpe_code": {
+            "position": {
+                "x": 290,
+                "y": 955
+            }
+        },
+        "next": [
+            "Startup_Disable_LaunchGame"
+        ]
+    },
+    "Startup_EnterGame": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "Touch the screen to continue",
+                    "Touch the screen"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target_offset": [
+                    0,
+                    -100,
+                    100,
+                    100
+                ]
+            }
+        },
+        "post_delay": 800,
+        "__mpe_code": {
+            "position": {
+                "x": 290,
+                "y": 313
+            }
+        },
+        "next": [
+            "Startup_EnterGame",
+            "Startup_GameLoading"
+        ]
+    },
+    "Startup_ProceedDownload": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "^Download$"
+                ],
+                "roi": [
+                    501,
+                    596,
+                    278,
+                    84
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {}
+        },
+        "__mpe_code": {
+            "position": {
+                "x": 290,
+                "y": 651
+            }
+        },
+        "next": [
+            "Confirm",
+            "Startup_ProceedDownload"
+        ]
+    },
+    "Startup_LobbyFlag": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "lobby/phonebook.png"
+                ],
+                "roi": [
+                    791,
+                    593,
+                    141,
+                    127
+                ]
+            }
+        },
+        "action": {
+            "type": "DoNothing",
+            "param": {}
+        },
+        "__mpe_code": {
+            "position": {
+                "x": 870,
+                "y": 0
+            }
+        }
+    },
+    "Startup_Signin_Bonus_Claim": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "Claim All",
+                    "Claim"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {}
+        },
+        "__mpe_code": {
+            "position": {
+                "x": 870,
+                "y": 445
+            }
+        }
+    },
+    "Startup_Disable_LaunchGame": {
+        "recognition": {
+            "type": "DirectHit",
+            "param": {}
+        },
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "DisableNode",
+                "custom_action_param": "Startup_LaunchGame"
+            }
+        },
+        "__mpe_code": {
+            "position": {
+                "x": 580,
+                "y": 940
+            }
+        }
+    },
+    "__mpe_external_ClosePopupX_Startup": {
+        "__mpe_code": {
+            "position": {
+                "x": 870,
+                "y": 883
+            }
+        }
+    },
+    "Startup_GameLoading": {
+        "recognition": {
+            "type": "DirectHit",
+            "param": {}
+        },
+        "action": {
+            "type": "DoNothing",
+            "param": {}
+        },
+        "timeout": 60000,
+        "post_wait_freezes": 300,
+        "rate_limit": 5000,
+        "__mpe_code": {
+            "position": {
+                "x": 580,
+                "y": 313
+            }
+        },
+        "next": [
+            "Startup_LobbyFlag"
+        ],
+        "interrupt": [
+            "Startup_Blank_Loading",
+            "Loading",
+            "Startup_Signin_Bonus_Claim",
+            "ClosePopupX"
+        ]
+    },
+    "__mpe_external_Confirm_Startup": {
+        "__mpe_code": {
+            "position": {
+                "x": 580,
+                "y": 713
+            }
+        }
+    },
+    "__mpe_external_Loading_Startup": {
+        "__mpe_code": {
+            "position": {
+                "x": 870,
+                "y": 219
+            }
+        }
+    },
+    "Startup_Blank_Loading": {
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": [
+                    299,
+                    270,
+                    118,
+                    117
+                ],
+                "lower": [
+                    [
+                        171,
+                        171,
+                        171
+                    ]
+                ],
+                "upper": [
+                    [
+                        171,
+                        171,
+                        171
+                    ]
+                ]
+            }
+        },
+        "action": {
+            "type": "DoNothing",
+            "param": {}
+        },
+        "__mpe_code": {
+            "position": {
+                "x": 870,
+                "y": 634
+            }
+        }
+    }
+}

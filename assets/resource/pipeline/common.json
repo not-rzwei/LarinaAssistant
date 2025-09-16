@@ -1,4 +1,11 @@
 {
+    "__mpe_config_Common": {
+        "__mpe_code": {
+            "prefix": "",
+            "filename": "Common",
+            "version": "v0.5.2"
+        }
+    },
     "Navigation_BackToLobby": {
         "recognition": {
             "type": "TemplateMatch",
@@ -21,8 +28,8 @@
         },
         "__mpe_code": {
             "position": {
-                "x": 580,
-                "y": 458
+                "x": 0,
+                "y": 219
             }
         }
     },
@@ -49,15 +56,15 @@
         },
         "__mpe_code": {
             "position": {
-                "x": 1077,
-                "y": -90
+                "x": 0,
+                "y": 0
             }
         },
         "next": [
-            "Alert_Confirm"
+            "Confirm"
         ]
     },
-    "Alert_Confirm": {
+    "Confirm": {
         "recognition": {
             "type": "OCR",
             "param": {
@@ -65,10 +72,10 @@
                     "Confirm"
                 ],
                 "roi": [
-                    209,
-                    418,
-                    901,
-                    196
+                    92,
+                    293,
+                    1078,
+                    351
                 ]
             }
         },
@@ -78,8 +85,82 @@
         },
         "__mpe_code": {
             "position": {
-                "x": 1343,
-                "y": -88
+                "x": 290,
+                "y": 0
+            }
+        }
+    },
+    "ClosePopupX": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    100,
+                    27,
+                    1085,
+                    637
+                ],
+                "template": [
+                    "close-button-1.png",
+                    "close-button-2.png"
+                ],
+                "green_mask": true
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {}
+        },
+        "__mpe_code": {
+            "position": {
+                "x": 280,
+                "y": 213
+            }
+        }
+    },
+    "Cancel": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "Cancel"
+                ],
+                "roi": [
+                    92,
+                    293,
+                    1078,
+                    351
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {}
+        },
+        "__mpe_code": {
+            "position": {
+                "x": 292,
+                "y": -200
+            }
+        }
+    },
+    "Loading": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "loading-1.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {}
+        },
+        "__mpe_code": {
+            "position": {
+                "x": 1,
+                "y": 424
             }
         }
     }
