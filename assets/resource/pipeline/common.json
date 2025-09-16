@@ -4,7 +4,14 @@
             "type": "TemplateMatch",
             "param": {
                 "template": [
-                    "home-button.png"
+                    "home-button-1.png",
+                    "home-button-2.png"
+                ],
+                "roi": [
+                    1184,
+                    14,
+                    64,
+                    55
                 ]
             }
         },

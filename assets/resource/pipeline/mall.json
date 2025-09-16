@@ -420,32 +420,6 @@
             }
         }
     },
-    "Mall_BackToLobby": {
-        "recognition": {
-            "type": "TemplateMatch",
-            "param": {
-                "template": [
-                    "mall/home-button.png"
-                ],
-                "roi": [
-                    1152,
-                    0,
-                    128,
-                    140
-                ]
-            }
-        },
-        "action": {
-            "type": "Click",
-            "param": {}
-        },
-        "__mpe_code": {
-            "position": {
-                "x": 0,
-                "y": 986
-            }
-        }
-    },
     "Mall_CashShop_PurchaseNotification": {
         "recognition": {
             "type": "OCR",

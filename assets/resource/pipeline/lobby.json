@@ -298,28 +298,18 @@
     },
     "Lobby_Mission_Schedule_Daily": {
         "recognition": {
-            "type": "ColorMatch",
+            "type": "TemplateMatch",
             "param": {
-                "lower": [
-                    [
-                        20,
-                        25,
-                        29
-                    ]
-                ],
-                "upper": [
-                    [
-                        255,
-                        224,
-                        230
-                    ]
-                ],
                 "roi": [
-                    215,
-                    105,
-                    244,
-                    42
-                ]
+                    200,
+                    91,
+                    265,
+                    66
+                ],
+                "template": [
+                    "exclamation-mark.png"
+                ],
+                "green_mask": true
             }
         },
         "action": {
@@ -352,10 +342,10 @@
                 ],
                 "green_mask": true,
                 "roi": [
-                    21,
-                    173,
-                    175,
-                    80
+                    10,
+                    154,
+                    202,
+                    116
                 ]
             }
         },
@@ -384,28 +374,18 @@
     },
     "Lobby_Mission_Schedule_Weekly": {
         "recognition": {
-            "type": "ColorMatch",
+            "type": "TemplateMatch",
             "param": {
-                "lower": [
-                    [
-                        20,
-                        25,
-                        29
-                    ]
-                ],
-                "upper": [
-                    [
-                        255,
-                        224,
-                        230
-                    ]
-                ],
                 "roi": [
-                    464,
-                    105,
-                    263,
-                    39
-                ]
+                    460,
+                    95,
+                    273,
+                    60
+                ],
+                "template": [
+                    "exclamation-mark.png"
+                ],
+                "green_mask": true
             }
         },
         "action": {
@@ -528,10 +508,10 @@
                 ],
                 "green_mask": true,
                 "roi": [
-                    17,
-                    256,
-                    200,
-                    261
+                    13,
+                    255,
+                    194,
+                    265
                 ]
             }
         },
