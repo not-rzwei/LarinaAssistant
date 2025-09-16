@@ -2,6 +2,7 @@ from typing import List
 from maa.agent.agent_server import AgentServer
 from maa.custom_recognition import CustomRecognition, RecognitionResult
 from maa.context import Context
+from utils import logger
 
 
 @AgentServer.custom_recognition("SelectHighestLevelWish")
@@ -18,7 +19,7 @@ class SelectHighestLevelWish(CustomRecognition):
     ) -> CustomRecognition.AnalyzeResult:
 
         wish_type = argv.custom_recognition_param
-        print(f"[SelectHighestLevelWish] Received wish_type: {wish_type}")
+        logger.info(f"[SelectHighestLevelWish] Received wish_type: {wish_type}")
         if (
             wish_type
             and len(wish_type) >= 2
@@ -28,7 +29,7 @@ class SelectHighestLevelWish(CustomRecognition):
             wish_type = wish_type[1:-1]
 
         if not wish_type:
-            print("[SelectHighestLevelWish] No wish type specified")
+            logger.info("[SelectHighestLevelWish] No wish type specified")
             return CustomRecognition.AnalyzeResult(
                 box=None, detail="No wish type specified"
             )
@@ -54,12 +55,14 @@ class SelectHighestLevelWish(CustomRecognition):
         )
 
         if wishes_detail is None or len(wishes_detail.filterd_results) == 0:
-            print(f"[SelectHighestLevelWish] Wish type '{wish_type}' not found on page")
+            logger.info(
+                f"[SelectHighestLevelWish] Wish type '{wish_type}' not found on page"
+            )
             return CustomRecognition.AnalyzeResult(
                 box=None, detail=f"Wish type '{wish_type}' not found"
             )
 
-        print(
+        logger.info(
             f"[SelectHighestLevelWish] Found {len(wishes_detail.filterd_results)} wishes for type '{wish_type}'"
         )
 
@@ -80,19 +83,21 @@ class SelectHighestLevelWish(CustomRecognition):
         known_highest_level = -1
         known_highest_level_box = None
 
-        print(
+        logger.info(
             f"[SelectHighestLevelWish] Checking {len(wishes_recognitions)} wish recognitions for highest level"
         )
         for i, recognition in enumerate(wishes_recognitions):
-            print(f"[SelectHighestLevelWish] Checking recognition {i}: {recognition}")
+            logger.info(
+                f"[SelectHighestLevelWish] Checking recognition {i}: {recognition}"
+            )
             if recognition.box is None or len(recognition.box) != 4:
-                print(
+                logger.info(
                     f"[SelectHighestLevelWish] Recognition {i} has invalid box: {recognition.box}"
                 )
                 continue
 
             wish_node = argv.node_name + "_Level_" + str(i)
-            print(
+            logger.info(
                 f"[SelectHighestLevelWish] wish_node: {wish_node}, box: {recognition.box}"
             )
             wish_detail = context.run_recognition(
@@ -117,32 +122,32 @@ class SelectHighestLevelWish(CustomRecognition):
             )
 
             if wish_detail is None or wish_detail.best_result is None:
-                print(
+                logger.info(
                     f"[SelectHighestLevelWish] wish_detail is None or has no best_result for node {wish_node}"
                 )
                 continue
 
             # Level is in the format of "Lv.55"
             wish_level_str = wish_detail.best_result.text
-            print(f"[SelectHighestLevelWish] wish_level_str: {wish_level_str}")
+            logger.info(f"[SelectHighestLevelWish] wish_level_str: {wish_level_str}")
             try:
                 wish_level = int(wish_level_str.split(".")[1])
             except Exception as e:
-                print(
+                logger.info(
                     f"[SelectHighestLevelWish] Failed to parse wish level from '{wish_level_str}': {e}"
                 )
                 continue
 
-            print(f"[SelectHighestLevelWish] Parsed wish_level: {wish_level}")
+            logger.info(f"[SelectHighestLevelWish] Parsed wish_level: {wish_level}")
 
             if wish_level < known_highest_level:
-                print(
+                logger.info(
                     f"[SelectHighestLevelWish] wish_level {wish_level} < known_highest_level {known_highest_level}, skipping"
                 )
                 continue
 
             fulfilled_node = wish_node + "_Fulfilled"
-            print(
+            logger.info(
                 f"[SelectHighestLevelWish] Checking if wish is fulfilled at node: {fulfilled_node}"
             )
             fulfilled_detail = context.run_recognition(
@@ -167,25 +172,27 @@ class SelectHighestLevelWish(CustomRecognition):
             )
 
             if fulfilled_detail is not None:
-                print(
+                logger.info(
                     f"[SelectHighestLevelWish] Wish at node {fulfilled_node} is already fulfilled, skipping"
                 )
                 continue
 
-            print(
+            logger.info(
                 f"[SelectHighestLevelWish] New highest level found: {wish_level} at box {wish_detail.best_result.box}"
             )
             known_highest_level = wish_level
             known_highest_level_box = wish_detail.best_result.box
 
         if known_highest_level == -1:
-            print("[SelectHighestLevelWish] No available dungeons found for stage type")
+            logger.info(
+                "[SelectHighestLevelWish] No available dungeons found for stage type"
+            )
             return CustomRecognition.AnalyzeResult(
                 box=None,
                 detail="No available dungeons found for stage type",
             )
 
-        print(
+        logger.info(
             f"[SelectHighestLevelWish] Highest level dungeon found: {known_highest_level} at box {known_highest_level_box}"
         )
         return CustomRecognition.AnalyzeResult(

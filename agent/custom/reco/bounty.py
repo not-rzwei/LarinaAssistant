@@ -6,6 +6,7 @@ from maa.context import Context
 import time
 
 import numpy
+from utils import logger
 
 
 class Floor(Enum):
@@ -35,7 +36,7 @@ class SelectBounty(CustomRecognition):
     ) -> CustomRecognition.AnalyzeResult:
 
         bounty_name = argv.custom_recognition_param
-        print(f"[SelectBounty] Received bounty_name: {bounty_name}")
+        logger.info(f"[SelectBounty] Received bounty_name: {bounty_name}")
         if (
             bounty_name
             and len(bounty_name) >= 2
@@ -43,18 +44,20 @@ class SelectBounty(CustomRecognition):
             and bounty_name[0] in ("'", '"')
         ):
             bounty_name = bounty_name[1:-1]
-            print(f"[SelectBounty] Stripped quotes from bounty_name: {bounty_name}")
+            logger.info(
+                f"[SelectBounty] Stripped quotes from bounty_name: {bounty_name}"
+            )
 
         node_name = argv.node_name + "_" + bounty_name
-        print(f"[SelectBounty] node_name: {node_name}")
+        logger.info(f"[SelectBounty] node_name: {node_name}")
         bounty_info = bounty_map[bounty_name]
-        print(
+        logger.info(
             f"[SelectBounty] bounty_info: floors={bounty_info.floors}, recognition={bounty_info.recognition}"
         )
 
         # select floor
         floor_node_name = node_name + "_" + str(bounty_info.floors)
-        print(f"[SelectBounty] floor_node_name: {floor_node_name}")
+        logger.info(f"[SelectBounty] floor_node_name: {floor_node_name}")
         floor_detail = context.run_recognition(
             floor_node_name,
             argv.image,
@@ -77,15 +80,15 @@ class SelectBounty(CustomRecognition):
         )
 
         if floor_detail == None:
-            print("[SelectBounty] Floor not found")
+            logger.info("[SelectBounty] Floor not found")
             return CustomRecognition.AnalyzeResult(box=None, detail="Floor not found")
 
-        print(f"[SelectBounty] Floor found at: {floor_detail.box}")
+        logger.info(f"[SelectBounty] Floor found at: {floor_detail.box}")
         click_floor_job = context.tasker.controller.post_click(
             floor_detail.box.x, floor_detail.box.y
         )
         click_floor_job.wait()
-        print("[SelectBounty] Clicked floor, waiting for boss selection...")
+        logger.info("[SelectBounty] Clicked floor, waiting for boss selection...")
 
         # select boss
         start_time = time.time()
@@ -100,7 +103,7 @@ class SelectBounty(CustomRecognition):
             image = screencap_job.get()
 
             if image is None or numpy.array(image).size == 0:
-                print("[SelectBounty] Screencap failed, retrying...")
+                logger.info("[SelectBounty] Screencap failed, retrying...")
                 continue
 
             boss_detail = context.run_recognition(
@@ -117,14 +120,14 @@ class SelectBounty(CustomRecognition):
             )
 
             if boss_detail is not None and boss_detail.box is not None:
-                print(f"[SelectBounty] Boss found at: {boss_detail.box}")
+                logger.info(f"[SelectBounty] Boss found at: {boss_detail.box}")
                 return CustomRecognition.AnalyzeResult(
                     box=boss_detail.box, detail="Boss selected"
                 )
 
-            print("[SelectBounty] Boss not found, swiping to next...")
+            logger.info("[SelectBounty] Boss not found, swiping to next...")
             swipe_job = context.tasker.controller.post_swipe(1100, 400, 350, 400, 1000)
             swipe_job.wait()
 
-        print("[SelectBounty] Bounty not found after timeout")
+        logger.info("[SelectBounty] Bounty not found after timeout")
         return CustomRecognition.AnalyzeResult(box=None, detail="Bounty not found")

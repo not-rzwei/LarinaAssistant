@@ -1,0 +1,30 @@
+{
+    "name": "Larina Assistant",
+    "url": "https://github.com/not-rzwei/MaaHW",
+    "mfa_max_version": "v1.6.5",
+    "custom_title": "Larina Assistant",
+    "controller": [
+        {
+            "name": "ADB Default Method",
+            "type": "Adb"
+        }
+    ],
+    "resource": [
+        {
+            "name": "Official Server",
+            "path": [
+                "{PROJECT_DIR}/resource"
+            ]
+        }
+    ],
+    "agent": {
+        "child_exec": "{PROJECT_DIR}/python/python.exe",
+        "child_args": [
+            "-u",
+            "{PROJECT_DIR}/agent/main.py"
+        ]
+    },
+    "task": [],
+    "advanced": {},
+    "option": {}
+}
