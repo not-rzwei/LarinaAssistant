@@ -11,7 +11,7 @@
     ],
     "resource": [
         {
-            "name": "Official Server",
+            "name": "Onestore English",
             "path": [
                 "{PROJECT_DIR}/resource"
             ]
@@ -24,7 +24,17 @@
             "{PROJECT_DIR}/agent/main.py"
         ]
     },
-    "task": [],
-    "advanced": {},
+    "task": [
+        {
+            "name": "Start Game",
+            "entry": "Login_LaunchGame",
+            "check": true
+        },
+        {
+            "name": "Receive Tribute",
+            "entry": "Lobby_Tribute_Entry",
+            "check": true
+        }
+    ],
     "option": {}
 }

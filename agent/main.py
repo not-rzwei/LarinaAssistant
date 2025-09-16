@@ -19,7 +19,6 @@ project_root_dir = os.path.dirname(current_script_dir)  # Assumed project root d
 # Change CWD to project root directory
 if os.getcwd() != project_root_dir:
     os.chdir(project_root_dir)
-logger.info(f"set cwd: {os.getcwd()}")
 
 # Add script's own directory to sys.path for importing utils, maa and other modules
 if current_script_dir not in sys.path:
@@ -133,31 +132,6 @@ def ensure_venv_and_relaunch_if_needed():
 
 
 ### Configuration Related ###
-
-
-def read_interface_version(interface_file_name="./interface.json") -> str:
-    interface_path = Path(project_root_dir) / interface_file_name
-    assets_interface_path = Path(project_root_dir) / "assets" / interface_file_name
-
-    target_path = None
-    if interface_path.exists():
-        target_path = interface_path
-    elif assets_interface_path.exists():
-        return "DEBUG"
-
-    if target_path is None:
-        logger.warning("interface.json not found")
-        return "unknown"
-
-    try:
-        with open(target_path, "r", encoding="utf-8") as f:
-            interface_data = json.load(f)
-            return interface_data.get("version", "unknown")
-    except Exception:
-        logger.exception(
-            f"Failed to read interface.json version, file path: {target_path}"
-        )
-        return "unknown"
 
 
 def read_pip_config() -> dict:
@@ -423,8 +397,7 @@ def agent(is_dev_mode=False):
 
 
 def main():
-    current_version = read_interface_version()
-    is_dev_mode = current_version == "DEBUG"
+    is_dev_mode = False
 
     # If Linux system or development mode, start virtual environment
     if sys.platform.startswith("linux") or is_dev_mode:

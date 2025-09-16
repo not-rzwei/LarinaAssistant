@@ -63,13 +63,13 @@
             }
         },
         "next": [
-            "Mall_DailyLimited_CheckGiftBox",
-            "Mall_DailyLimited_CheckBContract",
-            "Mall_DailyLimited_CheckARankContract",
-            "Mall_DailyLimited_CheckSRankContract"
+            "Mall_DailyLimited_Buy_GiftBox",
+            "Mall_DailyLimited_Buy_BRankContract",
+            "Mall_DailyLimited_Buy_ARankContract",
+            "Mall_DailyLimited_Buy_SRankContract"
         ]
     },
-    "Mall_DailyLimited_CheckBContract": {
+    "Mall_DailyLimited_Buy_BRankContract": {
         "recognition": {
             "type": "Custom",
             "param": {
@@ -217,7 +217,7 @@
             "Mall_DailyLimited_ClosePopup"
         ]
     },
-    "Mall_DailyLimited_CheckARankContract": {
+    "Mall_DailyLimited_Buy_ARankContract": {
         "recognition": {
             "type": "Custom",
             "param": {
@@ -239,7 +239,7 @@
             "Mall_DailyLimited_OrderForm"
         ]
     },
-    "Mall_DailyLimited_CheckSRankContract": {
+    "Mall_DailyLimited_Buy_SRankContract": {
         "recognition": {
             "type": "Custom",
             "param": {
@@ -261,7 +261,7 @@
             "Mall_DailyLimited_OrderForm"
         ]
     },
-    "Mall_DailyLimited_CheckGiftBox": {
+    "Mall_DailyLimited_Buy_GiftBox": {
         "recognition": {
             "type": "Custom",
             "param": {
