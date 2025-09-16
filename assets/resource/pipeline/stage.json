@@ -6,7 +6,7 @@
             "version": "v0.5.2"
         }
     },
-    "Stage_Entrypoint": {
+    "Stage_Entry": {
         "recognition": {
             "type": "OCR",
             "param": {
@@ -33,7 +33,7 @@
             }
         }
     },
-    "Stage_Wish_Entrypoint": {
+    "Stage_Wish_Entry": {
         "recognition": {
             "type": "OCR",
             "param": {
@@ -60,7 +60,7 @@
             }
         },
         "next": [
-            "Stage_Wish_Landing"
+            "Stage_Wish_Main"
         ]
     },
     "Stage_Wish_SelectCredit": {
@@ -367,8 +367,8 @@
         },
         "next": [
             "Stage_Battle_Clear",
-            "Stage_Wish_Landing",
-            "Stage_Bounty_Floor_Landing"
+            "Stage_Wish_Main",
+            "Stage_Bounty_Floor_Main"
         ]
     },
     "Stage_Battle_Failed": {
@@ -399,11 +399,11 @@
         },
         "next": [
             "Stage_Battle_Failed",
-            "Stage_Wish_Landing",
-            "Stage_Bounty_Floor_Landing"
+            "Stage_Wish_Main",
+            "Stage_Bounty_Floor_Main"
         ]
     },
-    "Stage_Wish_Landing": {
+    "Stage_Wish_Main": {
         "recognition": {
             "type": "OCR",
             "param": {
@@ -429,7 +429,7 @@
             }
         }
     },
-    "Stage_Bounty_Entrypoint": {
+    "Stage_Bounty_Entry": {
         "recognition": {
             "type": "OCR",
             "param": {
@@ -456,10 +456,10 @@
             }
         },
         "next": [
-            "Stage_Bounty_DangerLevel_Page"
+            "Stage_Bounty_DangerLevel_Select"
         ]
     },
-    "Stage_Bounty_DangerLevel_Page": {
+    "Stage_Bounty_DangerLevel_Select": {
         "recognition": {
             "type": "OCR",
             "param": {
@@ -486,10 +486,10 @@
             }
         },
         "next": [
-            "Stage_Bounty_Floor_Landing"
+            "Stage_Bounty_Floor_Main"
         ]
     },
-    "Stage_Bounty_Floor_Landing": {
+    "Stage_Bounty_Floor_Main": {
         "recognition": {
             "type": "OCR",
             "param": {
@@ -544,7 +544,7 @@
             }
         }
     },
-    "Stage_Bounty_ShadeOfFalseDreamIV": {
+    "Stage_Bounty_SelectBoss": {
         "recognition": {
             "type": "Custom",
             "param": {
@@ -635,7 +635,7 @@
             }
         },
         "next": [
-            "Stage_Bounty_Sweeping_ConfirmClose",
+            "Stage_Bounty_Sweeping_ClosePopup",
             "Stage_Bounty_Sweeping_Confirm"
         ]
     },
@@ -666,7 +666,7 @@
             }
         }
     },
-    "Stage_Bounty_Sweeping_ConfirmClose": {
+    "Stage_Bounty_Sweeping_ClosePopup": {
         "recognition": {
             "type": "OCR",
             "param": {

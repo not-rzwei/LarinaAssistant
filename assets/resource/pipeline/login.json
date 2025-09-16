@@ -136,12 +136,12 @@
         },
         "next": [
             "Login_NoticeClose",
-            "Login_BonusClaim",
+            "Login_Bonus_Claim",
             "Login_LobbyArrived",
             "Login_ProceedLogin"
         ]
     },
-    "Login_BonusClose": {
+    "Login_Bonus_Close": {
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -169,7 +169,7 @@
         },
         "next": [
             "Login_WaitForLobby",
-            "Login_BonusClose"
+            "Login_Bonus_Close"
         ]
     },
     "Login_LobbyArrived": {
@@ -198,7 +198,7 @@
             }
         }
     },
-    "Login_BonusClaim": {
+    "Login_Bonus_Claim": {
         "recognition": {
             "type": "OCR",
             "param": {
@@ -219,7 +219,7 @@
             }
         },
         "next": [
-            "Login_BonusClose"
+            "Login_Bonus_Close"
         ]
     },
     "Login_WaitForLogin": {

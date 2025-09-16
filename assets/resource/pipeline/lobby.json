@@ -6,7 +6,7 @@
             "version": "v0.5.2"
         }
     },
-    "Lobby_TributeReward": {
+    "Lobby_Tribute_Entry": {
         "recognition": {
             "type": "OCR",
             "param": {
@@ -33,10 +33,10 @@
             }
         },
         "next": [
-            "Lobby_TributeReceive"
+            "Lobby_Tribute_Claim"
         ]
     },
-    "Lobby_TributeClose": {
+    "Lobby_Tribute_Close": {
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -63,7 +63,7 @@
             }
         }
     },
-    "Lobby_TributeReceive": {
+    "Lobby_Tribute_Claim": {
         "recognition": {
             "type": "OCR",
             "param": {
@@ -84,11 +84,11 @@
             }
         },
         "next": [
-            "Lobby_TributeReceive_PopupClose",
-            "Lobby_TributeClose"
+            "Lobby_Tribute_ClosePopup",
+            "Lobby_Tribute_Close"
         ]
     },
-    "Lobby_TributeReceive_PopupClose": {
+    "Lobby_Tribute_ClosePopup": {
         "recognition": {
             "type": "OCR",
             "param": {
@@ -117,10 +117,10 @@
             }
         },
         "next": [
-            "Lobby_TributeClose"
+            "Lobby_Tribute_Close"
         ]
     },
-    "Lobby_Mail_Entrypoint": {
+    "Lobby_Mail_Entry": {
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -147,7 +147,7 @@
             }
         },
         "next": [
-            "Lobby_Mail_Landing"
+            "Lobby_Mail_Main"
         ]
     },
     "Lobby_Mail_Claim": {
@@ -171,10 +171,10 @@
             }
         },
         "next": [
-            "Lobby_Mail_Claim_Close"
+            "Lobby_Mail_ClosePopup"
         ]
     },
-    "Lobby_Mail_Claim_Close": {
+    "Lobby_Mail_ClosePopup": {
         "recognition": {
             "type": "OCR",
             "param": {
@@ -203,7 +203,7 @@
             }
         },
         "next": [
-            "Lobby_Mail_Landing"
+            "Lobby_Mail_Main"
         ]
     },
     "Lobby_Mail_Delete": {
@@ -227,10 +227,10 @@
             }
         },
         "next": [
-            "Lobby_Mail_Landing"
+            "Lobby_Mail_Main"
         ]
     },
-    "Lobby_Mail_Landing": {
+    "Lobby_Mail_Main": {
         "recognition": {
             "type": "DirectHit",
             "param": {}
@@ -259,7 +259,7 @@
             }
         }
     },
-    "Lobby_Mission_Entrypoint": {
+    "Lobby_Mission_Entry": {
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -293,7 +293,7 @@
             }
         },
         "next": [
-            "Lobby_Mission_Landing"
+            "Lobby_Mission_Main"
         ]
     },
     "Lobby_Mission_Schedule_Daily": {
@@ -436,10 +436,10 @@
             }
         },
         "next": [
-            "Lobby_Mission_Schedule_RedeemClose"
+            "Lobby_Mission_Schedule_ClosePopup"
         ]
     },
-    "Lobby_Mission_Schedule_RedeemClose": {
+    "Lobby_Mission_Schedule_ClosePopup": {
         "recognition": {
             "type": "OCR",
             "param": {
@@ -474,11 +474,11 @@
             }
         },
         "next": [
-            "Lobby_Mission_Schedule_RedeemClose",
-            "Lobby_Mission_Landing"
+            "Lobby_Mission_Schedule_ClosePopup",
+            "Lobby_Mission_Main"
         ]
     },
-    "Lobby_Mission_Landing": {
+    "Lobby_Mission_Main": {
         "recognition": {
             "type": "DirectHit",
             "param": {}
@@ -581,10 +581,10 @@
             }
         },
         "next": [
-            "Lobby_Mission_Pass_RedeemClose"
+            "Lobby_Mission_Pass_ClosePopup"
         ]
     },
-    "Lobby_Mission_Pass_RedeemClose": {
+    "Lobby_Mission_Pass_ClosePopup": {
         "recognition": {
             "type": "OCR",
             "param": {
@@ -619,8 +619,8 @@
             }
         },
         "next": [
-            "Lobby_Mission_Pass_RedeemClose",
-            "Lobby_Mission_Landing"
+            "Lobby_Mission_Pass_ClosePopup",
+            "Lobby_Mission_Main"
         ]
     }
 }

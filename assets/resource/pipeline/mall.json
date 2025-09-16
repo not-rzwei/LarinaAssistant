@@ -6,7 +6,7 @@
             "version": "v0.5.2"
         }
     },
-    "Mall_Entrypoint": {
+    "Mall_Entry": {
         "recognition": {
             "type": "OCR",
             "param": {
@@ -39,7 +39,7 @@
             }
         },
         "next": [
-            "Mall_Landing"
+            "Mall_Main"
         ]
     },
     "Mall_DailyLimited": {
@@ -91,7 +91,7 @@
             "Mall_DailyLimited_OrderForm"
         ]
     },
-    "Mall_MaxQuantity": {
+    "Mall_SelectMaxQuantity": {
         "recognition": {
             "type": "OCR",
             "param": {
@@ -146,7 +146,7 @@
             }
         },
         "next": [
-            "Mall_MaxQuantity",
+            "Mall_SelectMaxQuantity",
             "Mall_DailyLimited_Purchase"
         ]
     },
@@ -214,7 +214,7 @@
             }
         },
         "next": [
-            "Mall_DailyLimited_PurchaseNotification"
+            "Mall_DailyLimited_ClosePopup"
         ]
     },
     "Mall_DailyLimited_CheckARankContract": {
@@ -283,7 +283,7 @@
             "Mall_DailyLimited_OrderForm"
         ]
     },
-    "Mall_DailyLimited_PurchaseNotification": {
+    "Mall_DailyLimited_ClosePopup": {
         "recognition": {
             "type": "OCR",
             "param": {
@@ -395,10 +395,10 @@
             }
         },
         "next": [
-            "Mall_CashShop_PurchaseNotification"
+            "Mall_CashShop_ClosePopup"
         ]
     },
-    "Mall_Landing": {
+    "Mall_Main": {
         "recognition": {
             "type": "OCR",
             "param": {
@@ -420,7 +420,7 @@
             }
         }
     },
-    "Mall_CashShop_PurchaseNotification": {
+    "Mall_CashShop_ClosePopup": {
         "recognition": {
             "type": "OCR",
             "param": {
