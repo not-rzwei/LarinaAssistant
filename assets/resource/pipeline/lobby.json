@@ -434,6 +434,7 @@
             "type": "Click",
             "param": {}
         },
+        "post_wait_freezes": 5000,
         "__mpe_code": {
             "position": {
                 "x": 1160,
@@ -473,7 +474,6 @@
                 ]
             }
         },
-        "pre_wait_freezes": 5000,
         "__mpe_code": {
             "position": {
                 "x": 1449,

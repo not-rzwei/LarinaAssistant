@@ -55,8 +55,8 @@
         "post_wait_freezes": 1000,
         "__mpe_code": {
             "position": {
-                "x": 2030,
-                "y": 165
+                "x": 2320,
+                "y": 190
             }
         },
         "next": [
@@ -138,14 +138,12 @@
             "type": "OCR",
             "param": {
                 "expected": [
-                    "3/1",
-                    "2/1",
-                    "1/1"
+                    "Deploy"
                 ],
                 "roi": [
                     800,
                     587,
-                    198,
+                    250,
                     133
                 ]
             }
@@ -157,7 +155,7 @@
         "__mpe_code": {
             "position": {
                 "x": 1160,
-                "y": 489
+                "y": 224
             }
         },
         "next": [
@@ -170,7 +168,9 @@
             "type": "OCR",
             "param": {
                 "expected": [
-                    "Rewards"
+                    "Rewards",
+                    "Depth",
+                    "Rift"
                 ],
                 "roi": [
                     592,
@@ -187,7 +187,7 @@
         "__mpe_code": {
             "position": {
                 "x": 290,
-                "y": 384
+                "y": 253
             }
         },
         "next": [
@@ -219,7 +219,7 @@
         "__mpe_code": {
             "position": {
                 "x": 580,
-                "y": 568
+                "y": 257
             }
         },
         "next": [
@@ -250,7 +250,7 @@
         "__mpe_code": {
             "position": {
                 "x": 870,
-                "y": 553
+                "y": 242
             }
         },
         "next": [
@@ -303,11 +303,11 @@
         "__mpe_code": {
             "position": {
                 "x": 1740,
-                "y": 748
+                "y": 289
             }
         },
         "next": [
-            "Stage_Battle_Clear",
+            "Stage_Battle_Next",
             "Stage_Battle_Failed",
             "Stage_Battle_AutoToggle",
             "Stage_Battle_Wait"
@@ -327,23 +327,22 @@
         "__mpe_code": {
             "position": {
                 "x": 1450,
-                "y": 792
+                "y": 770
             }
         },
         "next": [
-            "Stage_Battle_Clear",
+            "Stage_Battle_Next",
             "Stage_Battle_AutoToggle",
             "Stage_Battle_Failed",
             "Stage_Battle_Wait"
         ]
     },
-    "Stage_Battle_Clear": {
+    "Stage_Battle_Next": {
         "recognition": {
             "type": "OCR",
             "param": {
                 "expected": [
-                    "Next",
-                    "Exit"
+                    "Next"
                 ],
                 "roi": [
                     944,
@@ -358,17 +357,15 @@
             "param": {}
         },
         "post_delay": 400,
-        "timeout": 60000,
         "__mpe_code": {
             "position": {
                 "x": 2030,
-                "y": 663
+                "y": 1024
             }
         },
         "next": [
             "Stage_Battle_Clear",
-            "Stage_Wish_Main",
-            "Stage_Bounty_Floor_Main"
+            "Stage_Battle_Continue"
         ]
     },
     "Stage_Battle_Failed": {
@@ -393,14 +390,15 @@
         "timeout": 60000,
         "__mpe_code": {
             "position": {
-                "x": 2030,
-                "y": 972
+                "x": 2320,
+                "y": 439
             }
         },
         "next": [
             "Stage_Battle_Failed",
             "Stage_Wish_Main",
-            "Stage_Bounty_Floor_Main"
+            "Stage_Bounty_Floor_Main",
+            "Stage_Rift_Main"
         ]
     },
     "Stage_Wish_Main": {
@@ -424,8 +422,8 @@
         },
         "__mpe_code": {
             "position": {
-                "x": 2320,
-                "y": 446
+                "x": 2610,
+                "y": 225
             }
         }
     },
@@ -451,8 +449,8 @@
         "post_wait_freezes": 1000,
         "__mpe_code": {
             "position": {
-                "x": 1740,
-                "y": 414
+                "x": 2030,
+                "y": 750
             }
         },
         "next": [
@@ -481,8 +479,8 @@
         "post_delay": 400,
         "__mpe_code": {
             "position": {
-                "x": 2030,
-                "y": 414
+                "x": 2320,
+                "y": 750
             }
         },
         "next": [
@@ -511,36 +509,8 @@
         },
         "__mpe_code": {
             "position": {
-                "x": 2320,
-                "y": 707
-            }
-        }
-    },
-    "Stage_Bounty_Floor_SelectZone": {
-        "recognition": {
-            "type": "TemplateMatch",
-            "param": {
-                "roi": [
-                    0,
-                    185,
-                    214,
-                    483
-                ],
-                "template": [
-                    "stage/bounty-floor-iv.png"
-                ],
-                "order_by": "Score"
-            }
-        },
-        "action": {
-            "type": "Click",
-            "param": {}
-        },
-        "post_delay": 400,
-        "__mpe_code": {
-            "position": {
-                "x": 0,
-                "y": 1245
+                "x": 2610,
+                "y": 725
             }
         }
     },
@@ -599,8 +569,8 @@
         "post_wait_freezes": 1000,
         "__mpe_code": {
             "position": {
-                "x": 1160,
-                "y": 210
+                "x": 580,
+                "y": 556
             }
         },
         "next": [
@@ -630,8 +600,8 @@
         "post_wait_freezes": 1000,
         "__mpe_code": {
             "position": {
-                "x": 1450,
-                "y": 180
+                "x": 870,
+                "y": 571
             }
         },
         "next": [
@@ -662,7 +632,7 @@
         "__mpe_code": {
             "position": {
                 "x": 580,
-                "y": 121
+                "y": 38
             }
         }
     },
@@ -687,8 +657,8 @@
         },
         "__mpe_code": {
             "position": {
-                "x": 1740,
-                "y": 195
+                "x": 1160,
+                "y": 586
             }
         }
     },
@@ -696,7 +666,7 @@
         "__mpe_code": {
             "position": {
                 "x": 1450,
-                "y": 495
+                "y": 432
             }
         }
     },
@@ -704,8 +674,198 @@
         "__mpe_code": {
             "position": {
                 "x": 1160,
-                "y": 708
+                "y": 443
             }
         }
+    },
+    "Stage_Rift_Entry": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "Rift Explore",
+                    "Rift"
+                ],
+                "roi": [
+                    173,
+                    527,
+                    341,
+                    143
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {}
+        },
+        "post_wait_freezes": 1000,
+        "__mpe_code": {
+            "position": {
+                "x": 2320,
+                "y": 1278
+            }
+        },
+        "next": [
+            "Stage_Rift_Main"
+        ]
+    },
+    "Stage_Rift_Main": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "Rift Explore",
+                    "Rift"
+                ],
+                "roi": [
+                    173,
+                    17,
+                    169,
+                    72
+                ]
+            }
+        },
+        "action": {
+            "type": "DoNothing",
+            "param": {}
+        },
+        "__mpe_code": {
+            "position": {
+                "x": 2610,
+                "y": 1313
+            }
+        },
+        "next": [
+            "Stage_Rift_SelectUnclaimed"
+        ]
+    },
+    "Stage_Rift_SelectUnclaimed": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "Unclaimed"
+                ],
+                "roi": [
+                    11,
+                    549,
+                    1237,
+                    171
+                ],
+                "order_by": "Horizontal"
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {}
+        },
+        "post_wait_freezes": 500,
+        "__mpe_code": {
+            "position": {
+                "x": 2900,
+                "y": 1283
+            }
+        },
+        "next": [
+            "Stage_Rift_SelectRegion"
+        ]
+    },
+    "Stage_Rift_SelectRegion": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "Region",
+                    "^[0-9]+$"
+                ],
+                "roi": [
+                    223,
+                    146,
+                    945,
+                    334
+                ],
+                "order_by": "Horizontal"
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {}
+        },
+        "__mpe_code": {
+            "position": {
+                "x": 3190,
+                "y": 1470
+            }
+        },
+        "next": [
+            "Stage_Battle_Entrypoint"
+        ]
+    },
+    "Stage_Battle_Clear": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "Exit",
+                    "Complete",
+                    "Next"
+                ],
+                "roi": [
+                    944,
+                    559,
+                    336,
+                    161
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {}
+        },
+        "post_delay": 400,
+        "timeout": 60000,
+        "__mpe_code": {
+            "position": {
+                "x": 2320,
+                "y": 999
+            }
+        },
+        "next": [
+            "Stage_Wish_Main",
+            "Stage_Bounty_Floor_Main",
+            "Stage_Rift_Main",
+            "Stage_Battle_Next",
+            "Stage_Battle_Clear"
+        ]
+    },
+    "Stage_Battle_Continue": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "To floor"
+                ],
+                "roi": [
+                    944,
+                    559,
+                    336,
+                    161
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {}
+        },
+        "post_delay": 400,
+        "__mpe_code": {
+            "position": {
+                "x": 2320,
+                "y": 1527
+            }
+        },
+        "next": [
+            "Stage_Battle_Wait"
+        ]
     }
 }
