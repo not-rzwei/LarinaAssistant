@@ -1,0 +1,246 @@
+{
+    "__mpe_config_Event": {
+        "__mpe_code": {
+            "prefix": "Event",
+            "filename": "Event",
+            "version": "v0.5.2"
+        }
+    },
+    "Event_Entry": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    988,
+                    49,
+                    184,
+                    118
+                ],
+                "template": [
+                    "exclamation-mark-1.png",
+                    "exclamation-mark-2.png"
+                ],
+                "green_mask": true
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target_offset": [
+                    -10,
+                    10,
+                    0,
+                    0
+                ]
+            }
+        },
+        "__mpe_code": {
+            "position": {
+                "x": 0,
+                "y": 376
+            }
+        },
+        "next": [
+            "Event_Main"
+        ]
+    },
+    "Event_Main": {
+        "recognition": {
+            "type": "DirectHit",
+            "param": {}
+        },
+        "action": {
+            "type": "DoNothing",
+            "param": {}
+        },
+        "pre_wait_freezes": 3000,
+        "__mpe_code": {
+            "position": {
+                "x": 290,
+                "y": 421
+            }
+        },
+        "next": [
+            "Event_Bonus_Claim",
+            "Event_Mission",
+            "Navigation_BackToLobby"
+        ]
+    },
+    "Event_ClosePopup": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "Touch the screen to continue",
+                    "Touch the screen",
+                    "Touch"
+                ],
+                "roi": [
+                    360,
+                    549,
+                    443,
+                    162
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target_offset": [
+                    0,
+                    -100,
+                    100,
+                    100
+                ]
+            }
+        },
+        "__mpe_code": {
+            "position": {
+                "x": 1450,
+                "y": 202
+            }
+        },
+        "next": [
+            "Event_ClosePopup",
+            "Event_Main",
+            "Event_Bonus_Close"
+        ]
+    },
+    "__mpe_external_Navigation_BackToLobby_Event": {
+        "__mpe_code": {
+            "position": {
+                "x": 580,
+                "y": 538
+            }
+        }
+    },
+    "Event_Bonus_Claim": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "Claim All",
+                    "Claim"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {}
+        },
+        "__mpe_code": {
+            "position": {
+                "x": 870,
+                "y": 3
+            }
+        },
+        "next": [
+            "Event_Bonus_Close"
+        ]
+    },
+    "Event_Bonus_Close": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "close-button-1.png",
+                    "close-button-2.png",
+                    "close-button-3.png"
+                ],
+                "roi": [
+                    719,
+                    3,
+                    560,
+                    270
+                ],
+                "green_mask": true
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {}
+        },
+        "__mpe_code": {
+            "position": {
+                "x": 1160,
+                "y": 0
+            }
+        },
+        "next": [
+            "Event_Bonus_Close",
+            "Event_Main",
+            "Event_ClosePopup"
+        ]
+    },
+    "Event_Mission": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    466,
+                    551,
+                    234,
+                    152
+                ],
+                "template": [
+                    "exclamation-mark-1.png",
+                    "exclamation-mark-2.png"
+                ],
+                "green_mask": true,
+                "order_by": "Horizontal"
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target_offset": [
+                    -10,
+                    10,
+                    0,
+                    0
+                ]
+            }
+        },
+        "__mpe_code": {
+            "position": {
+                "x": 580,
+                "y": 229
+            }
+        },
+        "next": [
+            "Event_Redeem",
+            "Event_Bonus_Close"
+        ]
+    },
+    "Event_Redeem": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "Redeem"
+                ],
+                "roi": [
+                    790,
+                    528,
+                    295,
+                    165
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {}
+        },
+        "post_wait_freezes": 1000,
+        "__mpe_code": {
+            "position": {
+                "x": 870,
+                "y": 192
+            }
+        },
+        "next": [
+            "Event_Bonus_Close",
+            "Event_ClosePopup"
+        ]
+    }
+}

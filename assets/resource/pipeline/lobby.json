@@ -58,8 +58,8 @@
         },
         "__mpe_code": {
             "position": {
-                "x": 870,
-                "y": 0
+                "x": 816,
+                "y": -160
             }
         }
     },
@@ -76,7 +76,7 @@
             "type": "Click",
             "param": {}
         },
-        "post_wait_freezes": 1000,
+        "post_wait_freezes": 5000,
         "__mpe_code": {
             "position": {
                 "x": 290,
@@ -110,9 +110,10 @@
                 ]
             }
         },
+        "post_wait_freezes": 500,
         "__mpe_code": {
             "position": {
-                "x": 580,
+                "x": 579,
                 "y": 60
             }
         },
@@ -131,7 +132,8 @@
                     76
                 ],
                 "template": [
-                    "exclamation-mark.png"
+                    "exclamation-mark-1.png",
+                    "exclamation-mark-2.png"
                 ],
                 "green_mask": true
             }
@@ -270,7 +272,8 @@
                     106
                 ],
                 "template": [
-                    "exclamation-mark.png"
+                    "exclamation-mark-1.png",
+                    "exclamation-mark-2.png"
                 ],
                 "green_mask": true
             }
@@ -307,7 +310,8 @@
                     66
                 ],
                 "template": [
-                    "exclamation-mark.png"
+                    "exclamation-mark-1.png",
+                    "exclamation-mark-2.png"
                 ],
                 "green_mask": true
             }
@@ -338,7 +342,8 @@
             "type": "TemplateMatch",
             "param": {
                 "template": [
-                    "exclamation-mark.png"
+                    "exclamation-mark-1.png",
+                    "exclamation-mark-2.png"
                 ],
                 "green_mask": true,
                 "roi": [
@@ -383,7 +388,8 @@
                     60
                 ],
                 "template": [
-                    "exclamation-mark.png"
+                    "exclamation-mark-1.png",
+                    "exclamation-mark-2.png"
                 ],
                 "green_mask": true
             }
@@ -428,15 +434,15 @@
             "type": "Click",
             "param": {}
         },
-        "post_wait_freezes": 5000,
         "__mpe_code": {
             "position": {
                 "x": 1160,
-                "y": 1044
+                "y": 1045
             }
         },
         "next": [
-            "Lobby_Mission_Schedule_ClosePopup"
+            "Lobby_Mission_Schedule_ClosePopup",
+            "Lobby_Mission_Main"
         ]
     },
     "Lobby_Mission_Schedule_ClosePopup": {
@@ -467,10 +473,11 @@
                 ]
             }
         },
+        "pre_wait_freezes": 5000,
         "__mpe_code": {
             "position": {
-                "x": 1450,
-                "y": 1363
+                "x": 1449,
+                "y": 1361
             }
         },
         "next": [
@@ -504,7 +511,8 @@
             "type": "TemplateMatch",
             "param": {
                 "template": [
-                    "exclamation-mark.png"
+                    "exclamation-mark-1.png",
+                    "exclamation-mark-2.png"
                 ],
                 "green_mask": true,
                 "roi": [
@@ -612,6 +620,7 @@
                 ]
             }
         },
+        "pre_wait_freezes": 5000,
         "__mpe_code": {
             "position": {
                 "x": 1160,
