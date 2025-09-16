@@ -29,7 +29,7 @@
         "__mpe_code": {
             "position": {
                 "x": 0,
-                "y": 637
+                "y": 0
             }
         },
         "next": [
@@ -59,7 +59,7 @@
         "__mpe_code": {
             "position": {
                 "x": 870,
-                "y": 637
+                "y": 0
             }
         }
     },
@@ -80,7 +80,7 @@
         "__mpe_code": {
             "position": {
                 "x": 290,
-                "y": 637
+                "y": 0
             }
         },
         "next": [
@@ -113,7 +113,7 @@
         "__mpe_code": {
             "position": {
                 "x": 580,
-                "y": 697
+                "y": 60
             }
         },
         "next": [
@@ -122,28 +122,18 @@
     },
     "Lobby_Mail_Entrypoint": {
         "recognition": {
-            "type": "ColorMatch",
+            "type": "TemplateMatch",
             "param": {
-                "lower": [
-                    [
-                        20,
-                        25,
-                        29
-                    ]
-                ],
-                "upper": [
-                    [
-                        255,
-                        224,
-                        230
-                    ]
-                ],
                 "roi": [
                     998,
                     636,
                     69,
                     76
-                ]
+                ],
+                "template": [
+                    "exclamation-mark.png"
+                ],
+                "green_mask": true
             }
         },
         "action": {
@@ -153,7 +143,7 @@
         "__mpe_code": {
             "position": {
                 "x": 0,
-                "y": 174
+                "y": 481
             }
         },
         "next": [
@@ -177,14 +167,14 @@
         "__mpe_code": {
             "position": {
                 "x": 580,
-                "y": 0
+                "y": 593
             }
         },
         "next": [
-            "Lobby_Mal_Claim_Close"
+            "Lobby_Mail_Claim_Close"
         ]
     },
-    "Lobby_Mal_Claim_Close": {
+    "Lobby_Mail_Claim_Close": {
         "recognition": {
             "type": "OCR",
             "param": {
@@ -209,7 +199,7 @@
         "__mpe_code": {
             "position": {
                 "x": 870,
-                "y": 60
+                "y": 653
             }
         },
         "next": [
@@ -233,7 +223,7 @@
         "__mpe_code": {
             "position": {
                 "x": 580,
-                "y": 239
+                "y": 279
             }
         },
         "next": [
@@ -252,23 +242,405 @@
         "__mpe_code": {
             "position": {
                 "x": 290,
-                "y": 219
+                "y": 526
             }
         },
         "next": [
             "Lobby_Mail_Claim",
-            "Lobby_Mail_Delete"
-        ],
-        "interrupt": [
+            "Lobby_Mail_Delete",
             "Navigation_BackToLobby"
         ]
     },
     "__mpe_external_Navigation_BackToLobby_Lobby": {
         "__mpe_code": {
             "position": {
-                "x": 0,
-                "y": 0
+                "x": 580,
+                "y": 498
             }
         }
+    },
+    "Lobby_Mission_Entrypoint": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    990,
+                    511,
+                    85,
+                    106
+                ],
+                "template": [
+                    "exclamation-mark.png"
+                ],
+                "green_mask": true
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target_offset": [
+                    -10,
+                    10,
+                    0,
+                    0
+                ]
+            }
+        },
+        "__mpe_code": {
+            "position": {
+                "x": 0,
+                "y": 1462
+            }
+        },
+        "next": [
+            "Lobby_Mission_Landing"
+        ]
+    },
+    "Lobby_Mission_Schedule_Daily": {
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "lower": [
+                    [
+                        20,
+                        25,
+                        29
+                    ]
+                ],
+                "upper": [
+                    [
+                        255,
+                        224,
+                        230
+                    ]
+                ],
+                "roi": [
+                    215,
+                    105,
+                    244,
+                    42
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target_offset": [
+                    -10,
+                    10,
+                    0,
+                    0
+                ]
+            }
+        },
+        "__mpe_code": {
+            "position": {
+                "x": 870,
+                "y": 889
+            }
+        },
+        "next": [
+            "Lobby_Mission_Schedule_Redeem"
+        ]
+    },
+    "Lobby_Mission_Schedule": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "exclamation-mark.png"
+                ],
+                "green_mask": true,
+                "roi": [
+                    21,
+                    173,
+                    175,
+                    80
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target_offset": [
+                    -10,
+                    10,
+                    0,
+                    0
+                ]
+            }
+        },
+        "pre_wait_freezes": 500,
+        "__mpe_code": {
+            "position": {
+                "x": 580,
+                "y": 1014
+            }
+        },
+        "next": [
+            "Lobby_Mission_Schedule_Daily",
+            "Lobby_Mission_Schedule_Weekly"
+        ]
+    },
+    "Lobby_Mission_Schedule_Weekly": {
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "lower": [
+                    [
+                        20,
+                        25,
+                        29
+                    ]
+                ],
+                "upper": [
+                    [
+                        255,
+                        224,
+                        230
+                    ]
+                ],
+                "roi": [
+                    464,
+                    105,
+                    263,
+                    39
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target_offset": [
+                    -10,
+                    10,
+                    0,
+                    0
+                ]
+            }
+        },
+        "__mpe_code": {
+            "position": {
+                "x": 870,
+                "y": 1168
+            }
+        },
+        "next": [
+            "Lobby_Mission_Schedule_Redeem"
+        ]
+    },
+    "Lobby_Mission_Schedule_Redeem": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "Redeem"
+                ],
+                "roi": [
+                    1024,
+                    656,
+                    155,
+                    42
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {}
+        },
+        "post_wait_freezes": 5000,
+        "__mpe_code": {
+            "position": {
+                "x": 1160,
+                "y": 1044
+            }
+        },
+        "next": [
+            "Lobby_Mission_Schedule_RedeemClose"
+        ]
+    },
+    "Lobby_Mission_Schedule_RedeemClose": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "Touch the screen to continue",
+                    "Touch the screen",
+                    "Touch"
+                ],
+                "roi": [
+                    360,
+                    549,
+                    443,
+                    162
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target_offset": [
+                    0,
+                    -100,
+                    100,
+                    100
+                ]
+            }
+        },
+        "__mpe_code": {
+            "position": {
+                "x": 1450,
+                "y": 1363
+            }
+        },
+        "next": [
+            "Lobby_Mission_Schedule_RedeemClose",
+            "Lobby_Mission_Landing"
+        ]
+    },
+    "Lobby_Mission_Landing": {
+        "recognition": {
+            "type": "DirectHit",
+            "param": {}
+        },
+        "action": {
+            "type": "DoNothing",
+            "param": {}
+        },
+        "__mpe_code": {
+            "position": {
+                "x": 290,
+                "y": 1522
+            }
+        },
+        "next": [
+            "Lobby_Mission_Schedule",
+            "Lobby_Mission_Pass",
+            "Navigation_BackToLobby"
+        ]
+    },
+    "Lobby_Mission_Pass": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "exclamation-mark.png"
+                ],
+                "green_mask": true,
+                "roi": [
+                    17,
+                    256,
+                    200,
+                    261
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target_offset": [
+                    -10,
+                    10,
+                    0,
+                    0
+                ]
+            }
+        },
+        "pre_wait_freezes": 500,
+        "__mpe_code": {
+            "position": {
+                "x": 580,
+                "y": 1447
+            }
+        },
+        "next": [
+            "Lobby_Mission_Pass_Redeem"
+        ]
+    },
+    "Lobby_Mission_Pass_Redeem": {
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "lower": [
+                    [
+                        20,
+                        25,
+                        29
+                    ]
+                ],
+                "upper": [
+                    [
+                        255,
+                        224,
+                        230
+                    ]
+                ],
+                "roi": [
+                    619,
+                    334,
+                    91,
+                    42
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target_offset": [
+                    -10,
+                    5,
+                    0,
+                    0
+                ]
+            }
+        },
+        "__mpe_code": {
+            "position": {
+                "x": 870,
+                "y": 1462
+            }
+        },
+        "next": [
+            "Lobby_Mission_Pass_RedeemClose"
+        ]
+    },
+    "Lobby_Mission_Pass_RedeemClose": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "Touch the screen to continue",
+                    "Touch the screen",
+                    "Touch"
+                ],
+                "roi": [
+                    360,
+                    549,
+                    443,
+                    162
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target_offset": [
+                    0,
+                    -100,
+                    100,
+                    100
+                ]
+            }
+        },
+        "__mpe_code": {
+            "position": {
+                "x": 1160,
+                "y": 1559
+            }
+        },
+        "next": [
+            "Lobby_Mission_Pass_RedeemClose",
+            "Lobby_Mission_Landing"
+        ]
     }
 }

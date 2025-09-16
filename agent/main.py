@@ -3,11 +3,14 @@ import sys
 from maa.agent.agent_server import AgentServer
 from maa.toolkit import Toolkit
 
-import recognition
+import select_wish
+import shop_item
+import bounty
 
 import threading
 import os
 import signal
+
 
 def main():
     Toolkit.init_option("./")
@@ -40,6 +43,7 @@ def main():
     except Exception as e:
         print(f"Exception occurred: {e}, terminating...")
         os._exit(1)
+
 
 if __name__ == "__main__":
     main()

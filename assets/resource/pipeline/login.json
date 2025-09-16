@@ -1,4 +1,11 @@
 {
+    "__mpe_config_Login": {
+        "__mpe_code": {
+            "prefix": "",
+            "filename": "Login",
+            "version": "v0.5.2"
+        }
+    },
     "Login_LaunchGame": {
         "recognition": {
             "type": "DirectHit",
@@ -10,10 +17,14 @@
                 "package": "com.GentleManiac.HorizonWalker"
             }
         },
+        "__mpe_code": {
+            "position": {
+                "x": 290,
+                "y": 364
+            }
+        },
         "next": [
-            "Login_WaitForLogin"
-        ],
-        "interrupt": [
+            "Login_WaitForLogin",
             "Login_WaitForLobby"
         ],
         "on_error": [
@@ -41,6 +52,13 @@
                 ]
             }
         },
+        "post_delay": 800,
+        "__mpe_code": {
+            "position": {
+                "x": 870,
+                "y": 87
+            }
+        },
         "next": [
             "Login_WaitForLobby",
             "Login_ProceedLogin"
@@ -58,6 +76,12 @@
         "action": {
             "type": "Click",
             "param": {}
+        },
+        "__mpe_code": {
+            "position": {
+                "x": 870,
+                "y": 366
+            }
         },
         "next": [
             "Login_WaitForLogin"
@@ -83,9 +107,15 @@
             "type": "Click",
             "param": {}
         },
+        "__mpe_code": {
+            "position": {
+                "x": 1450,
+                "y": 0
+            }
+        },
         "next": [
-            "Login_NoticeClose",
-            "Login_WaitForLobby"
+            "Login_WaitForLobby",
+            "Login_NoticeClose"
         ]
     },
     "Login_WaitForLobby": {
@@ -98,10 +128,17 @@
             "param": {}
         },
         "timeout": 90000,
+        "__mpe_code": {
+            "position": {
+                "x": 1160,
+                "y": 346
+            }
+        },
         "next": [
             "Login_NoticeClose",
             "Login_BonusClaim",
-            "Login_LobbyArrived"
+            "Login_LobbyArrived",
+            "Login_ProceedLogin"
         ]
     },
     "Login_BonusClose": {
@@ -124,9 +161,15 @@
             "type": "Click",
             "param": {}
         },
+        "__mpe_code": {
+            "position": {
+                "x": 1740,
+                "y": 520
+            }
+        },
         "next": [
-            "Login_BonusClose",
-            "Login_WaitForLobby"
+            "Login_WaitForLobby",
+            "Login_BonusClose"
         ]
     },
     "Login_LobbyArrived": {
@@ -147,6 +190,12 @@
         "action": {
             "type": "DoNothing",
             "param": {}
+        },
+        "__mpe_code": {
+            "position": {
+                "x": 1450,
+                "y": 438
+            }
         }
     },
     "Login_BonusClaim": {
@@ -163,6 +212,12 @@
             "type": "Click",
             "param": {}
         },
+        "__mpe_code": {
+            "position": {
+                "x": 1450,
+                "y": 249
+            }
+        },
         "next": [
             "Login_BonusClose"
         ]
@@ -177,6 +232,12 @@
             "param": {}
         },
         "timeout": 90000,
+        "__mpe_code": {
+            "position": {
+                "x": 580,
+                "y": 242
+            }
+        },
         "next": [
             "Login_ProceedLogin",
             "Login_ProceedDownload"
@@ -194,6 +255,12 @@
             }
         },
         "post_delay": 10000,
+        "__mpe_code": {
+            "position": {
+                "x": 0,
+                "y": 349
+            }
+        },
         "next": [
             "Login_LaunchGame"
         ]

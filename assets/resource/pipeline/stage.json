@@ -1,0 +1,711 @@
+{
+    "__mpe_config_Stage": {
+        "__mpe_code": {
+            "prefix": "Stage",
+            "filename": "Stage",
+            "version": "v0.5.2"
+        }
+    },
+    "Stage_Entrypoint": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "Stage"
+                ],
+                "roi": [
+                    956,
+                    241,
+                    235,
+                    179
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {}
+        },
+        "post_wait_freezes": 1000,
+        "__mpe_code": {
+            "position": {
+                "x": 0,
+                "y": 996
+            }
+        }
+    },
+    "Stage_Wish_Entrypoint": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "^[123]/3$"
+                ],
+                "roi": [
+                    41,
+                    377,
+                    220,
+                    191
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {}
+        },
+        "post_wait_freezes": 1000,
+        "__mpe_code": {
+            "position": {
+                "x": 2030,
+                "y": 165
+            }
+        },
+        "next": [
+            "Stage_Wish_Landing"
+        ]
+    },
+    "Stage_Wish_SelectCredit": {
+        "recognition": {
+            "type": "Custom",
+            "param": {
+                "custom_recognition": "SelectHighestLevelWish",
+                "custom_recognition_param": "Credit"
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {}
+        },
+        "post_wait_freezes": 1000,
+        "__mpe_code": {
+            "position": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "next": [
+            "Stage_Battle_Entrypoint",
+            "Stage_Wish_SelectCredit"
+        ]
+    },
+    "Stage_Wish_SelectVanguard": {
+        "recognition": {
+            "type": "Custom",
+            "param": {
+                "custom_recognition": "SelectHighestLevelWish",
+                "custom_recognition_param": "Vanguard"
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {}
+        },
+        "post_delay": 1000,
+        "__mpe_code": {
+            "position": {
+                "x": 0,
+                "y": 279
+            }
+        },
+        "next": [
+            "Stage_Battle_Entrypoint"
+        ]
+    },
+    "Stage_Wish_SelectWeapon": {
+        "recognition": {
+            "type": "Custom",
+            "param": {
+                "custom_recognition": "SelectHighestLevelWish",
+                "custom_recognition_param": "Weapon"
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {}
+        },
+        "post_delay": 1000,
+        "__mpe_code": {
+            "position": {
+                "x": 0,
+                "y": 528
+            }
+        },
+        "next": [
+            "Stage_Battle_Entrypoint"
+        ]
+    },
+    "Stage_Deploy": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "3/1",
+                    "2/1",
+                    "1/1"
+                ],
+                "roi": [
+                    800,
+                    587,
+                    198,
+                    133
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {}
+        },
+        "__mpe_code": {
+            "position": {
+                "x": 1160,
+                "y": 489
+            }
+        },
+        "next": [
+            "Alert_InventoryFull",
+            "Stage_Battle_Wait"
+        ]
+    },
+    "Stage_Battle_Entrypoint": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "Rewards"
+                ],
+                "roi": [
+                    592,
+                    84,
+                    288,
+                    159
+                ]
+            }
+        },
+        "action": {
+            "type": "DoNothing",
+            "param": {}
+        },
+        "__mpe_code": {
+            "position": {
+                "x": 290,
+                "y": 384
+            }
+        },
+        "next": [
+            "Stage_Bounty_Exhausted",
+            "Stage_Bounty_Sweeping",
+            "Stage_Squad_Show"
+        ]
+    },
+    "Stage_Squad_Show": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "^.[0-9]$"
+                ],
+                "roi": [
+                    1075,
+                    1,
+                    205,
+                    149
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {}
+        },
+        "post_wait_freezes": 1000,
+        "__mpe_code": {
+            "position": {
+                "x": 580,
+                "y": 568
+            }
+        },
+        "next": [
+            "Stage_Squad_Select"
+        ]
+    },
+    "Stage_Squad_Select": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "[oO0]1"
+                ],
+                "roi": [
+                    1120,
+                    105,
+                    127,
+                    456
+                ],
+                "order_by": "Vertical"
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {}
+        },
+        "post_wait_freezes": 1000,
+        "__mpe_code": {
+            "position": {
+                "x": 870,
+                "y": 553
+            }
+        },
+        "next": [
+            "Stage_Deploy"
+        ],
+        "interrupt": [
+            "Stage_Squad_Show",
+            "Alert_Confirm"
+        ]
+    },
+    "Stage_Battle_AutoToggle": {
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "lower": [
+                    [
+                        79,
+                        87,
+                        96
+                    ]
+                ],
+                "upper": [
+                    [
+                        237,
+                        237,
+                        237
+                    ]
+                ],
+                "method": 4,
+                "roi": [
+                    115,
+                    41,
+                    12,
+                    19
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    94,
+                    30,
+                    33,
+                    37
+                ]
+            }
+        },
+        "post_wait_freezes": 500,
+        "__mpe_code": {
+            "position": {
+                "x": 1740,
+                "y": 748
+            }
+        },
+        "next": [
+            "Stage_Battle_Clear",
+            "Stage_Battle_Failed",
+            "Stage_Battle_AutoToggle",
+            "Stage_Battle_Wait"
+        ]
+    },
+    "Stage_Battle_Wait": {
+        "recognition": {
+            "type": "DirectHit",
+            "param": {}
+        },
+        "action": {
+            "type": "DoNothing",
+            "param": {}
+        },
+        "post_wait_freezes": 1000,
+        "rate_limit": 10000,
+        "__mpe_code": {
+            "position": {
+                "x": 1450,
+                "y": 792
+            }
+        },
+        "next": [
+            "Stage_Battle_Clear",
+            "Stage_Battle_AutoToggle",
+            "Stage_Battle_Failed",
+            "Stage_Battle_Wait"
+        ]
+    },
+    "Stage_Battle_Clear": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "Next",
+                    "Exit"
+                ],
+                "roi": [
+                    944,
+                    559,
+                    336,
+                    161
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {}
+        },
+        "post_delay": 400,
+        "timeout": 60000,
+        "__mpe_code": {
+            "position": {
+                "x": 2030,
+                "y": 663
+            }
+        },
+        "next": [
+            "Stage_Battle_Clear",
+            "Stage_Wish_Landing",
+            "Stage_Bounty_Floor_Landing"
+        ]
+    },
+    "Stage_Battle_Failed": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "Exit"
+                ],
+                "roi": [
+                    494,
+                    607,
+                    296,
+                    88
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {}
+        },
+        "timeout": 60000,
+        "__mpe_code": {
+            "position": {
+                "x": 2030,
+                "y": 972
+            }
+        },
+        "next": [
+            "Stage_Battle_Failed",
+            "Stage_Wish_Landing",
+            "Stage_Bounty_Floor_Landing"
+        ]
+    },
+    "Stage_Wish_Landing": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "^View.+"
+                ],
+                "roi": [
+                    0,
+                    164,
+                    224,
+                    149
+                ]
+            }
+        },
+        "action": {
+            "type": "DoNothing",
+            "param": {}
+        },
+        "__mpe_code": {
+            "position": {
+                "x": 2320,
+                "y": 446
+            }
+        }
+    },
+    "Stage_Bounty_Entrypoint": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "Bounty"
+                ],
+                "roi": [
+                    324,
+                    421,
+                    202,
+                    97
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {}
+        },
+        "post_wait_freezes": 1000,
+        "__mpe_code": {
+            "position": {
+                "x": 1740,
+                "y": 414
+            }
+        },
+        "next": [
+            "Stage_Bounty_DangerLevel_Page"
+        ]
+    },
+    "Stage_Bounty_DangerLevel_Page": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "Danger"
+                ],
+                "roi": [
+                    20,
+                    183,
+                    1236,
+                    517
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {}
+        },
+        "post_delay": 400,
+        "__mpe_code": {
+            "position": {
+                "x": 2030,
+                "y": 414
+            }
+        },
+        "next": [
+            "Stage_Bounty_Floor_Landing"
+        ]
+    },
+    "Stage_Bounty_Floor_Landing": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "FLOOR",
+                    "Danger"
+                ],
+                "roi": [
+                    78,
+                    66,
+                    307,
+                    158
+                ]
+            }
+        },
+        "action": {
+            "type": "DoNothing",
+            "param": {}
+        },
+        "__mpe_code": {
+            "position": {
+                "x": 2320,
+                "y": 707
+            }
+        }
+    },
+    "Stage_Bounty_Floor_SelectZone": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    0,
+                    185,
+                    214,
+                    483
+                ],
+                "template": [
+                    "stage/bounty-floor-iv.png"
+                ],
+                "order_by": "Score"
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {}
+        },
+        "post_delay": 400,
+        "__mpe_code": {
+            "position": {
+                "x": 0,
+                "y": 1245
+            }
+        }
+    },
+    "Stage_Bounty_ShadeOfFalseDreamIV": {
+        "recognition": {
+            "type": "Custom",
+            "param": {
+                "custom_recognition": "SelectBounty",
+                "custom_recognition_param": "Shade Of False Dreams IV"
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {}
+        },
+        "__mpe_code": {
+            "position": {
+                "x": 0,
+                "y": 777
+            }
+        },
+        "next": [
+            "Stage_Battle_Entrypoint"
+        ]
+    },
+    "Stage_Bounty_Sweeping": {
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": [
+                    959,
+                    573,
+                    62,
+                    12
+                ],
+                "lower": [
+                    [
+                        182,
+                        40,
+                        41
+                    ]
+                ],
+                "upper": [
+                    [
+                        199,
+                        44,
+                        44
+                    ]
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {}
+        },
+        "post_wait_freezes": 1000,
+        "__mpe_code": {
+            "position": {
+                "x": 1160,
+                "y": 210
+            }
+        },
+        "next": [
+            "Stage_Bounty_Sweeping_Confirm",
+            "Alert_InventoryFull"
+        ]
+    },
+    "Stage_Bounty_Sweeping_Confirm": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "Confirm"
+                ],
+                "roi": [
+                    803,
+                    447,
+                    212,
+                    154
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {}
+        },
+        "post_wait_freezes": 1000,
+        "__mpe_code": {
+            "position": {
+                "x": 1450,
+                "y": 180
+            }
+        },
+        "next": [
+            "Stage_Bounty_Sweeping_ConfirmClose",
+            "Stage_Bounty_Sweeping_Confirm"
+        ]
+    },
+    "Stage_Bounty_Exhausted": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "0",
+                    "O"
+                ],
+                "roi": [
+                    848,
+                    582,
+                    129,
+                    138
+                ]
+            }
+        },
+        "action": {
+            "type": "DoNothing",
+            "param": {}
+        },
+        "__mpe_code": {
+            "position": {
+                "x": 580,
+                "y": 121
+            }
+        }
+    },
+    "Stage_Bounty_Sweeping_ConfirmClose": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "Confirm"
+                ],
+                "roi": [
+                    465,
+                    593,
+                    331,
+                    115
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {}
+        },
+        "__mpe_code": {
+            "position": {
+                "x": 1740,
+                "y": 195
+            }
+        }
+    },
+    "__mpe_external_Alert_InventoryFull_Stage": {
+        "__mpe_code": {
+            "position": {
+                "x": 1450,
+                "y": 495
+            }
+        }
+    },
+    "__mpe_external_Alert_Confirm_Stage": {
+        "__mpe_code": {
+            "position": {
+                "x": 1160,
+                "y": 708
+            }
+        }
+    }
+}

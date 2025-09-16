@@ -18,5 +18,62 @@
                 "y": 458
             }
         }
+    },
+    "Alert_InventoryFull": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "Inventory",
+                    "is full",
+                    "dismantle"
+                ],
+                "roi": [
+                    156,
+                    229,
+                    999,
+                    185
+                ]
+            }
+        },
+        "action": {
+            "type": "DoNothing",
+            "param": {}
+        },
+        "__mpe_code": {
+            "position": {
+                "x": 1077,
+                "y": -90
+            }
+        },
+        "next": [
+            "Alert_Confirm"
+        ]
+    },
+    "Alert_Confirm": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "Confirm"
+                ],
+                "roi": [
+                    209,
+                    418,
+                    901,
+                    196
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {}
+        },
+        "__mpe_code": {
+            "position": {
+                "x": 1343,
+                "y": -88
+            }
+        }
     }
 }
