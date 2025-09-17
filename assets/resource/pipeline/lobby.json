@@ -3,10 +3,10 @@
         "__mpe_code": {
             "prefix": "Lobby",
             "filename": "Lobby",
-            "version": "v0.5.2"
+            "version": "v0.5.3"
         }
     },
-    "Lobby_Tribute_Entry": {
+    "Lobby_Tribute_Enter": {
         "recognition": {
             "type": "OCR",
             "param": {
@@ -28,38 +28,8 @@
         },
         "__mpe_code": {
             "position": {
-                "x": 0,
-                "y": 0
-            }
-        },
-        "next": [
-            "Lobby_Tribute_Claim"
-        ]
-    },
-    "Lobby_Tribute_Close": {
-        "recognition": {
-            "type": "TemplateMatch",
-            "param": {
-                "roi": [
-                    1071,
-                    125,
-                    141,
-                    98
-                ],
-                "template": [
-                    "close-button-1.png",
-                    "close-button-2.png"
-                ]
-            }
-        },
-        "action": {
-            "type": "Click",
-            "param": {}
-        },
-        "__mpe_code": {
-            "position": {
-                "x": 816,
-                "y": -160
+                "x": 580,
+                "y": 1048
             }
         }
     },
@@ -76,49 +46,15 @@
             "type": "Click",
             "param": {}
         },
-        "post_wait_freezes": 5000,
+        "post_wait_freezes": 1000,
         "__mpe_code": {
             "position": {
-                "x": 290,
-                "y": 0
+                "x": 870,
+                "y": 1731
             }
         },
         "next": [
-            "Lobby_Tribute_ClosePopup",
-            "Lobby_Tribute_Close"
-        ]
-    },
-    "Lobby_Tribute_ClosePopup": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "expected": [
-                    "Touch the screen to continue",
-                    "Touch the screen",
-                    "Confirm"
-                ]
-            }
-        },
-        "action": {
-            "type": "Click",
-            "param": {
-                "target_offset": [
-                    0,
-                    -100,
-                    100,
-                    100
-                ]
-            }
-        },
-        "post_wait_freezes": 500,
-        "__mpe_code": {
-            "position": {
-                "x": 579,
-                "y": 60
-            }
-        },
-        "next": [
-            "Lobby_Tribute_Close"
+            "TouchToContinue"
         ]
     },
     "Lobby_Mail_Entry": {
@@ -145,7 +81,7 @@
         "__mpe_code": {
             "position": {
                 "x": 0,
-                "y": 481
+                "y": 182
             }
         },
         "next": [
@@ -169,7 +105,7 @@
         "__mpe_code": {
             "position": {
                 "x": 580,
-                "y": 593
+                "y": 0
             }
         },
         "next": [
@@ -201,7 +137,7 @@
         "__mpe_code": {
             "position": {
                 "x": 870,
-                "y": 653
+                "y": 217
             }
         },
         "next": [
@@ -225,7 +161,7 @@
         "__mpe_code": {
             "position": {
                 "x": 580,
-                "y": 279
+                "y": 219
             }
         },
         "next": [
@@ -244,7 +180,7 @@
         "__mpe_code": {
             "position": {
                 "x": 290,
-                "y": 526
+                "y": 227
             }
         },
         "next": [
@@ -257,7 +193,7 @@
         "__mpe_code": {
             "position": {
                 "x": 580,
-                "y": 498
+                "y": 438
             }
         }
     },
@@ -292,7 +228,7 @@
         "__mpe_code": {
             "position": {
                 "x": 0,
-                "y": 1462
+                "y": 1239
             }
         },
         "next": [
@@ -330,7 +266,7 @@
         "__mpe_code": {
             "position": {
                 "x": 870,
-                "y": 889
+                "y": 610
             }
         },
         "next": [
@@ -369,7 +305,7 @@
         "__mpe_code": {
             "position": {
                 "x": 580,
-                "y": 1014
+                "y": 735
             }
         },
         "next": [
@@ -408,7 +344,7 @@
         "__mpe_code": {
             "position": {
                 "x": 870,
-                "y": 1168
+                "y": 889
             }
         },
         "next": [
@@ -438,7 +374,7 @@
         "__mpe_code": {
             "position": {
                 "x": 1160,
-                "y": 1045
+                "y": 952
             }
         },
         "next": [
@@ -476,8 +412,8 @@
         },
         "__mpe_code": {
             "position": {
-                "x": 1449,
-                "y": 1361
+                "x": 1450,
+                "y": 1547
             }
         },
         "next": [
@@ -497,7 +433,7 @@
         "__mpe_code": {
             "position": {
                 "x": 290,
-                "y": 1522
+                "y": 1299
             }
         },
         "next": [
@@ -538,7 +474,7 @@
         "__mpe_code": {
             "position": {
                 "x": 580,
-                "y": 1447
+                "y": 1305
             }
         },
         "next": [
@@ -585,7 +521,7 @@
         "__mpe_code": {
             "position": {
                 "x": 870,
-                "y": 1462
+                "y": 1320
             }
         },
         "next": [
@@ -624,12 +560,123 @@
         "__mpe_code": {
             "position": {
                 "x": 1160,
-                "y": 1559
+                "y": 1390
             }
         },
         "next": [
             "Lobby_Mission_Pass_ClosePopup",
             "Lobby_Mission_Main"
+        ]
+    },
+    "__mpe_external_LobbyFlag_Lobby": {
+        "__mpe_code": {
+            "position": {
+                "x": 870,
+                "y": 1636
+            }
+        }
+    },
+    "Lobby_Tribute_Entry": {
+        "recognition": {
+            "type": "DirectHit",
+            "param": {}
+        },
+        "action": {
+            "type": "DoNothing",
+            "param": {}
+        },
+        "__mpe_code": {
+            "position": {
+                "x": 290,
+                "y": 1078
+            }
+        },
+        "interrupt": [
+            "Lobby_Tribute_Enter",
+            "BackToLobby"
+        ],
+        "next": [
+            "Lobby_Tribute_Popup"
+        ]
+    },
+    "__mpe_external_TouchToContinue_Lobby": {
+        "__mpe_code": {
+            "position": {
+                "x": 1160,
+                "y": 1852
+            }
+        }
+    },
+    "__mpe_external_ClosePopupX_Lobby": {
+        "__mpe_code": {
+            "position": {
+                "x": 1160,
+                "y": 2032
+            }
+        }
+    },
+    "Lobby_Tribute_NoSupplies": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "No supplies",
+                    "No Supplies"
+                ],
+                "roi": [
+                    436,
+                    452,
+                    399,
+                    89
+                ]
+            }
+        },
+        "action": {
+            "type": "DoNothing",
+            "param": {}
+        },
+        "__mpe_code": {
+            "position": {
+                "x": 870,
+                "y": 1970
+            }
+        },
+        "next": [
+            "ClosePopupX"
+        ]
+    },
+    "Lobby_Tribute_Popup": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "lobby/tribute-flag.png"
+                ],
+                "roi": [
+                    377,
+                    118,
+                    194,
+                    214
+                ]
+            }
+        },
+        "action": {
+            "type": "DoNothing",
+            "param": {}
+        },
+        "__mpe_code": {
+            "position": {
+                "x": 580,
+                "y": 1790
+            }
+        },
+        "next": [
+            "LobbyFlag"
+        ],
+        "interrupt": [
+            "Lobby_Tribute_NoSupplies",
+            "Lobby_Tribute_Claim",
+            "TouchToContinue"
         ]
     }
 }

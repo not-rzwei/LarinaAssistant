@@ -8,30 +8,28 @@
     },
     "BackToLobby": {
         "recognition": {
-            "type": "TemplateMatch",
-            "param": {
-                "template": [
-                    "home-button-1.png",
-                    "home-button-2.png"
-                ],
-                "roi": [
-                    1184,
-                    14,
-                    64,
-                    55
-                ]
-            }
-        },
-        "action": {
-            "type": "Click",
+            "type": "DirectHit",
             "param": {}
         },
+        "action": {
+            "type": "DoNothing",
+            "param": {}
+        },
+        "timeout": 5000,
+        "rate_limit": 1000,
         "__mpe_code": {
             "position": {
                 "x": 0,
-                "y": 219
+                "y": 329
             }
-        }
+        },
+        "next": [
+            "LobbyFlag"
+        ],
+        "interrupt": [
+            "BackToLobby_HomeButton",
+            "ClosePopupX"
+        ]
     },
     "Alert_InventoryFull": {
         "recognition": {
@@ -102,7 +100,8 @@
                 ],
                 "template": [
                     "close-button-1.png",
-                    "close-button-2.png"
+                    "close-button-2.png",
+                    "close-button-3.png"
                 ],
                 "green_mask": true
             }
@@ -113,8 +112,8 @@
         },
         "__mpe_code": {
             "position": {
-                "x": 0,
-                "y": 438
+                "x": 290,
+                "y": 657
             }
         }
     },
@@ -140,7 +139,7 @@
         "__mpe_code": {
             "position": {
                 "x": 0,
-                "y": 687
+                "y": 548
             }
         }
     },
@@ -160,7 +159,7 @@
         "__mpe_code": {
             "position": {
                 "x": 0,
-                "y": 906
+                "y": 767
             }
         }
     },
@@ -185,8 +184,8 @@
         },
         "__mpe_code": {
             "position": {
-                "x": 0,
-                "y": 1095
+                "x": 290,
+                "y": 219
             }
         }
     },
@@ -211,11 +210,39 @@
             "type": "Click",
             "param": {}
         },
-        "pre_wait_freezes": 1000,
+        "pre_delay": 400,
+        "timeout": 20000,
         "__mpe_code": {
             "position": {
                 "x": 0,
-                "y": 1314
+                "y": 956
+            }
+        }
+    },
+    "BackToLobby_HomeButton": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "home-button-1.png",
+                    "home-button-2.png"
+                ],
+                "roi": [
+                    1184,
+                    14,
+                    64,
+                    55
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {}
+        },
+        "__mpe_code": {
+            "position": {
+                "x": 290,
+                "y": 438
             }
         }
     }

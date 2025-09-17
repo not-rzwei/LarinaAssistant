@@ -28,6 +28,7 @@ class CheckShopItem(CustomRecognition):
         ):
             item_name = item_name[1:-1]
 
+        parent_node_name = argv.node_name
         node_name = argv.node_name + "_" + item_name
         reco_detail = context.run_recognition(
             node_name,
@@ -76,6 +77,7 @@ class CheckShopItem(CustomRecognition):
 
         if sold_out_detail is not None:
             logger.info(f"[CheckShopItem] Item '{item_name}' is sold out.")
+            context.override_pipeline({f"{parent_node_name}": {"enabled": False}})
             return CustomRecognition.AnalyzeResult(box=None, detail="Item sold out")
 
         logger.info(f"[CheckShopItem] Item '{item_name}' is available for purchase.")
