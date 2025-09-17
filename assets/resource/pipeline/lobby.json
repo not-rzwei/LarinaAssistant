@@ -26,9 +26,10 @@
             "type": "Click",
             "param": {}
         },
+        "post_wait_freezes": 3000,
         "__mpe_code": {
             "position": {
-                "x": 580,
+                "x": 574,
                 "y": 351
             }
         }
@@ -114,12 +115,12 @@
                 "y": 1893
             }
         },
+        "next": [
+            "Lobby_Mail_Front"
+        ],
         "interrupt": [
             "Lobby_Mail_Enter",
             "BackToLobby"
-        ],
-        "next": [
-            "Lobby_Mail_Front"
         ]
     },
     "__mpe_external_BackToLobby_Lobby": {
@@ -149,6 +150,7 @@
             "type": "Click",
             "param": {}
         },
+        "post_wait_freezes": 3000,
         "__mpe_code": {
             "position": {
                 "x": 296,
@@ -190,11 +192,11 @@
                 "y": 1564
             }
         },
-        "interrupt": [
-            "Lobby_Mission_Schedule_Redeem"
-        ],
         "next": [
             "TouchToContinue"
+        ],
+        "interrupt": [
+            "Lobby_Mission_Schedule_Redeem"
         ]
     },
     "Lobby_Mission_Schedule_Weekly": {
@@ -231,11 +233,11 @@
                 "y": 1285
             }
         },
-        "interrupt": [
-            "Lobby_Mission_Schedule_Redeem"
-        ],
         "next": [
             "TouchToContinue"
+        ],
+        "interrupt": [
+            "Lobby_Mission_Schedule_Redeem"
         ]
     },
     "Lobby_Mission_Schedule_Redeem": {
@@ -377,12 +379,12 @@
                 "y": 273
             }
         },
+        "next": [
+            "Lobby_Tribute_Popup"
+        ],
         "interrupt": [
             "Lobby_Tribute_Enter",
             "BackToLobby"
-        ],
-        "next": [
-            "Lobby_Tribute_Popup"
         ]
     },
     "__mpe_external_TouchToContinue_Lobby": {
@@ -486,6 +488,7 @@
             "type": "Click",
             "param": {}
         },
+        "post_wait_freezes": 3000,
         "__mpe_code": {
             "position": {
                 "x": 290,
@@ -572,20 +575,19 @@
             "type": "DoNothing",
             "param": {}
         },
-        "pre_wait_freezes": 1000,
         "__mpe_code": {
             "position": {
                 "x": 114,
                 "y": 731
             }
         },
+        "next": [
+            "LobbyFlag"
+        ],
         "interrupt": [
             "Lobby_Mission_Schedule_Entry",
             "Lobby_Mission_Pass",
             "BackToLobby"
-        ],
-        "next": [
-            "LobbyFlag"
         ]
     },
     "Lobby_Mission_Schedule_Entry": {

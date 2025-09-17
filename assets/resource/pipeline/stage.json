@@ -3,37 +3,10 @@
         "__mpe_code": {
             "prefix": "Stage",
             "filename": "Stage",
-            "version": "v0.5.2"
+            "version": "v0.5.3"
         }
     },
-    "Stage_Entry": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "expected": [
-                    "Stage"
-                ],
-                "roi": [
-                    956,
-                    241,
-                    235,
-                    179
-                ]
-            }
-        },
-        "action": {
-            "type": "Click",
-            "param": {}
-        },
-        "post_wait_freezes": 1000,
-        "__mpe_code": {
-            "position": {
-                "x": 0,
-                "y": 996
-            }
-        }
-    },
-    "Stage_Wish_Entry": {
+    "Stage_Wish_Enter": {
         "recognition": {
             "type": "OCR",
             "param": {
@@ -55,85 +28,78 @@
         "post_wait_freezes": 1000,
         "__mpe_code": {
             "position": {
-                "x": 2320,
-                "y": 190
+                "x": 3190,
+                "y": 533
             }
-        },
-        "next": [
-            "Stage_Wish_Main"
-        ]
+        }
     },
-    "Stage_Wish_SelectCredit": {
+    "Stage_Wish_Ticket1": {
         "recognition": {
             "type": "Custom",
             "param": {
                 "custom_recognition": "SelectHighestLevelWish",
-                "custom_recognition_param": "Credit"
+                "custom_recognition_param": "Credit,1"
             }
         },
         "action": {
             "type": "Click",
             "param": {}
         },
-        "post_wait_freezes": 1000,
         "__mpe_code": {
             "position": {
-                "x": 0,
-                "y": 0
+                "x": 3508,
+                "y": 432
             }
         },
         "next": [
-            "Stage_Battle_Entrypoint",
-            "Stage_Wish_SelectCredit"
+            "Stage_Battle_Preparation"
         ]
     },
-    "Stage_Wish_SelectVanguard": {
+    "Stage_Wish_Ticket2": {
         "recognition": {
             "type": "Custom",
             "param": {
                 "custom_recognition": "SelectHighestLevelWish",
-                "custom_recognition_param": "Vanguard"
+                "custom_recognition_param": "Credit,2"
             }
         },
         "action": {
             "type": "Click",
             "param": {}
         },
-        "post_delay": 1000,
         "__mpe_code": {
             "position": {
-                "x": 0,
-                "y": 279
+                "x": 3507,
+                "y": 635
             }
         },
         "next": [
-            "Stage_Battle_Entrypoint"
+            "Stage_Battle_Preparation"
         ]
     },
-    "Stage_Wish_SelectWeapon": {
+    "Stage_Wish_Ticket3": {
         "recognition": {
             "type": "Custom",
             "param": {
                 "custom_recognition": "SelectHighestLevelWish",
-                "custom_recognition_param": "Weapon"
+                "custom_recognition_param": "Vanguard,3"
             }
         },
         "action": {
             "type": "Click",
             "param": {}
         },
-        "post_delay": 1000,
         "__mpe_code": {
             "position": {
-                "x": 0,
-                "y": 528
+                "x": 3503,
+                "y": 853
             }
         },
         "next": [
-            "Stage_Battle_Entrypoint"
+            "Stage_Battle_Preparation"
         ]
     },
-    "Stage_Deploy": {
+    "Stage_Squad_Deploy": {
         "recognition": {
             "type": "OCR",
             "param": {
@@ -154,16 +120,19 @@
         },
         "__mpe_code": {
             "position": {
-                "x": 1160,
-                "y": 224
+                "x": 2030,
+                "y": 1238
             }
         },
         "next": [
-            "Alert_InventoryFull",
-            "Stage_Battle_Wait"
+            "Stage_Battle_Entry"
+        ],
+        "interrupt": [
+            "Confirm",
+            "Stage_Alert_InventoryFull"
         ]
     },
-    "Stage_Battle_Entrypoint": {
+    "Stage_Battle_Preparation": {
         "recognition": {
             "type": "OCR",
             "param": {
@@ -184,10 +153,11 @@
             "type": "DoNothing",
             "param": {}
         },
+        "pre_wait_freezes": 1000,
         "__mpe_code": {
             "position": {
-                "x": 290,
-                "y": 253
+                "x": 1160,
+                "y": 1036
             }
         },
         "next": [
@@ -218,8 +188,8 @@
         "post_wait_freezes": 1000,
         "__mpe_code": {
             "position": {
-                "x": 580,
-                "y": 257
+                "x": 1450,
+                "y": 1113
             }
         },
         "next": [
@@ -249,15 +219,14 @@
         "post_wait_freezes": 1000,
         "__mpe_code": {
             "position": {
-                "x": 870,
-                "y": 242
+                "x": 1740,
+                "y": 1098
             }
         },
         "next": [
-            "Stage_Deploy"
+            "Stage_Squad_Deploy"
         ],
         "interrupt": [
-            "Stage_Squad_Show",
             "Confirm"
         ]
     },
@@ -299,21 +268,19 @@
                 ]
             }
         },
-        "post_wait_freezes": 500,
+        "pre_delay": 3000,
         "__mpe_code": {
             "position": {
-                "x": 1740,
-                "y": 289
+                "x": 2610,
+                "y": 1890
             }
         },
         "next": [
-            "Stage_Battle_Next",
-            "Stage_Battle_Failed",
-            "Stage_Battle_AutoToggle",
-            "Stage_Battle_Wait"
+            "Stage_Battle_AutoToggle_Disable",
+            "Stage_Battle_AutoToggle"
         ]
     },
-    "Stage_Battle_Wait": {
+    "Stage_Battle_Entry": {
         "recognition": {
             "type": "DirectHit",
             "param": {}
@@ -322,22 +289,26 @@
             "type": "DoNothing",
             "param": {}
         },
-        "post_wait_freezes": 1000,
-        "rate_limit": 10000,
+        "post_wait_freezes": 500,
+        "timeout": 60000,
+        "rate_limit": 5000,
         "__mpe_code": {
             "position": {
-                "x": 1450,
-                "y": 770
+                "x": 2320,
+                "y": 1864
             }
         },
         "next": [
-            "Stage_Battle_Next",
+            "Stage_Battle_Clear",
+            "Stage_Battle_Failed"
+        ],
+        "interrupt": [
             "Stage_Battle_AutoToggle",
-            "Stage_Battle_Failed",
-            "Stage_Battle_Wait"
+            "Stage_Battle_Waiting",
+            "Loading"
         ]
     },
-    "Stage_Battle_Next": {
+    "Stage_Battle_Clear": {
         "recognition": {
             "type": "OCR",
             "param": {
@@ -359,12 +330,12 @@
         "post_delay": 400,
         "__mpe_code": {
             "position": {
-                "x": 2030,
-                "y": 1024
+                "x": 2610,
+                "y": 2478
             }
         },
         "next": [
-            "Stage_Battle_Clear",
+            "Stage_Battle_Exit",
             "Stage_Battle_Continue"
         ]
     },
@@ -387,32 +358,25 @@
             "type": "Click",
             "param": {}
         },
-        "timeout": 60000,
         "__mpe_code": {
             "position": {
-                "x": 2320,
-                "y": 439
+                "x": 2610,
+                "y": 2259
             }
-        },
-        "next": [
-            "Stage_Battle_Failed",
-            "Stage_Wish_Main",
-            "Stage_Bounty_Floor_Main",
-            "Stage_Rift_Main"
-        ]
+        }
     },
-    "Stage_Wish_Main": {
+    "Stage_Wish_Front": {
         "recognition": {
             "type": "OCR",
             "param": {
                 "expected": [
-                    "^View.+"
+                    "Wish"
                 ],
                 "roi": [
+                    128,
                     0,
-                    164,
-                    224,
-                    149
+                    172,
+                    135
                 ]
             }
         },
@@ -422,12 +386,21 @@
         },
         "__mpe_code": {
             "position": {
-                "x": 2610,
-                "y": 225
+                "x": 3190,
+                "y": 782
             }
-        }
+        },
+        "next": [
+            "LobbyFlag"
+        ],
+        "interrupt": [
+            "Stage_Wish_Ticket1",
+            "Stage_Wish_Ticket2",
+            "Stage_Wish_Ticket3",
+            "BackToLobby"
+        ]
     },
-    "Stage_Bounty_Entry": {
+    "Stage_Bounty_Enter": {
         "recognition": {
             "type": "OCR",
             "param": {
@@ -449,13 +422,10 @@
         "post_wait_freezes": 1000,
         "__mpe_code": {
             "position": {
-                "x": 2030,
-                "y": 750
+                "x": 580,
+                "y": 1794
             }
-        },
-        "next": [
-            "Stage_Bounty_DangerLevel_Select"
-        ]
+        }
     },
     "Stage_Bounty_DangerLevel_Select": {
         "recognition": {
@@ -467,7 +437,7 @@
                 "roi": [
                     20,
                     183,
-                    1236,
+                    600,
                     517
                 ]
             }
@@ -479,21 +449,18 @@
         "post_delay": 400,
         "__mpe_code": {
             "position": {
-                "x": 2320,
-                "y": 750
+                "x": 580,
+                "y": 1545
             }
-        },
-        "next": [
-            "Stage_Bounty_Floor_Main"
-        ]
+        }
     },
-    "Stage_Bounty_Floor_Main": {
+    "Stage_Bounty_Front": {
         "recognition": {
             "type": "OCR",
             "param": {
                 "expected": [
                     "FLOOR",
-                    "Danger"
+                    "Danger Zone"
                 ],
                 "roi": [
                     78,
@@ -509,12 +476,19 @@
         },
         "__mpe_code": {
             "position": {
-                "x": 2610,
-                "y": 725
+                "x": 508,
+                "y": 3087
             }
-        }
+        },
+        "next": [
+            "LobbyFlag"
+        ],
+        "interrupt": [
+            "Stage_Bounty_Boss",
+            "BackToLobby"
+        ]
     },
-    "Stage_Bounty_SelectBoss": {
+    "Stage_Bounty_Boss": {
         "recognition": {
             "type": "Custom",
             "param": {
@@ -528,68 +502,26 @@
         },
         "__mpe_code": {
             "position": {
-                "x": 0,
-                "y": 777
+                "x": 870,
+                "y": 2921
             }
         },
         "next": [
-            "Stage_Battle_Entrypoint"
+            "Stage_Battle_Preparation"
         ]
     },
     "Stage_Bounty_Sweeping": {
         "recognition": {
-            "type": "ColorMatch",
-            "param": {
-                "roi": [
-                    959,
-                    573,
-                    62,
-                    12
-                ],
-                "lower": [
-                    [
-                        182,
-                        40,
-                        41
-                    ]
-                ],
-                "upper": [
-                    [
-                        199,
-                        44,
-                        44
-                    ]
-                ]
-            }
-        },
-        "action": {
-            "type": "Click",
-            "param": {}
-        },
-        "post_wait_freezes": 1000,
-        "__mpe_code": {
-            "position": {
-                "x": 580,
-                "y": 556
-            }
-        },
-        "next": [
-            "Stage_Bounty_Sweeping_Confirm",
-            "Alert_InventoryFull"
-        ]
-    },
-    "Stage_Bounty_Sweeping_Confirm": {
-        "recognition": {
             "type": "OCR",
             "param": {
-                "expected": [
-                    "Confirm"
-                ],
                 "roi": [
-                    803,
-                    447,
-                    212,
-                    154
+                    900,
+                    523,
+                    208,
+                    140
+                ],
+                "expected": [
+                    "Sweeping"
                 ]
             }
         },
@@ -600,13 +532,16 @@
         "post_wait_freezes": 1000,
         "__mpe_code": {
             "position": {
-                "x": 870,
-                "y": 571
+                "x": 2030,
+                "y": 2292
             }
         },
         "next": [
-            "Stage_Bounty_Sweeping_ClosePopup",
-            "Stage_Bounty_Sweeping_Confirm"
+            "Stage_Bounty_Exhausted"
+        ],
+        "interrupt": [
+            "Confirm",
+            "Stage_Alert_InventoryFull"
         ]
     },
     "Stage_Bounty_Exhausted": {
@@ -631,52 +566,13 @@
         },
         "__mpe_code": {
             "position": {
-                "x": 580,
-                "y": 38
-            }
-        }
-    },
-    "Stage_Bounty_Sweeping_ClosePopup": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "expected": [
-                    "Confirm"
-                ],
-                "roi": [
-                    465,
-                    593,
-                    331,
-                    115
-                ]
+                "x": 2350,
+                "y": 2939
             }
         },
-        "action": {
-            "type": "Click",
-            "param": {}
-        },
-        "__mpe_code": {
-            "position": {
-                "x": 1160,
-                "y": 586
-            }
-        }
-    },
-    "__mpe_external_Alert_InventoryFull_Stage": {
-        "__mpe_code": {
-            "position": {
-                "x": 1450,
-                "y": 432
-            }
-        }
-    },
-    "__mpe_external_Alert_Confirm_Stage": {
-        "__mpe_code": {
-            "position": {
-                "x": 1160,
-                "y": 443
-            }
-        }
+        "next": [
+            "BackToLobby"
+        ]
     },
     "Stage_Rift_Entry": {
         "recognition": {
@@ -701,8 +597,8 @@
         "post_wait_freezes": 1000,
         "__mpe_code": {
             "position": {
-                "x": 2320,
-                "y": 1278
+                "x": 0,
+                "y": 219
             }
         },
         "next": [
@@ -731,8 +627,8 @@
         },
         "__mpe_code": {
             "position": {
-                "x": 2610,
-                "y": 1313
+                "x": 290,
+                "y": 234
             }
         },
         "next": [
@@ -762,8 +658,8 @@
         "post_wait_freezes": 500,
         "__mpe_code": {
             "position": {
-                "x": 2900,
-                "y": 1283
+                "x": 580,
+                "y": 204
             }
         },
         "next": [
@@ -793,22 +689,21 @@
         },
         "__mpe_code": {
             "position": {
-                "x": 3190,
-                "y": 1470
+                "x": 870,
+                "y": 219
             }
         },
         "next": [
-            "Stage_Battle_Entrypoint"
+            "Stage_Battle_Preparation"
         ]
     },
-    "Stage_Battle_Clear": {
+    "Stage_Battle_Exit": {
         "recognition": {
             "type": "OCR",
             "param": {
                 "expected": [
                     "Exit",
-                    "Complete",
-                    "Next"
+                    "Complete"
                 ],
                 "roi": [
                     944,
@@ -822,20 +717,20 @@
             "type": "Click",
             "param": {}
         },
-        "post_delay": 400,
-        "timeout": 60000,
+        "timeout": 30000,
+        "rate_limit": 5000,
         "__mpe_code": {
             "position": {
-                "x": 2320,
-                "y": 999
+                "x": 2900,
+                "y": 2473
             }
         },
         "next": [
-            "Stage_Wish_Main",
-            "Stage_Bounty_Floor_Main",
-            "Stage_Rift_Main",
-            "Stage_Battle_Next",
-            "Stage_Battle_Clear"
+            "Stage_Wish_Front",
+            "Stage_Bounty_Front"
+        ],
+        "interrupt": [
+            "Loading"
         ]
     },
     "Stage_Battle_Continue": {
@@ -860,12 +755,205 @@
         "post_delay": 400,
         "__mpe_code": {
             "position": {
-                "x": 2320,
-                "y": 1527
+                "x": 2900,
+                "y": 1828
             }
         },
         "next": [
-            "Stage_Battle_Wait"
+            "Stage_Battle_Entry"
+        ]
+    },
+    "__mpe_external_Confirm_Stage": {
+        "__mpe_code": {
+            "position": {
+                "x": 2610,
+                "y": 1292
+            }
+        }
+    },
+    "Stage_Wish_Entry": {
+        "recognition": {
+            "type": "DirectHit",
+            "param": {}
+        },
+        "action": {
+            "type": "DoNothing",
+            "param": {}
+        },
+        "__mpe_code": {
+            "position": {
+                "x": 2900,
+                "y": 677
+            }
+        },
+        "next": [
+            "Stage_Wish_Front"
+        ],
+        "interrupt": [
+            "Stage_Enter",
+            "Stage_Wish_Enter"
+        ]
+    },
+    "Stage_Enter": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "Stage"
+                ],
+                "roi": [
+                    956,
+                    241,
+                    235,
+                    179
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {}
+        },
+        "post_wait_freezes": 1000,
+        "__mpe_code": {
+            "position": {
+                "x": 3190,
+                "y": 1407
+            }
+        }
+    },
+    "__mpe_external_LobbyFlag_Stage": {
+        "__mpe_code": {
+            "position": {
+                "x": 3480,
+                "y": 1398
+            }
+        }
+    },
+    "__mpe_external_BackToLobby_Stage": {
+        "__mpe_code": {
+            "position": {
+                "x": 3480,
+                "y": 1283
+            }
+        }
+    },
+    "Stage_Alert_InventoryFull": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "Inventory",
+                    "is full",
+                    "dismantle"
+                ],
+                "roi": [
+                    156,
+                    229,
+                    999,
+                    185
+                ]
+            }
+        },
+        "action": {
+            "type": "StopTask",
+            "param": {}
+        },
+        "__mpe_code": {
+            "position": {
+                "x": 2320,
+                "y": 1230
+            }
+        },
+        "next": [
+            "LobbyFlag"
+        ],
+        "interrupt": [
+            "Confirm",
+            "BackToLobby"
+        ]
+    },
+    "Stage_Battle_AutoToggle_Disable": {
+        "recognition": {
+            "type": "DirectHit",
+            "param": {}
+        },
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "DisableNode",
+                "custom_action_param": "Stage_Battle_AutoToggle"
+            }
+        },
+        "__mpe_code": {
+            "position": {
+                "x": 2900,
+                "y": 2077
+            }
+        }
+    },
+    "Stage_Battle_Waiting": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "Turn",
+                    "Round"
+                ],
+                "roi": [
+                    908,
+                    0,
+                    371,
+                    152
+                ]
+            }
+        },
+        "action": {
+            "type": "DoNothing",
+            "param": {}
+        },
+        "timeout": 30000,
+        "post_wait_freezes": 5000,
+        "__mpe_code": {
+            "position": {
+                "x": 2610,
+                "y": 1581
+            }
+        },
+        "next": [
+            "Stage_Battle_Waiting"
+        ]
+    },
+    "__mpe_external_Loading_Stage": {
+        "__mpe_code": {
+            "position": {
+                "x": 3190,
+                "y": 1656
+            }
+        }
+    },
+    "Stage_Bounty_Entry": {
+        "recognition": {
+            "type": "DirectHit",
+            "param": {}
+        },
+        "action": {
+            "type": "DoNothing",
+            "param": {}
+        },
+        "__mpe_code": {
+            "position": {
+                "x": 290,
+                "y": 1839
+            }
+        },
+        "next": [
+            "Stage_Bounty_Front"
+        ],
+        "interrupt": [
+            "Stage_Enter",
+            "Stage_Bounty_Enter",
+            "Stage_Bounty_DangerLevel_Select",
+            "BackToLobby"
         ]
     }
 }

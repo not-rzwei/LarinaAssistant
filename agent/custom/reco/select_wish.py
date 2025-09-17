@@ -18,6 +18,7 @@ class SelectHighestLevelWish(CustomRecognition):
         argv: CustomRecognition.AnalyzeArg,
     ) -> CustomRecognition.AnalyzeResult:
 
+        # e.g. wish_type = "Credit/1", "Vanguard/2"
         wish_type = argv.custom_recognition_param
         logger.info(f"[SelectHighestLevelWish] Received wish_type: {wish_type}")
         if (
@@ -34,9 +35,46 @@ class SelectHighestLevelWish(CustomRecognition):
                 box=None, detail="No wish type specified"
             )
 
+        # ticket_number 1 = 3/3, 2 = 2/3, 3 = 1/3
+        wish_type, ticket_number = wish_type.split(",")
+
+        if ticket_number == "1":
+            ticket_number = "^3[/1]"
+        elif ticket_number == "2":
+            ticket_number = "^2[/1]"
+        elif ticket_number == "3":
+            ticket_number = "^1[/1]"
+
         new_context = context.clone()
 
-        # First, find all stage types on the page
+        # First, find the ticket number on the page
+        ticket_node = argv.node_name + "_" + ticket_number
+        ticket_detail = new_context.run_recognition(
+            ticket_node,
+            argv.image,
+            pipeline_override={
+                ticket_node: {
+                    "recognition": {
+                        "type": "OCR",
+                        "param": {
+                            "expected": [ticket_number],
+                            "roi": [1087, 61, 157, 148],
+                        },
+                    }
+                }
+            },
+        )
+
+        if ticket_detail is None or ticket_detail.best_result is None:
+            logger.info(
+                f"[SelectHighestLevelWish] Ticket number '{ticket_number}' already used up"
+            )
+            context.override_pipeline({f"{argv.node_name}": {"enabled": False}})
+            return CustomRecognition.AnalyzeResult(
+                box=None, detail=f"Ticket number '{ticket_number}' already used up"
+            )
+
+        # Then, find all stage types on the page
         wishes_node = argv.node_name + "_" + wish_type
         wishes_detail = new_context.run_recognition(
             wishes_node,
