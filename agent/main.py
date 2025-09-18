@@ -359,12 +359,6 @@ def agent(is_dev_mode=False):
             if not attr_name.startswith("_"):
                 globals()[attr_name] = getattr(utils, attr_name)
 
-        if is_dev_mode:
-            from utils.logger import change_console_level
-
-            change_console_level("DEBUG")
-            logger.info("Development mode: Log level set to DEBUG")
-
         from maa.agent.agent_server import AgentServer
         from maa.toolkit import Toolkit
 

@@ -205,17 +205,7 @@
             "type": "OCR",
             "param": {
                 "expected": [
-                    "01"
-                ],
-                "replace": [
-                    [
-                        "o",
-                        "0"
-                    ],
-                    [
-                        "O",
-                        "0"
-                    ]
+                    "[oO0]1"
                 ],
                 "roi": [
                     1120,
@@ -223,7 +213,13 @@
                     127,
                     456
                 ],
-                "order_by": "Vertical"
+                "order_by": "Vertical",
+                "replace": [
+                    [
+                        "origin",
+                        "target"
+                    ]
+                ]
             }
         },
         "action": {
@@ -923,92 +919,89 @@
     },
     "Stage_Rift_RedStone": {
         "recognition": {
-            "type": "OCR",
+            "type": "Custom",
             "param": {
-                "expected": [
-                    "CRACKLIST",
-                    "CRACK",
-                    "C R A C K"
-                ],
                 "roi": [
-                    130,
-                    0,
-                    220,
-                    132
-                ]
+                    65,
+                    181,
+                    225,
+                    507
+                ],
+                "custom_recognition": "RiftCleared"
             }
         },
         "action": {
-            "type": "DoNothing",
-            "param": {}
+            "type": "Custom",
+            "param": {
+                "custom_action": "DisableNode",
+                "custom_action_param": "Stage_Rift_RedStone"
+            }
         },
         "__mpe_code": {
             "position": {
-                "x": 580,
-                "y": 3654
+                "x": 560,
+                "y": 3389
             }
         },
-        "next": [
-            "Stage_Rift_RedStone_Claimed"
-        ],
         "interrupt": [
-            "Stage_Rift_RedStone_Unclaimed"
+            "Stage_Rift_RedStone_Enter"
+        ],
+        "next": [
+            "Stage_Rift_SelectRegion"
         ]
     },
     "Stage_Rift_BlueStone": {
         "recognition": {
-            "type": "OCR",
+            "type": "Custom",
             "param": {
-                "expected": [
-                    "CRACKLIST",
-                    "CRACK",
-                    "C R A C K"
-                ],
                 "roi": [
-                    130,
-                    0,
-                    220,
-                    132
-                ]
+                    290,
+                    181,
+                    225,
+                    507
+                ],
+                "custom_recognition": "RiftCleared"
             }
         },
         "action": {
-            "type": "DoNothing",
-            "param": {}
+            "type": "Custom",
+            "param": {
+                "custom_action": "DisableNode",
+                "custom_action_param": "Stage_Rift_BlueStone"
+            }
         },
         "__mpe_code": {
             "position": {
-                "x": 580,
-                "y": 4212
+                "x": 558,
+                "y": 3936
             }
         },
-        "next": [
-            "Stage_Rift_BlueStone_Claimed"
-        ],
         "interrupt": [
-            "Stage_Rift_BlueStone_Unclaimed"
+            "Stage_Rift_BlueStone_Enter"
+        ],
+        "next": [
+            "Stage_Rift_SelectRegion"
         ]
     },
     "Stage_Rift_GreenStone": {
         "recognition": {
-            "type": "OCR",
+            "type": "Custom",
             "param": {
-                "expected": [
-                    "CRACKLIST",
-                    "CRACK",
-                    "C R A C K"
-                ],
                 "roi": [
-                    130,
-                    0,
-                    220,
-                    132
-                ]
+                    515,
+                    181,
+                    225,
+                    507
+                ],
+                "custom_recognition": "RiftCleared"
             }
         },
         "action": {
-            "type": "DoNothing",
-            "param": {}
+            "type": "Custom",
+            "param": {
+                "custom_action": "DisableNode",
+                "custom_action_param": "Stage_Rift_GreenStone"
+            }
         },
         "__mpe_code": {
             "position": {
@@ -1017,10 +1010,10 @@
             }
         },
         "next": [
-            "Stage_Rift_GreenStone_Claimed"
+            "Stage_Rift_SelectRegion"
         ],
         "interrupt": [
-            "Stage_Rift_GreenStone_Unclaimed"
+            "Stage_Rift_GreenStone_Enter"
         ]
     },
     "Stage_Rift_YellowStone": {
@@ -1061,16 +1054,16 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "expected": [
-                    "CRACKLIST",
-                    "CRACK",
-                    "C R A C K"
-                ],
                 "roi": [
                     130,
                     0,
                     220,
                     132
+                ],
+                "expected": [
+                    "CRACKLIST",
+                    "CRACK",
+                    "C R A C K"
                 ]
             }
         },
@@ -1091,42 +1084,12 @@
             "Stage_Rift_GachaShard_Unclaimed"
         ]
     },
-    "Stage_Rift_RedStone_Claimed": {
+    "Stage_Rift_RedStone_Enter": {
         "recognition": {
             "type": "OCR",
             "param": {
                 "expected": [
-                    "Claimed"
-                ],
-                "roi": [
-                    65,
-                    181,
-                    225,
-                    507
-                ],
-                "order_by": "Horizontal"
-            }
-        },
-        "action": {
-            "type": "Custom",
-            "param": {
-                "custom_action": "DisableNode",
-                "custom_action_param": "Stage_Rift_RedStone"
-            }
-        },
-        "__mpe_code": {
-            "position": {
-                "x": 870,
-                "y": 3417
-            }
-        }
-    },
-    "Stage_Rift_RedStone_Unclaimed": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "expected": [
-                    "Unclaimed"
+                    "Floor"
                 ],
                 "roi": [
                     65,
@@ -1146,47 +1109,14 @@
                 "x": 870,
                 "y": 3726
             }
-        },
-        "next": [
-            "Stage_Rift_SelectRegion"
-        ]
-    },
-    "Stage_Rift_BlueStone_Claimed": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "expected": [
-                    "Claimed"
-                ],
-                "roi": [
-                    290,
-                    181,
-                    225,
-                    507
-                ],
-                "order_by": "Horizontal"
-            }
-        },
-        "action": {
-            "type": "Custom",
-            "param": {
-                "custom_action": "DisableNode",
-                "custom_action_param": "Stage_Rift_BlueStone"
-            }
-        },
-        "__mpe_code": {
-            "position": {
-                "x": 870,
-                "y": 3975
-            }
         }
     },
-    "Stage_Rift_BlueStone_Unclaimed": {
+    "Stage_Rift_BlueStone_Enter": {
         "recognition": {
             "type": "OCR",
             "param": {
                 "expected": [
-                    "Unclaimed"
+                    "Floor"
                 ],
                 "roi": [
                     290,
@@ -1203,73 +1133,10 @@
         },
         "__mpe_code": {
             "position": {
-                "x": 870,
-                "y": 4284
-            }
-        },
-        "next": [
-            "Stage_Rift_SelectRegion"
-        ]
-    },
-    "Stage_Rift_GreenStone_Claimed": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "expected": [
-                    "Claimed"
-                ],
-                "roi": [
-                    515,
-                    181,
-                    225,
-                    507
-                ],
-                "order_by": "Horizontal"
-            }
-        },
-        "action": {
-            "type": "Custom",
-            "param": {
-                "custom_action": "DisableNode",
-                "custom_action_param": "Stage_Rift_GreenStone"
-            }
-        },
-        "__mpe_code": {
-            "position": {
-                "x": 870,
-                "y": 4533
+                "x": 741,
+                "y": 4335
             }
         }
-    },
-    "Stage_Rift_GreenStone_Unclaimed": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "expected": [
-                    "Unclaimed"
-                ],
-                "roi": [
-                    515,
-                    181,
-                    225,
-                    507
-                ],
-                "order_by": "Horizontal"
-            }
-        },
-        "action": {
-            "type": "Click",
-            "param": {}
-        },
-        "__mpe_code": {
-            "position": {
-                "x": 870,
-                "y": 4842
-            }
-        },
-        "next": [
-            "Stage_Rift_SelectRegion"
-        ]
     },
     "Stage_Rift_YellowStone_Claimed": {
         "recognition": {
@@ -1336,7 +1203,7 @@
             "type": "OCR",
             "param": {
                 "expected": [
-                    "Claimed"
+                    "5F"
                 ],
                 "roi": [
                     965,
@@ -1459,6 +1326,32 @@
             "position": {
                 "x": 2781,
                 "y": 1135
+            }
+        }
+    },
+    "Stage_Rift_GreenStone_Enter": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "Floor"
+                ],
+                "roi": [
+                    515,
+                    181,
+                    225,
+                    507
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {}
+        },
+        "__mpe_code": {
+            "position": {
+                "x": 830,
+                "y": 4725
             }
         }
     }

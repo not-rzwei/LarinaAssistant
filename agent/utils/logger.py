@@ -4,7 +4,7 @@ import sys
 try:
     from loguru import logger as _logger
 
-    def setup_logger(log_dir="debug/custom", console_level="INFO"):
+    def setup_logger(namespace="", log_dir="debug/custom", console_level="INFO"):
         """Setup loguru logger
 
         Args:
@@ -16,10 +16,11 @@ try:
 
         _logger.add(
             sys.stderr,
-            format="[<level>{level}</level>] <level>{message}</level>",
+            format=f"[<level>{{level}}</level>] <level>{{message}}</level>",
             colorize=True,
             level=console_level,
         )
+
         _logger.add(
             f"{log_dir}/{{time:YYYY-MM-DD}}.log",
             rotation="00:00",  # midnight
@@ -33,11 +34,6 @@ try:
             diagnose=True,  # Include variable value information
         )
         return _logger
-
-    def change_console_level(level="DEBUG"):
-        """Dynamically change console log level"""
-        setup_logger(console_level=level)
-        _logger.info(f"Console log level changed to: {level}")
 
     logger = setup_logger()
 except ImportError:

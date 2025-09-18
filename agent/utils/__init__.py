@@ -1,4 +1,5 @@
 from .logger import *
+from .general import *
 
 try:
     from .time import *
