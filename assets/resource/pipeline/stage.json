@@ -28,8 +28,8 @@
         "post_wait_freezes": 1000,
         "__mpe_code": {
             "position": {
-                "x": 3480,
-                "y": 903
+                "x": 4350,
+                "y": 19
             }
         }
     },
@@ -47,7 +47,7 @@
         },
         "__mpe_code": {
             "position": {
-                "x": 1160,
+                "x": 2030,
                 "y": 0
             }
         },
@@ -69,8 +69,8 @@
         },
         "__mpe_code": {
             "position": {
-                "x": 3770,
-                "y": 321
+                "x": 4640,
+                "y": 732
             }
         },
         "next": [
@@ -91,8 +91,8 @@
         },
         "__mpe_code": {
             "position": {
-                "x": 3770,
-                "y": 1340
+                "x": 4640,
+                "y": 951
             }
         },
         "next": [
@@ -122,8 +122,8 @@
         "rate_limit": 3000,
         "__mpe_code": {
             "position": {
-                "x": 1998,
-                "y": 1536
+                "x": 3190,
+                "y": 2459
             }
         },
         "next": [
@@ -160,8 +160,8 @@
         "pre_wait_freezes": 1000,
         "__mpe_code": {
             "position": {
-                "x": 1450,
-                "y": 2327
+                "x": 2320,
+                "y": 2838
             }
         },
         "next": [
@@ -192,8 +192,8 @@
         "post_wait_freezes": 1000,
         "__mpe_code": {
             "position": {
-                "x": 1721,
-                "y": 2161
+                "x": 2610,
+                "y": 2654
             }
         },
         "next": [
@@ -229,8 +229,8 @@
         "post_wait_freezes": 1000,
         "__mpe_code": {
             "position": {
-                "x": 2030,
-                "y": 2143
+                "x": 2900,
+                "y": 2624
             }
         },
         "next": [
@@ -263,8 +263,8 @@
         "post_wait_freezes": 1000,
         "__mpe_code": {
             "position": {
-                "x": 3038,
-                "y": 1319
+                "x": 3770,
+                "y": 2147
             }
         }
     },
@@ -290,8 +290,8 @@
         "post_delay": 400,
         "__mpe_code": {
             "position": {
-                "x": 2900,
-                "y": 510
+                "x": 3770,
+                "y": 1632
             }
         },
         "next": [
@@ -320,8 +320,8 @@
         },
         "__mpe_code": {
             "position": {
-                "x": 2921,
-                "y": 865
+                "x": 3770,
+                "y": 1928
             }
         },
         "next": [
@@ -349,8 +349,8 @@
         },
         "__mpe_code": {
             "position": {
-                "x": 3480,
-                "y": 381
+                "x": 4350,
+                "y": 268
             }
         },
         "next": [
@@ -385,8 +385,8 @@
         "post_wait_freezes": 1000,
         "__mpe_code": {
             "position": {
-                "x": 3480,
-                "y": 1247
+                "x": 4350,
+                "y": 487
             }
         }
     },
@@ -412,8 +412,8 @@
         "post_delay": 400,
         "__mpe_code": {
             "position": {
-                "x": 3480,
-                "y": 1496
+                "x": 4350,
+                "y": 736
             }
         }
     },
@@ -439,8 +439,8 @@
         },
         "__mpe_code": {
             "position": {
-                "x": 3453,
-                "y": 760
+                "x": 4350,
+                "y": 985
             }
         },
         "next": [
@@ -465,8 +465,8 @@
         },
         "__mpe_code": {
             "position": {
-                "x": 3770,
-                "y": 2528
+                "x": 4640,
+                "y": 2201
             }
         },
         "next": [
@@ -495,8 +495,8 @@
         "post_wait_freezes": 1000,
         "__mpe_code": {
             "position": {
-                "x": 2320,
-                "y": 445
+                "x": 3190,
+                "y": 2018
             }
         },
         "next": [
@@ -529,8 +529,8 @@
         },
         "__mpe_code": {
             "position": {
-                "x": 2610,
-                "y": 137
+                "x": 3480,
+                "y": 1452
             }
         },
         "next": [
@@ -560,8 +560,8 @@
         "post_wait_freezes": 1000,
         "__mpe_code": {
             "position": {
-                "x": 0,
-                "y": 5137
+                "x": 290,
+                "y": 4421
             }
         },
         "next": [
@@ -592,12 +592,11 @@
         "post_wait_freezes": 1000,
         "__mpe_code": {
             "position": {
-                "x": 33,
-                "y": 4489
+                "x": 580,
+                "y": 4421
             }
         },
         "next": [
-            "LobbyFlag",
             "Stage_Rift_Cleared"
         ],
         "interrupt": [
@@ -611,35 +610,49 @@
             "BackToLobby"
         ]
     },
-    "Stage_Rift_SelectRegion": {
+    "Stage_Rift_SwipeToDeepestFloor": {
         "recognition": {
             "type": "OCR",
             "param": {
                 "expected": [
-                    "Region",
-                    "^[0-9]+$"
+                    "Region"
                 ],
                 "roi": [
                     223,
                     146,
                     945,
                     334
-                ],
-                "order_by": "Horizontal"
+                ]
             }
         },
+        "pre_wait_freezes": 500,
+        "post_delay": 500,
         "action": {
-            "type": "Click",
-            "param": {}
+            "type": "Swipe",
+            "param": {
+                "begin": [
+                    81,
+                    641,
+                    1,
+                    1
+                ],
+                "end": [
+                    80,
+                    238,
+                    1,
+                    1
+                ],
+                "duration": 200
+            }
         },
         "__mpe_code": {
             "position": {
-                "x": 1160,
-                "y": 4284
+                "x": 1450,
+                "y": 4437
             }
         },
         "next": [
-            "Stage_Battle_Preparation"
+            "Stage_Rift_SelectLowestFloor"
         ]
     },
     "Stage_Battle_Exit": {
@@ -667,8 +680,8 @@
         "rate_limit": 5000,
         "__mpe_code": {
             "position": {
-                "x": 3202,
-                "y": 511
+                "x": 4060,
+                "y": 1734
             }
         },
         "next": [
@@ -704,8 +717,8 @@
         "timeout": 60000,
         "__mpe_code": {
             "position": {
-                "x": 2790,
-                "y": 785
+                "x": 4060,
+                "y": 2227
             }
         },
         "next": [
@@ -718,8 +731,8 @@
     "__mpe_external_Confirm_Stage": {
         "__mpe_code": {
             "position": {
-                "x": 2900,
-                "y": 2137
+                "x": 3770,
+                "y": 2810
             }
         }
     },
@@ -734,8 +747,8 @@
         },
         "__mpe_code": {
             "position": {
-                "x": 3183,
-                "y": 787
+                "x": 4060,
+                "y": 239
             }
         },
         "next": [
@@ -768,24 +781,24 @@
         "post_wait_freezes": 1000,
         "__mpe_code": {
             "position": {
-                "x": 3480,
-                "y": 1745
+                "x": 4350,
+                "y": 1204
             }
         }
     },
     "__mpe_external_LobbyFlag_Stage": {
         "__mpe_code": {
             "position": {
-                "x": 3770,
-                "y": 581
+                "x": 4640,
+                "y": 1631
             }
         }
     },
     "__mpe_external_BackToLobby_Stage": {
         "__mpe_code": {
             "position": {
-                "x": 3770,
-                "y": 1559
+                "x": 4640,
+                "y": 3090
             }
         }
     },
@@ -812,8 +825,8 @@
         },
         "__mpe_code": {
             "position": {
-                "x": 2609,
-                "y": 1810
+                "x": 3480,
+                "y": 2777
             }
         },
         "next": [
@@ -847,8 +860,8 @@
         "timeout": 60000,
         "__mpe_code": {
             "position": {
-                "x": 2427,
-                "y": 998
+                "x": 3480,
+                "y": 2161
             }
         },
         "next": [
@@ -863,8 +876,8 @@
     "__mpe_external_Loading_Stage": {
         "__mpe_code": {
             "position": {
-                "x": 3480,
-                "y": 1152
+                "x": 4350,
+                "y": 2309
             }
         }
     },
@@ -879,8 +892,8 @@
         },
         "__mpe_code": {
             "position": {
-                "x": 3080,
-                "y": 1149
+                "x": 4060,
+                "y": 981
             }
         },
         "next": [
@@ -904,8 +917,8 @@
         },
         "__mpe_code": {
             "position": {
-                "x": 428,
-                "y": 5579
+                "x": 0,
+                "y": 2928
             }
         },
         "next": [
@@ -939,15 +952,15 @@
         },
         "__mpe_code": {
             "position": {
-                "x": 560,
-                "y": 3389
+                "x": 1160,
+                "y": 4163
             }
         },
+        "next": [
+            "Stage_Rift_SwipeToDeepestFloor"
+        ],
         "interrupt": [
             "Stage_Rift_RedStone_Enter"
-        ],
-        "next": [
-            "Stage_Rift_SelectRegion"
         ]
     },
     "Stage_Rift_BlueStone": {
@@ -972,15 +985,15 @@
         },
         "__mpe_code": {
             "position": {
-                "x": 558,
-                "y": 3936
+                "x": 1160,
+                "y": 4588
             }
         },
+        "next": [
+            "Stage_Rift_SwipeToDeepestFloor"
+        ],
         "interrupt": [
             "Stage_Rift_BlueStone_Enter"
-        ],
-        "next": [
-            "Stage_Rift_SelectRegion"
         ]
     },
     "Stage_Rift_GreenStone": {
@@ -1005,12 +1018,12 @@
         },
         "__mpe_code": {
             "position": {
-                "x": 566,
-                "y": 4647
+                "x": 1160,
+                "y": 4867
             }
         },
         "next": [
-            "Stage_Rift_SelectRegion"
+            "Stage_Rift_SwipeToDeepestFloor"
         ],
         "interrupt": [
             "Stage_Rift_GreenStone_Enter"
@@ -1039,31 +1052,31 @@
         },
         "__mpe_code": {
             "position": {
-                "x": 580,
-                "y": 5328
+                "x": 870,
+                "y": 5271
             }
         },
         "next": [
             "Stage_Rift_YellowStone_Claimed"
         ],
         "interrupt": [
-            "Stage_Rift_YellowStone_Unclaimed"
+            "Stage_Rift_YellowStone_Enter"
         ]
     },
     "Stage_Rift_GachaShard": {
         "recognition": {
             "type": "OCR",
             "param": {
+                "expected": [
+                    "CRACKLIST",
+                    "CRACK",
+                    "C R A C K"
+                ],
                 "roi": [
                     130,
                     0,
                     220,
                     132
-                ],
-                "expected": [
-                    "CRACKLIST",
-                    "CRACK",
-                    "C R A C K"
                 ]
             }
         },
@@ -1073,8 +1086,8 @@
         },
         "__mpe_code": {
             "position": {
-                "x": 580,
-                "y": 3096
+                "x": 870,
+                "y": 3789
             }
         },
         "next": [
@@ -1100,14 +1113,15 @@
                 "order_by": "Horizontal"
             }
         },
+        "post_wait_freezes": 500,
         "action": {
             "type": "Click",
             "param": {}
         },
         "__mpe_code": {
             "position": {
-                "x": 870,
-                "y": 3726
+                "x": 1450,
+                "y": 3936
             }
         }
     },
@@ -1127,14 +1141,15 @@
                 "order_by": "Horizontal"
             }
         },
+        "post_wait_freezes": 500,
         "action": {
             "type": "Click",
             "param": {}
         },
         "__mpe_code": {
             "position": {
-                "x": 741,
-                "y": 4335
+                "x": 1450,
+                "y": 4942
             }
         }
     },
@@ -1163,12 +1178,12 @@
         },
         "__mpe_code": {
             "position": {
-                "x": 870,
-                "y": 5091
+                "x": 1160,
+                "y": 5146
             }
         }
     },
-    "Stage_Rift_YellowStone_Unclaimed": {
+    "Stage_Rift_YellowStone_Enter": {
         "recognition": {
             "type": "OCR",
             "param": {
@@ -1184,18 +1199,19 @@
                 "order_by": "Horizontal"
             }
         },
+        "post_wait_freezes": 500,
         "action": {
             "type": "Click",
             "param": {}
         },
         "__mpe_code": {
             "position": {
-                "x": 870,
-                "y": 5400
+                "x": 1160,
+                "y": 5455
             }
         },
         "next": [
-            "Stage_Rift_SelectRegion"
+            "Stage_Rift_SwipeToDeepestFloor"
         ]
     },
     "Stage_Rift_GachaShard_Claimed": {
@@ -1223,8 +1239,8 @@
         },
         "__mpe_code": {
             "position": {
-                "x": 870,
-                "y": 2859
+                "x": 1160,
+                "y": 3605
             }
         }
     },
@@ -1250,38 +1266,25 @@
         },
         "__mpe_code": {
             "position": {
-                "x": 870,
-                "y": 3168
+                "x": 1160,
+                "y": 3914
             }
         },
         "next": [
-            "Stage_Rift_SelectRegion"
+            "Stage_Rift_SwipeToDeepestFloor"
         ]
     },
     "Stage_Rift_Cleared": {
         "recognition": {
-            "type": "ColorMatch",
+            "type": "Custom",
             "param": {
                 "roi": [
-                    412,
-                    563,
-                    65,
-                    36
+                    5,
+                    552,
+                    1274,
+                    167
                 ],
-                "lower": [
-                    [
-                        236,
-                        236,
-                        235
-                    ]
-                ],
-                "upper": [
-                    [
-                        255,
-                        255,
-                        255
-                    ]
-                ]
+                "custom_recognition": "AllRiftCleared"
             }
         },
         "action": {
@@ -1290,8 +1293,8 @@
         },
         "__mpe_code": {
             "position": {
-                "x": 3480,
-                "y": 2724
+                "x": 4350,
+                "y": 3470
             }
         },
         "next": [
@@ -1324,8 +1327,8 @@
         "post_wait_freezes": 1000,
         "__mpe_code": {
             "position": {
-                "x": 2781,
-                "y": 1135
+                "x": 3770,
+                "y": 2426
             }
         }
     },
@@ -1344,15 +1347,80 @@
                 ]
             }
         },
+        "post_wait_freezes": 500,
         "action": {
             "type": "Click",
             "param": {}
         },
         "__mpe_code": {
             "position": {
-                "x": 830,
-                "y": 4725
+                "x": 1450,
+                "y": 5530
             }
         }
+    },
+    "Stage_Rift_SelectLowestFloor": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "F"
+                ],
+                "roi": [
+                    0,
+                    0,
+                    221,
+                    720
+                ],
+                "order_by": "Vertical",
+                "index": -1
+            }
+        },
+        "post_delay": 300,
+        "action": {
+            "type": "Click",
+            "param": {}
+        },
+        "__mpe_code": {
+            "position": {
+                "x": 1740,
+                "y": 4452
+            }
+        },
+        "next": [
+            "Stage_Rift_SelectRegion"
+        ]
+    },
+    "Stage_Rift_SelectRegion": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "Region",
+                    "^[0-9]+$"
+                ],
+                "roi": [
+                    223,
+                    146,
+                    945,
+                    334
+                ],
+                "order_by": "Horizontal",
+                "index": -1
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {}
+        },
+        "__mpe_code": {
+            "position": {
+                "x": 2030,
+                "y": 4452
+            }
+        },
+        "next": [
+            "Stage_Battle_Preparation"
+        ]
     }
 }

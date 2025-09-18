@@ -8,4 +8,5 @@ __all__ = [
     "SelectHighestLevelWish",
     "CheckShopItem",
     "RiftCleared",
+    "AllRiftCleared",
 ]

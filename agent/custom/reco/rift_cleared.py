@@ -3,7 +3,7 @@ from maa.agent.agent_server import AgentServer
 from maa.custom_recognition import CustomRecognition
 from maa.context import Context
 
-from utils import logger
+from utils import logger, parse_rift_floor_number
 
 
 @AgentServer.custom_recognition("RiftCleared")
@@ -80,8 +80,9 @@ class RiftCleared(CustomRecognition):
                 box=best_floor_detail.box, detail="Rift not cleared"
             )
 
-        claimed_floor_text = claimed_floor_detail.best_result.text
-        claimed_floor_number = self._parse_claimed_floor_number(claimed_floor_text)
+        claimed_floor_number = parse_rift_floor_number(
+            claimed_floor_detail.best_result.text
+        )
 
         if claimed_floor_number is None:
             logger.info(
@@ -121,19 +122,41 @@ class RiftCleared(CustomRecognition):
 
         return None
 
-    def _parse_claimed_floor_number(self, text: str) -> int:
-        """
-        Parse claimed floor number from text like "All Rewards for 28F Claimed"
-        Returns the number or None if not found
-        """
-        if not text:
-            return None
 
-        # Look for number followed by "F" in claimed text
-        pattern = r"(\d+)F"
-        match = re.search(pattern, text, re.IGNORECASE)
+@AgentServer.custom_recognition("AllRiftCleared")
+class AllRiftCleared(CustomRecognition):
+    def analyze(
+        self,
+        context: Context,
+        argv: CustomRecognition.AnalyzeArg,
+    ) -> CustomRecognition.AnalyzeResult:
 
-        if match:
-            return int(match.group(1))
+        node_name = argv.node_name + "_ClaimedFloor"
+        roi = [argv.roi[0], argv.roi[1], argv.roi[2], argv.roi[3]]
 
-        return None
+        detail = context.run_recognition(
+            node_name,
+            argv.image,
+            pipeline_override={
+                node_name: {
+                    "recognition": {
+                        "type": "OCR",
+                        "param": {
+                            "expected": ["Claimed"],
+                            "roi": roi,
+                        },
+                    }
+                }
+            },
+        )
+
+        if detail is None or len(detail.filterd_results) < 5:
+            logger.info(f"[{node_name}] All rifts are not cleared.")
+            return CustomRecognition.AnalyzeResult(
+                box=None, detail="All rifts are not cleared"
+            )
+
+        logger.info(f"[{node_name}] All rifts are cleared")
+        return CustomRecognition.AnalyzeResult(
+            box=detail.box, detail="All rifts are cleared"
+        )
