@@ -114,10 +114,17 @@
     },
     "Loading": {
         "recognition": {
-            "type": "TemplateMatch",
+            "type": "ColorMatch",
             "param": {
-                "template": [
-                    "loading-1.png"
+                "lower": [
+                    0,
+                    0,
+                    0
+                ],
+                "upper": [
+                    10,
+                    10,
+                    10
                 ]
             }
         },

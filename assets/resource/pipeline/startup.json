@@ -21,7 +21,7 @@
         "__mpe_code": {
             "position": {
                 "x": 0,
-                "y": 606
+                "y": 681
             }
         },
         "next": [
@@ -32,6 +32,7 @@
             "Startup_ProceedDownload",
             "Startup_Signin_Bonus_Claim",
             "ClosePopupX",
+            "Startup_Maintenance",
             "Startup_LaunchGame"
         ]
     },
@@ -49,7 +50,7 @@
         "__mpe_code": {
             "position": {
                 "x": 290,
-                "y": 856
+                "y": 1090
             }
         },
         "next": [
@@ -155,7 +156,7 @@
         "__mpe_code": {
             "position": {
                 "x": 580,
-                "y": 841
+                "y": 1075
             }
         }
     },
@@ -253,6 +254,33 @@
             "position": {
                 "x": 870,
                 "y": 0
+            }
+        }
+    },
+    "Startup_Maintenance": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    25,
+                    235,
+                    1242,
+                    190
+                ],
+                "expected": [
+                    "maintenance"
+                ]
+            }
+        },
+        "action": {
+            "type": "StopTask",
+            "param": {}
+        },
+        "focus": "Maintenance is in progress",
+        "__mpe_code": {
+            "position": {
+                "x": 290,
+                "y": 841
             }
         }
     }

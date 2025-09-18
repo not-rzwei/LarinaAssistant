@@ -28,8 +28,8 @@
         "post_wait_freezes": 1000,
         "__mpe_code": {
             "position": {
-                "x": 3190,
-                "y": 533
+                "x": 3480,
+                "y": 903
             }
         }
     },
@@ -47,8 +47,8 @@
         },
         "__mpe_code": {
             "position": {
-                "x": 3508,
-                "y": 432
+                "x": 1160,
+                "y": 0
             }
         },
         "next": [
@@ -69,8 +69,8 @@
         },
         "__mpe_code": {
             "position": {
-                "x": 3507,
-                "y": 635
+                "x": 3770,
+                "y": 321
             }
         },
         "next": [
@@ -91,8 +91,8 @@
         },
         "__mpe_code": {
             "position": {
-                "x": 3503,
-                "y": 853
+                "x": 3770,
+                "y": 1340
             }
         },
         "next": [
@@ -120,16 +120,18 @@
         },
         "__mpe_code": {
             "position": {
-                "x": 2030,
-                "y": 1238
+                "x": 2041,
+                "y": 1529
             }
         },
-        "next": [
-            "Stage_Battle_Entry"
-        ],
         "interrupt": [
             "Confirm",
-            "Stage_Alert_InventoryFull"
+            "Stage_Alert_InventoryFull",
+            "Stage_Squad_Deploy",
+            "Loading"
+        ],
+        "next": [
+            "Stage_Battle_InBattle"
         ]
     },
     "Stage_Battle_Preparation": {
@@ -156,8 +158,8 @@
         "pre_wait_freezes": 1000,
         "__mpe_code": {
             "position": {
-                "x": 1160,
-                "y": 1036
+                "x": 1450,
+                "y": 2327
             }
         },
         "next": [
@@ -188,8 +190,8 @@
         "post_wait_freezes": 1000,
         "__mpe_code": {
             "position": {
-                "x": 1450,
-                "y": 1113
+                "x": 1740,
+                "y": 2158
             }
         },
         "next": [
@@ -219,8 +221,8 @@
         "post_wait_freezes": 1000,
         "__mpe_code": {
             "position": {
-                "x": 1740,
-                "y": 1098
+                "x": 2030,
+                "y": 2143
             }
         },
         "next": [
@@ -271,42 +273,10 @@
         "pre_delay": 3000,
         "__mpe_code": {
             "position": {
-                "x": 2610,
-                "y": 1890
+                "x": 3039,
+                "y": 1320
             }
-        },
-        "next": [
-            "Stage_Battle_AutoToggle_Disable",
-            "Stage_Battle_AutoToggle"
-        ]
-    },
-    "Stage_Battle_Entry": {
-        "recognition": {
-            "type": "DirectHit",
-            "param": {}
-        },
-        "action": {
-            "type": "DoNothing",
-            "param": {}
-        },
-        "post_wait_freezes": 500,
-        "timeout": 60000,
-        "rate_limit": 5000,
-        "__mpe_code": {
-            "position": {
-                "x": 2320,
-                "y": 1864
-            }
-        },
-        "next": [
-            "Stage_Battle_Clear",
-            "Stage_Battle_Failed"
-        ],
-        "interrupt": [
-            "Stage_Battle_AutoToggle",
-            "Stage_Battle_Waiting",
-            "Loading"
-        ]
+        }
     },
     "Stage_Battle_Clear": {
         "recognition": {
@@ -330,8 +300,8 @@
         "post_delay": 400,
         "__mpe_code": {
             "position": {
-                "x": 2610,
-                "y": 2478
+                "x": 2900,
+                "y": 510
             }
         },
         "next": [
@@ -360,10 +330,13 @@
         },
         "__mpe_code": {
             "position": {
-                "x": 2610,
-                "y": 2259
+                "x": 2921,
+                "y": 865
             }
-        }
+        },
+        "next": [
+            "Stage_Battle_Exit"
+        ]
     },
     "Stage_Wish_Front": {
         "recognition": {
@@ -386,8 +359,8 @@
         },
         "__mpe_code": {
             "position": {
-                "x": 3190,
-                "y": 782
+                "x": 3480,
+                "y": 381
             }
         },
         "next": [
@@ -422,8 +395,8 @@
         "post_wait_freezes": 1000,
         "__mpe_code": {
             "position": {
-                "x": 580,
-                "y": 1794
+                "x": 3480,
+                "y": 1247
             }
         }
     },
@@ -449,8 +422,8 @@
         "post_delay": 400,
         "__mpe_code": {
             "position": {
-                "x": 580,
-                "y": 1545
+                "x": 3480,
+                "y": 1496
             }
         }
     },
@@ -476,8 +449,8 @@
         },
         "__mpe_code": {
             "position": {
-                "x": 508,
-                "y": 3087
+                "x": 3480,
+                "y": 684
             }
         },
         "next": [
@@ -493,7 +466,7 @@
             "type": "Custom",
             "param": {
                 "custom_recognition": "SelectBounty",
-                "custom_recognition_param": "Shade Of False Dreams IV"
+                "custom_recognition_param": "Shade Of False Dreams"
             }
         },
         "action": {
@@ -502,8 +475,8 @@
         },
         "__mpe_code": {
             "position": {
-                "x": 870,
-                "y": 2921
+                "x": 3770,
+                "y": 2528
             }
         },
         "next": [
@@ -532,8 +505,8 @@
         "post_wait_freezes": 1000,
         "__mpe_code": {
             "position": {
-                "x": 2030,
-                "y": 2292
+                "x": 2320,
+                "y": 445
             }
         },
         "next": [
@@ -566,15 +539,15 @@
         },
         "__mpe_code": {
             "position": {
-                "x": 2350,
-                "y": 2939
+                "x": 2610,
+                "y": 137
             }
         },
         "next": [
             "BackToLobby"
         ]
     },
-    "Stage_Rift_Entry": {
+    "Stage_Rift_Enter": {
         "recognition": {
             "type": "OCR",
             "param": {
@@ -598,26 +571,27 @@
         "__mpe_code": {
             "position": {
                 "x": 0,
-                "y": 219
+                "y": 5137
             }
         },
         "next": [
-            "Stage_Rift_Main"
+            "Stage_Rift_Front"
         ]
     },
-    "Stage_Rift_Main": {
+    "Stage_Rift_Front": {
         "recognition": {
             "type": "OCR",
             "param": {
                 "expected": [
-                    "Rift Explore",
-                    "Rift"
+                    "CRACKLIST",
+                    "CRACK",
+                    "C R A C K"
                 ],
                 "roi": [
-                    173,
-                    17,
-                    169,
-                    72
+                    130,
+                    0,
+                    220,
+                    132
                 ]
             }
         },
@@ -625,45 +599,26 @@
             "type": "DoNothing",
             "param": {}
         },
+        "post_wait_freezes": 1000,
         "__mpe_code": {
             "position": {
-                "x": 290,
-                "y": 234
+                "x": 33,
+                "y": 4489
             }
         },
         "next": [
-            "Stage_Rift_SelectUnclaimed"
-        ]
-    },
-    "Stage_Rift_SelectUnclaimed": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "expected": [
-                    "Unclaimed"
-                ],
-                "roi": [
-                    11,
-                    549,
-                    1237,
-                    171
-                ],
-                "order_by": "Horizontal"
-            }
-        },
-        "action": {
-            "type": "Click",
-            "param": {}
-        },
-        "post_wait_freezes": 500,
-        "__mpe_code": {
-            "position": {
-                "x": 580,
-                "y": 204
-            }
-        },
-        "next": [
-            "Stage_Rift_SelectRegion"
+            "LobbyFlag",
+            "Stage_Rift_Cleared"
+        ],
+        "interrupt": [
+            "Stage_Rift_GachaShard",
+            "Stage_Rift_RedStone",
+            "Stage_Rift_BlueStone",
+            "Stage_Rift_GreenStone",
+            "Stage_Rift_YellowStone",
+            "Stage_Enter",
+            "Stage_Rift_Enter",
+            "BackToLobby"
         ]
     },
     "Stage_Rift_SelectRegion": {
@@ -689,8 +644,8 @@
         },
         "__mpe_code": {
             "position": {
-                "x": 870,
-                "y": 219
+                "x": 1160,
+                "y": 4284
             }
         },
         "next": [
@@ -703,7 +658,8 @@
             "param": {
                 "expected": [
                     "Exit",
-                    "Complete"
+                    "Complete",
+                    "Next"
                 ],
                 "roi": [
                     944,
@@ -721,13 +677,15 @@
         "rate_limit": 5000,
         "__mpe_code": {
             "position": {
-                "x": 2900,
-                "y": 2473
+                "x": 3164,
+                "y": 394
             }
         },
         "next": [
             "Stage_Wish_Front",
-            "Stage_Bounty_Front"
+            "Stage_Bounty_Front",
+            "LobbyFlag",
+            "Stage_Battle_Exit"
         ],
         "interrupt": [
             "Loading"
@@ -755,19 +713,16 @@
         "post_delay": 400,
         "__mpe_code": {
             "position": {
-                "x": 2900,
-                "y": 1828
+                "x": 2805,
+                "y": 1570
             }
-        },
-        "next": [
-            "Stage_Battle_Entry"
-        ]
+        }
     },
     "__mpe_external_Confirm_Stage": {
         "__mpe_code": {
             "position": {
-                "x": 2610,
-                "y": 1292
+                "x": 2900,
+                "y": 2137
             }
         }
     },
@@ -782,8 +737,8 @@
         },
         "__mpe_code": {
             "position": {
-                "x": 2900,
-                "y": 677
+                "x": 3190,
+                "y": 650
             }
         },
         "next": [
@@ -816,24 +771,24 @@
         "post_wait_freezes": 1000,
         "__mpe_code": {
             "position": {
-                "x": 3190,
-                "y": 1407
+                "x": 3480,
+                "y": 1745
             }
         }
     },
     "__mpe_external_LobbyFlag_Stage": {
         "__mpe_code": {
             "position": {
-                "x": 3480,
-                "y": 1398
+                "x": 3770,
+                "y": 581
             }
         }
     },
     "__mpe_external_BackToLobby_Stage": {
         "__mpe_code": {
             "position": {
-                "x": 3480,
-                "y": 1283
+                "x": 3770,
+                "y": 1559
             }
         }
     },
@@ -860,8 +815,8 @@
         },
         "__mpe_code": {
             "position": {
-                "x": 2320,
-                "y": 1230
+                "x": 2609,
+                "y": 1810
             }
         },
         "next": [
@@ -872,26 +827,7 @@
             "BackToLobby"
         ]
     },
-    "Stage_Battle_AutoToggle_Disable": {
-        "recognition": {
-            "type": "DirectHit",
-            "param": {}
-        },
-        "action": {
-            "type": "Custom",
-            "param": {
-                "custom_action": "DisableNode",
-                "custom_action_param": "Stage_Battle_AutoToggle"
-            }
-        },
-        "__mpe_code": {
-            "position": {
-                "x": 2900,
-                "y": 2077
-            }
-        }
-    },
-    "Stage_Battle_Waiting": {
+    "Stage_Battle_InBattle": {
         "recognition": {
             "type": "OCR",
             "param": {
@@ -911,23 +847,28 @@
             "type": "DoNothing",
             "param": {}
         },
-        "timeout": 30000,
+        "timeout": 60000,
         "post_wait_freezes": 5000,
         "__mpe_code": {
             "position": {
-                "x": 2610,
-                "y": 1581
+                "x": 2592,
+                "y": 1309
             }
         },
         "next": [
-            "Stage_Battle_Waiting"
+            "Stage_Battle_Clear",
+            "Stage_Battle_Failed",
+            "Stage_Battle_InBattle"
+        ],
+        "interrupt": [
+            "Stage_Battle_AutoToggle"
         ]
     },
     "__mpe_external_Loading_Stage": {
         "__mpe_code": {
             "position": {
-                "x": 3190,
-                "y": 1656
+                "x": 3480,
+                "y": 1152
             }
         }
     },
@@ -942,8 +883,8 @@
         },
         "__mpe_code": {
             "position": {
-                "x": 290,
-                "y": 1839
+                "x": 3190,
+                "y": 1039
             }
         },
         "next": [
@@ -953,6 +894,540 @@
             "Stage_Enter",
             "Stage_Bounty_Enter",
             "Stage_Bounty_DangerLevel_Select",
+            "BackToLobby"
+        ]
+    },
+    "Stage_Rift_Entry": {
+        "recognition": {
+            "type": "DirectHit",
+            "param": {}
+        },
+        "action": {
+            "type": "DoNothing",
+            "param": {}
+        },
+        "__mpe_code": {
+            "position": {
+                "x": 428,
+                "y": 5579
+            }
+        },
+        "next": [
+            "Stage_Rift_Front"
+        ],
+        "interrupt": [
+            "Stage_Enter",
+            "Stage_Rift_Enter",
+            "BackToLobby"
+        ]
+    },
+    "Stage_Rift_RedStone": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "CRACKLIST",
+                    "CRACK",
+                    "C R A C K"
+                ],
+                "roi": [
+                    130,
+                    0,
+                    220,
+                    132
+                ]
+            }
+        },
+        "action": {
+            "type": "DoNothing",
+            "param": {}
+        },
+        "__mpe_code": {
+            "position": {
+                "x": 580,
+                "y": 3654
+            }
+        },
+        "next": [
+            "Stage_Rift_RedStone_Claimed"
+        ],
+        "interrupt": [
+            "Stage_Rift_RedStone_Unclaimed"
+        ]
+    },
+    "Stage_Rift_BlueStone": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "CRACKLIST",
+                    "CRACK",
+                    "C R A C K"
+                ],
+                "roi": [
+                    130,
+                    0,
+                    220,
+                    132
+                ]
+            }
+        },
+        "action": {
+            "type": "DoNothing",
+            "param": {}
+        },
+        "__mpe_code": {
+            "position": {
+                "x": 580,
+                "y": 4212
+            }
+        },
+        "next": [
+            "Stage_Rift_BlueStone_Claimed"
+        ],
+        "interrupt": [
+            "Stage_Rift_BlueStone_Unclaimed"
+        ]
+    },
+    "Stage_Rift_GreenStone": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "CRACKLIST",
+                    "CRACK",
+                    "C R A C K"
+                ],
+                "roi": [
+                    130,
+                    0,
+                    220,
+                    132
+                ]
+            }
+        },
+        "action": {
+            "type": "DoNothing",
+            "param": {}
+        },
+        "__mpe_code": {
+            "position": {
+                "x": 566,
+                "y": 4647
+            }
+        },
+        "next": [
+            "Stage_Rift_GreenStone_Claimed"
+        ],
+        "interrupt": [
+            "Stage_Rift_GreenStone_Unclaimed"
+        ]
+    },
+    "Stage_Rift_YellowStone": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "CRACKLIST",
+                    "CRACK",
+                    "C R A C K"
+                ],
+                "roi": [
+                    130,
+                    0,
+                    220,
+                    132
+                ]
+            }
+        },
+        "action": {
+            "type": "DoNothing",
+            "param": {}
+        },
+        "__mpe_code": {
+            "position": {
+                "x": 580,
+                "y": 5328
+            }
+        },
+        "next": [
+            "Stage_Rift_YellowStone_Claimed"
+        ],
+        "interrupt": [
+            "Stage_Rift_YellowStone_Unclaimed"
+        ]
+    },
+    "Stage_Rift_GachaShard": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "CRACKLIST",
+                    "CRACK",
+                    "C R A C K"
+                ],
+                "roi": [
+                    130,
+                    0,
+                    220,
+                    132
+                ]
+            }
+        },
+        "action": {
+            "type": "DoNothing",
+            "param": {}
+        },
+        "__mpe_code": {
+            "position": {
+                "x": 580,
+                "y": 3096
+            }
+        },
+        "next": [
+            "Stage_Rift_GachaShard_Claimed"
+        ],
+        "interrupt": [
+            "Stage_Rift_GachaShard_Unclaimed"
+        ]
+    },
+    "Stage_Rift_RedStone_Claimed": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "Claimed"
+                ],
+                "roi": [
+                    65,
+                    181,
+                    225,
+                    507
+                ],
+                "order_by": "Horizontal"
+            }
+        },
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "DisableNode",
+                "custom_action_param": "Stage_Rift_RedStone"
+            }
+        },
+        "__mpe_code": {
+            "position": {
+                "x": 870,
+                "y": 3417
+            }
+        }
+    },
+    "Stage_Rift_RedStone_Unclaimed": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "Unclaimed"
+                ],
+                "roi": [
+                    65,
+                    181,
+                    225,
+                    507
+                ],
+                "order_by": "Horizontal"
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {}
+        },
+        "__mpe_code": {
+            "position": {
+                "x": 870,
+                "y": 3726
+            }
+        },
+        "next": [
+            "Stage_Rift_SelectRegion"
+        ]
+    },
+    "Stage_Rift_BlueStone_Claimed": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "Claimed"
+                ],
+                "roi": [
+                    290,
+                    181,
+                    225,
+                    507
+                ],
+                "order_by": "Horizontal"
+            }
+        },
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "DisableNode",
+                "custom_action_param": "Stage_Rift_BlueStone"
+            }
+        },
+        "__mpe_code": {
+            "position": {
+                "x": 870,
+                "y": 3975
+            }
+        }
+    },
+    "Stage_Rift_BlueStone_Unclaimed": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "Unclaimed"
+                ],
+                "roi": [
+                    290,
+                    181,
+                    225,
+                    507
+                ],
+                "order_by": "Horizontal"
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {}
+        },
+        "__mpe_code": {
+            "position": {
+                "x": 870,
+                "y": 4284
+            }
+        },
+        "next": [
+            "Stage_Rift_SelectRegion"
+        ]
+    },
+    "Stage_Rift_GreenStone_Claimed": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "Claimed"
+                ],
+                "roi": [
+                    515,
+                    181,
+                    225,
+                    507
+                ],
+                "order_by": "Horizontal"
+            }
+        },
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "DisableNode",
+                "custom_action_param": "Stage_Rift_GreenStone"
+            }
+        },
+        "__mpe_code": {
+            "position": {
+                "x": 870,
+                "y": 4533
+            }
+        }
+    },
+    "Stage_Rift_GreenStone_Unclaimed": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "Unclaimed"
+                ],
+                "roi": [
+                    515,
+                    181,
+                    225,
+                    507
+                ],
+                "order_by": "Horizontal"
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {}
+        },
+        "__mpe_code": {
+            "position": {
+                "x": 870,
+                "y": 4842
+            }
+        },
+        "next": [
+            "Stage_Rift_SelectRegion"
+        ]
+    },
+    "Stage_Rift_YellowStone_Claimed": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "Claimed"
+                ],
+                "roi": [
+                    740,
+                    181,
+                    225,
+                    507
+                ],
+                "order_by": "Horizontal"
+            }
+        },
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "DisableNode",
+                "custom_action_param": "Stage_Rift_YellowStone"
+            }
+        },
+        "__mpe_code": {
+            "position": {
+                "x": 870,
+                "y": 5091
+            }
+        }
+    },
+    "Stage_Rift_YellowStone_Unclaimed": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "Unclaimed"
+                ],
+                "roi": [
+                    740,
+                    181,
+                    225,
+                    507
+                ],
+                "order_by": "Horizontal"
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {}
+        },
+        "__mpe_code": {
+            "position": {
+                "x": 870,
+                "y": 5400
+            }
+        },
+        "next": [
+            "Stage_Rift_SelectRegion"
+        ]
+    },
+    "Stage_Rift_GachaShard_Claimed": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "Claimed"
+                ],
+                "roi": [
+                    965,
+                    181,
+                    225,
+                    507
+                ],
+                "order_by": "Horizontal"
+            }
+        },
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "DisableNode",
+                "custom_action_param": "Stage_Rift_GachaShard"
+            }
+        },
+        "__mpe_code": {
+            "position": {
+                "x": 870,
+                "y": 2859
+            }
+        }
+    },
+    "Stage_Rift_GachaShard_Unclaimed": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "Unclaimed"
+                ],
+                "roi": [
+                    965,
+                    181,
+                    225,
+                    507
+                ],
+                "order_by": "Horizontal"
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {}
+        },
+        "__mpe_code": {
+            "position": {
+                "x": 870,
+                "y": 3168
+            }
+        },
+        "next": [
+            "Stage_Rift_SelectRegion"
+        ]
+    },
+    "Stage_Rift_Cleared": {
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": [
+                    412,
+                    563,
+                    65,
+                    36
+                ],
+                "lower": [
+                    [
+                        236,
+                        236,
+                        235
+                    ]
+                ],
+                "upper": [
+                    [
+                        255,
+                        255,
+                        255
+                    ]
+                ]
+            }
+        },
+        "action": {
+            "type": "DoNothing",
+            "param": {}
+        },
+        "__mpe_code": {
+            "position": {
+                "x": 3480,
+                "y": 2724
+            }
+        },
+        "next": [
             "BackToLobby"
         ]
     }
