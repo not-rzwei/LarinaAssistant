@@ -118,20 +118,22 @@
             "type": "Click",
             "param": {}
         },
+        "timeout": 60000,
+        "rate_limit": 3000,
         "__mpe_code": {
             "position": {
-                "x": 2041,
-                "y": 1529
+                "x": 1998,
+                "y": 1536
             }
         },
+        "next": [
+            "Stage_Battle_InBattle",
+            "Stage_Squad_Deploy"
+        ],
         "interrupt": [
             "Confirm",
             "Stage_Alert_InventoryFull",
-            "Stage_Squad_Deploy",
             "Loading"
-        ],
-        "next": [
-            "Stage_Battle_InBattle"
         ]
     },
     "Stage_Battle_Preparation": {
@@ -190,8 +192,8 @@
         "post_wait_freezes": 1000,
         "__mpe_code": {
             "position": {
-                "x": 1740,
-                "y": 2158
+                "x": 1721,
+                "y": 2161
             }
         },
         "next": [
@@ -203,7 +205,17 @@
             "type": "OCR",
             "param": {
                 "expected": [
-                    "[oO0]1"
+                    "01"
+                ],
+                "replace": [
+                    [
+                        "o",
+                        "0"
+                    ],
+                    [
+                        "O",
+                        "0"
+                    ]
                 ],
                 "roi": [
                     1120,
@@ -234,47 +246,29 @@
     },
     "Stage_Battle_AutoToggle": {
         "recognition": {
-            "type": "ColorMatch",
+            "type": "TemplateMatch",
             "param": {
-                "lower": [
-                    [
-                        79,
-                        87,
-                        96
-                    ]
+                "template": [
+                    "auto-button.png"
                 ],
-                "upper": [
-                    [
-                        237,
-                        237,
-                        237
-                    ]
-                ],
-                "method": 4,
+                "green_mask": true,
                 "roi": [
-                    115,
-                    41,
-                    12,
-                    19
+                    16,
+                    5,
+                    273,
+                    93
                 ]
             }
         },
         "action": {
             "type": "Click",
-            "param": {
-                "target": [
-                    94,
-                    30,
-                    33,
-                    37
-                ]
-            }
+            "param": {}
         },
-        "pre_delay": 3000,
+        "post_wait_freezes": 1000,
         "__mpe_code": {
             "position": {
-                "x": 3039,
-                "y": 1320
+                "x": 3038,
+                "y": 1319
             }
         }
     },
@@ -449,8 +443,8 @@
         },
         "__mpe_code": {
             "position": {
-                "x": 3480,
-                "y": 684
+                "x": 3453,
+                "y": 760
             }
         },
         "next": [
@@ -526,10 +520,10 @@
                     "O"
                 ],
                 "roi": [
-                    848,
-                    582,
-                    129,
-                    138
+                    889,
+                    622,
+                    68,
+                    83
                 ]
             }
         },
@@ -673,12 +667,12 @@
             "type": "Click",
             "param": {}
         },
-        "timeout": 30000,
+        "timeout": 60000,
         "rate_limit": 5000,
         "__mpe_code": {
             "position": {
-                "x": 3164,
-                "y": 394
+                "x": 3202,
+                "y": 511
             }
         },
         "next": [
@@ -711,12 +705,19 @@
             "param": {}
         },
         "post_delay": 400,
+        "timeout": 60000,
         "__mpe_code": {
             "position": {
-                "x": 2805,
-                "y": 1570
+                "x": 2790,
+                "y": 785
             }
-        }
+        },
+        "next": [
+            "Stage_Battle_InBattle"
+        ],
+        "interrupt": [
+            "Loading"
+        ]
     },
     "__mpe_external_Confirm_Stage": {
         "__mpe_code": {
@@ -737,8 +738,8 @@
         },
         "__mpe_code": {
             "position": {
-                "x": 3190,
-                "y": 650
+                "x": 3183,
+                "y": 787
             }
         },
         "next": [
@@ -848,20 +849,19 @@
             "param": {}
         },
         "timeout": 60000,
-        "post_wait_freezes": 5000,
         "__mpe_code": {
             "position": {
-                "x": 2592,
-                "y": 1309
+                "x": 2427,
+                "y": 998
             }
         },
         "next": [
             "Stage_Battle_Clear",
-            "Stage_Battle_Failed",
-            "Stage_Battle_InBattle"
+            "Stage_Battle_Failed"
         ],
         "interrupt": [
-            "Stage_Battle_AutoToggle"
+            "Stage_Battle_AutoToggle",
+            "Stage_Battle_Waiting"
         ]
     },
     "__mpe_external_Loading_Stage": {
@@ -883,8 +883,8 @@
         },
         "__mpe_code": {
             "position": {
-                "x": 3190,
-                "y": 1039
+                "x": 3080,
+                "y": 1149
             }
         },
         "next": [
@@ -1430,5 +1430,36 @@
         "next": [
             "BackToLobby"
         ]
+    },
+    "Stage_Battle_Waiting": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "battle-waiting-1.png",
+                    "battle-waiting-2.png"
+                ],
+                "roi": [
+                    0,
+                    0,
+                    311,
+                    192
+                ],
+                "threshold": [
+                    0.6
+                ]
+            }
+        },
+        "action": {
+            "type": "DoNothing",
+            "param": {}
+        },
+        "post_wait_freezes": 1000,
+        "__mpe_code": {
+            "position": {
+                "x": 2781,
+                "y": 1135
+            }
+        }
     }
 }

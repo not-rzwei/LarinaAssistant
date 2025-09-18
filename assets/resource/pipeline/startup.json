@@ -21,18 +21,21 @@
         "__mpe_code": {
             "position": {
                 "x": 0,
-                "y": 681
+                "y": 752
             }
         },
         "next": [
-            "LobbyFlag",
-            "Startup_EnterGame"
+            "LobbyFlag"
         ],
         "interrupt": [
-            "Startup_ProceedDownload",
             "Startup_Signin_Bonus_Claim",
             "ClosePopupX",
             "Startup_Maintenance",
+            "Startup_ProceedDownload",
+            "Startup_Wait",
+            "Startup_EnterGame",
+            "Startup_Blank_Loading",
+            "Loading",
             "Startup_LaunchGame"
         ]
     },
@@ -50,7 +53,7 @@
         "__mpe_code": {
             "position": {
                 "x": 290,
-                "y": 1090
+                "y": 1120
             }
         },
         "next": [
@@ -81,14 +84,10 @@
         "post_delay": 800,
         "__mpe_code": {
             "position": {
-                "x": 290,
-                "y": 171
+                "x": 288,
+                "y": 189
             }
-        },
-        "next": [
-            "Startup_EnterGame",
-            "Startup_GameLoading"
-        ]
+        }
     },
     "Startup_ProceedDownload": {
         "recognition": {
@@ -111,13 +110,13 @@
         },
         "__mpe_code": {
             "position": {
-                "x": 290,
-                "y": 491
+                "x": 310,
+                "y": 489
             }
         },
         "next": [
-            "Confirm",
-            "Startup_ProceedDownload"
+            "Startup_ProceedDownload",
+            "Confirm"
         ]
     },
     "Startup_Signin_Bonus_Claim": {
@@ -156,7 +155,7 @@
         "__mpe_code": {
             "position": {
                 "x": 580,
-                "y": 1075
+                "y": 1105
             }
         }
     },
@@ -167,34 +166,6 @@
                 "y": 784
             }
         }
-    },
-    "Startup_GameLoading": {
-        "recognition": {
-            "type": "DirectHit",
-            "param": {}
-        },
-        "action": {
-            "type": "DoNothing",
-            "param": {}
-        },
-        "timeout": 60000,
-        "post_wait_freezes": 300,
-        "rate_limit": 5000,
-        "__mpe_code": {
-            "position": {
-                "x": 580,
-                "y": 171
-            }
-        },
-        "next": [
-            "LobbyFlag"
-        ],
-        "interrupt": [
-            "Startup_Blank_Loading",
-            "Loading",
-            "Startup_Signin_Bonus_Claim",
-            "ClosePopupX"
-        ]
     },
     "__mpe_external_Confirm_Startup": {
         "__mpe_code": {
@@ -268,19 +239,62 @@
                     190
                 ],
                 "expected": [
-                    "maintenance"
+                    "maintenance",
+                    "app update"
                 ]
             }
         },
         "action": {
-            "type": "StopTask",
-            "param": {}
+            "type": "StopApp",
+            "param": {
+                "package": "com.GentleManiac.HorizonWalker"
+            }
         },
         "focus": "Maintenance is in progress",
         "__mpe_code": {
             "position": {
                 "x": 290,
                 "y": 841
+            }
+        },
+        "next": [
+            "Startup_Stop"
+        ]
+    },
+    "Startup_Stop": {
+        "recognition": {
+            "type": "DirectHit",
+            "param": {}
+        },
+        "action": {
+            "type": "StopTask",
+            "param": {}
+        },
+        "__mpe_code": {
+            "position": {
+                "x": 580,
+                "y": 901
+            }
+        }
+    },
+    "Startup_Wait": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "Downloading",
+                    "Updating"
+                ]
+            }
+        },
+        "action": {
+            "type": "DoNothing",
+            "param": {}
+        },
+        "__mpe_code": {
+            "position": {
+                "x": 290,
+                "y": 1309
             }
         }
     }

@@ -36,8 +36,8 @@
             "check": true
         },
         {
-            "name": "Fairy Mall",
-            "entry": "Mall_Entry",
+            "name": "Collect Mail",
+            "entry": "Lobby_Mail_Entry",
             "check": true
         }
     ],

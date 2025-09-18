@@ -17,13 +17,15 @@ class Floor(Enum):
 
 
 class BossInfo:
-    def __init__(self, floors: Floor, recognition: List[str]):
+    def __init__(self, floors: List[Floor], recognition: List[str]):
         self.floors = floors
         self.recognition = recognition
 
 
 bounty_map = {
-    "Shade Of False Dreams IV": BossInfo(floors=Floor.IV, recognition=["Shade"]),
+    "Shade Of False Dreams": BossInfo(
+        floors=[Floor.III, Floor.IV], recognition=["Shade"]
+    ),
 }
 
 
@@ -55,37 +57,41 @@ class SelectBounty(CustomRecognition):
             f"[SelectBounty] bounty_info: floors={bounty_info.floors}, recognition={bounty_info.recognition}"
         )
 
-        # select floor
-        floor_node_name = node_name + "_" + str(bounty_info.floors)
-        logger.info(f"[SelectBounty] floor_node_name: {floor_node_name}")
-        floor_detail = context.run_recognition(
-            floor_node_name,
-            argv.image,
-            pipeline_override={
-                floor_node_name: {
-                    "recognition": {
-                        "type": "TemplateMatch",
-                        "param": {
-                            "roi": [0, 185, 214, 483],
-                            "template": [
-                                "stage/bounty-floor-"
-                                + bounty_info.floors.value
-                                + ".png"
-                            ],
-                            "order_by": "Score",
+        # select the higest floor available, if none is available, select the lowest floor
+        highest_floor = None
+        for floor in bounty_info.floors:
+            floor_node_name = node_name + "_" + floor.value
+            floor_detail = context.run_recognition(
+                floor_node_name,
+                argv.image,
+                pipeline_override={
+                    floor_node_name: {
+                        "recognition": {
+                            "type": "TemplateMatch",
+                            "param": {
+                                "roi": [0, 185, 214, 483],
+                                "template": [
+                                    "stage/bounty-floor-" + floor.value + ".png"
+                                ],
+                                "order_by": "Score",
+                            },
                         },
-                    },
-                }
-            },
-        )
+                    }
+                },
+            )
 
-        if floor_detail == None:
-            logger.info("[SelectBounty] Floor not found")
-            return CustomRecognition.AnalyzeResult(box=None, detail="Floor not found")
+            if floor_detail is None or floor_detail.box is None:
+                continue
 
-        logger.info(f"[SelectBounty] Floor found at: {floor_detail.box}")
+            highest_floor = floor_detail
+
+        if highest_floor is None:
+            logger.info("[SelectBounty] No floor found")
+            return CustomRecognition.AnalyzeResult(box=None, detail="No floor found")
+
+        logger.info(f"[SelectBounty] Floor found at: {highest_floor.box}")
         click_floor_job = context.tasker.controller.post_click(
-            floor_detail.box.x, floor_detail.box.y
+            highest_floor.box.x, highest_floor.box.y
         )
         click_floor_job.wait()
         logger.info("[SelectBounty] Clicked floor, waiting for boss selection...")

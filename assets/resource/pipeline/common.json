@@ -114,17 +114,16 @@
     },
     "Loading": {
         "recognition": {
-            "type": "ColorMatch",
+            "type": "TemplateMatch",
             "param": {
-                "lower": [
-                    0,
-                    0,
-                    0
+                "template": [
+                    "loading-1.png"
                 ],
-                "upper": [
-                    10,
-                    10,
-                    10
+                "roi": [
+                    817,
+                    445,
+                    462,
+                    274
                 ]
             }
         },

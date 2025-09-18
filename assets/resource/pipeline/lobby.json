@@ -26,11 +26,11 @@
             "type": "Click",
             "param": {}
         },
-        "post_wait_freezes": 3000,
+        "post_delay": 1000,
         "__mpe_code": {
             "position": {
-                "x": 574,
-                "y": 351
+                "x": 580,
+                "y": 809
             }
         }
     },
@@ -39,7 +39,13 @@
             "type": "OCR",
             "param": {
                 "expected": [
-                    "^Receive.*Tribute$"
+                    "Receive"
+                ],
+                "roi": [
+                    702,
+                    517,
+                    293,
+                    157
                 ]
             }
         },
@@ -47,16 +53,12 @@
             "type": "Click",
             "param": {}
         },
-        "post_wait_freezes": 1000,
         "__mpe_code": {
             "position": {
                 "x": 870,
-                "y": 0
+                "y": 458
             }
-        },
-        "next": [
-            "TouchToContinue"
-        ]
+        }
     },
     "Lobby_Mail_Claim": {
         "recognition": {
@@ -75,7 +77,7 @@
         "__mpe_code": {
             "position": {
                 "x": 580,
-                "y": 2082
+                "y": 0
             }
         }
     },
@@ -96,7 +98,7 @@
         "__mpe_code": {
             "position": {
                 "x": 580,
-                "y": 1863
+                "y": 219
             }
         }
     },
@@ -112,7 +114,7 @@
         "__mpe_code": {
             "position": {
                 "x": 0,
-                "y": 1893
+                "y": 540
             }
         },
         "next": [
@@ -127,7 +129,7 @@
         "__mpe_code": {
             "position": {
                 "x": 580,
-                "y": 774
+                "y": 1028
             }
         }
     },
@@ -153,8 +155,8 @@
         "post_wait_freezes": 3000,
         "__mpe_code": {
             "position": {
-                "x": 296,
-                "y": 409
+                "x": 290,
+                "y": 1949
             }
         }
     },
@@ -189,7 +191,7 @@
         "__mpe_code": {
             "position": {
                 "x": 870,
-                "y": 1564
+                "y": 1174
             }
         },
         "next": [
@@ -230,7 +232,7 @@
         "__mpe_code": {
             "position": {
                 "x": 870,
-                "y": 1285
+                "y": 1453
             }
         },
         "next": [
@@ -263,7 +265,7 @@
         "__mpe_code": {
             "position": {
                 "x": 1160,
-                "y": 1578
+                "y": 1632
             }
         }
     },
@@ -299,7 +301,7 @@
         "__mpe_code": {
             "position": {
                 "x": 580,
-                "y": 869
+                "y": 1834
             }
         },
         "next": [
@@ -349,7 +351,7 @@
         "__mpe_code": {
             "position": {
                 "x": 870,
-                "y": 493
+                "y": 1981
             }
         },
         "next": [
@@ -359,8 +361,8 @@
     "__mpe_external_LobbyFlag_Lobby": {
         "__mpe_code": {
             "position": {
-                "x": 870,
-                "y": 772
+                "x": 1160,
+                "y": 573
             }
         }
     },
@@ -376,7 +378,7 @@
         "__mpe_code": {
             "position": {
                 "x": 290,
-                "y": 273
+                "y": 730
             }
         },
         "next": [
@@ -391,7 +393,7 @@
         "__mpe_code": {
             "position": {
                 "x": 1160,
-                "y": 617
+                "y": 1191
             }
         }
     },
@@ -399,7 +401,7 @@
         "__mpe_code": {
             "position": {
                 "x": 1160,
-                "y": 184
+                "y": 802
             }
         }
     },
@@ -425,12 +427,16 @@
         },
         "__mpe_code": {
             "position": {
-                "x": 870,
-                "y": 219
+                "x": 901,
+                "y": 787
             }
         },
         "next": [
-            "ClosePopupX"
+            "LobbyFlag"
+        ],
+        "interrupt": [
+            "ClosePopupX",
+            "TouchToContinue"
         ]
     },
     "Lobby_Tribute_Popup": {
@@ -455,16 +461,14 @@
         "__mpe_code": {
             "position": {
                 "x": 580,
-                "y": 109
+                "y": 590
             }
         },
-        "next": [
-            "LobbyFlag"
-        ],
         "interrupt": [
-            "Lobby_Tribute_NoSupplies",
-            "Lobby_Tribute_Claim",
-            "TouchToContinue"
+            "Lobby_Tribute_Claim"
+        ],
+        "next": [
+            "Lobby_Tribute_NoSupplies"
         ]
     },
     "Lobby_Mail_Enter": {
@@ -491,8 +495,8 @@
         "post_wait_freezes": 3000,
         "__mpe_code": {
             "position": {
-                "x": 290,
-                "y": 2082
+                "x": 302,
+                "y": 403
             }
         }
     },
@@ -518,8 +522,8 @@
         },
         "__mpe_code": {
             "position": {
-                "x": 290,
-                "y": 1863
+                "x": 306,
+                "y": 130
             }
         },
         "next": [
@@ -543,8 +547,8 @@
         },
         "__mpe_code": {
             "position": {
-                "x": -46,
-                "y": 495
+                "x": 0,
+                "y": 1994
             }
         },
         "next": [
@@ -577,8 +581,8 @@
         },
         "__mpe_code": {
             "position": {
-                "x": 114,
-                "y": 731
+                "x": 290,
+                "y": 1623
             }
         },
         "next": [
@@ -621,7 +625,7 @@
         "__mpe_code": {
             "position": {
                 "x": 580,
-                "y": 1321
+                "y": 1314
             }
         },
         "next": [
@@ -662,7 +666,7 @@
         "__mpe_code": {
             "position": {
                 "x": 870,
-                "y": 1036
+                "y": 1732
             }
         }
     }
