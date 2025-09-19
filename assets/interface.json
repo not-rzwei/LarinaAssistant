@@ -31,7 +31,17 @@
         },
         {
             "name": "Devotion Reward",
-            "entry": "Lobby_Tribute_Entry"
+            "entry": "Lobby_Tribute_Entry",
+            "option": [
+                "Devotion Reward Threshold"
+            ]
+        },
+        {
+            "name": "Special Ops Reward",
+            "entry": "Lobby_SpecialOps_Entry",
+            "option": [
+                "Special Ops Reward Threshold"
+            ]
         },
         {
             "name": "Mailbox",
@@ -58,7 +68,7 @@
             ]
         },
         {
-            "name": "Daily Bounty",
+            "name": "Daily Bounties",
             "entry": "Stage_Bounty_Entry",
             "option": [
                 "Vanguard Squad",
@@ -66,7 +76,7 @@
             ]
         },
         {
-            "name": "Weekly Rift",
+            "name": "Weekly Rifts",
             "entry": "Stage_Rift_Entry",
             "option": [
                 "Vanguard Squad"
@@ -458,6 +468,74 @@
                 }
             ],
             "default_case": "Shade Of False Dreams"
+        },
+        "Devotion Reward Threshold": {
+            "default_case": "50%",
+            "cases": [
+                {
+                    "name": "50%",
+                    "pipeline_override": {
+                        "Lobby_Tribute_Enter_Any": {
+                            "enabled": false
+                        },
+                        "Lobby_Tribute_Enter_Percentage": {
+                            "enabled": true,
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "50%"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "Any%",
+                    "pipeline_override": {
+                        "Lobby_Tribute_Enter_Any": {
+                            "enabled": true
+                        },
+                        "Lobby_Tribute_Enter_Percentage": {
+                            "enabled": false
+                        }
+                    }
+                }
+            ]
+        },
+        "Special Ops Reward Threshold": {
+            "default_case": "50%",
+            "cases": [
+                {
+                    "name": "50%",
+                    "pipeline_override": {
+                        "Lobby_SpecialOps_Enter_Any": {
+                            "enabled": false
+                        },
+                        "Lobby_SpecialOps_Enter_Percentage": {
+                            "enabled": true,
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "[5-9][0-9]"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "Any%",
+                    "pipeline_override": {
+                        "Lobby_SpecialOps_Enter_Any": {
+                            "enabled": true
+                        },
+                        "Lobby_SpecialOps_Enter_Percentage": {
+                            "enabled": false
+                        }
+                    }
+                }
+            ]
         }
     }
 }

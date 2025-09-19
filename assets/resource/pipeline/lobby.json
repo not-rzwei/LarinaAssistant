@@ -6,7 +6,8 @@
             "version": "v0.5.3"
         }
     },
-    "Lobby_Tribute_Enter": {
+    "Lobby_Tribute_Enter_Any": {
+        "enabled": false,
         "recognition": {
             "type": "ColorMatch",
             "param": {
@@ -36,7 +37,7 @@
         "__mpe_code": {
             "position": {
                 "x": 580,
-                "y": 809
+                "y": 807
             }
         }
     },
@@ -62,7 +63,7 @@
         "__mpe_code": {
             "position": {
                 "x": 870,
-                "y": 458
+                "y": 946
             }
         }
     },
@@ -84,8 +85,8 @@
         "post_wait_freezes": 1000,
         "__mpe_code": {
             "position": {
-                "x": 580,
-                "y": 0
+                "x": 1160,
+                "y": 219
             }
         }
     },
@@ -105,8 +106,8 @@
         "post_wait_freezes": 1000,
         "__mpe_code": {
             "position": {
-                "x": 580,
-                "y": 219
+                "x": 1160,
+                "y": 0
             }
         }
     },
@@ -121,8 +122,8 @@
         },
         "__mpe_code": {
             "position": {
-                "x": 29,
-                "y": 539
+                "x": 580,
+                "y": 199
             }
         },
         "next": [
@@ -136,8 +137,8 @@
     "__mpe_external_BackToLobby_Lobby": {
         "__mpe_code": {
             "position": {
-                "x": 580,
-                "y": 1028
+                "x": 1160,
+                "y": 1377
             }
         }
     },
@@ -164,7 +165,7 @@
         "__mpe_code": {
             "position": {
                 "x": 290,
-                "y": 1949
+                "y": 1434
             }
         }
     },
@@ -199,7 +200,7 @@
         "__mpe_code": {
             "position": {
                 "x": 870,
-                "y": 1174
+                "y": 3357
             }
         },
         "next": [
@@ -240,7 +241,7 @@
         "__mpe_code": {
             "position": {
                 "x": 870,
-                "y": 1453
+                "y": 3078
             }
         },
         "next": [
@@ -273,7 +274,7 @@
         "__mpe_code": {
             "position": {
                 "x": 1160,
-                "y": 1632
+                "y": 3307
             }
         }
     },
@@ -309,7 +310,7 @@
         "__mpe_code": {
             "position": {
                 "x": 580,
-                "y": 1834
+                "y": 2667
             }
         },
         "next": [
@@ -359,7 +360,7 @@
         "__mpe_code": {
             "position": {
                 "x": 870,
-                "y": 1981
+                "y": 2550
             }
         },
         "next": [
@@ -370,7 +371,7 @@
         "__mpe_code": {
             "position": {
                 "x": 1160,
-                "y": 573
+                "y": 2169
             }
         }
     },
@@ -386,15 +387,16 @@
         "timeout": 5000,
         "__mpe_code": {
             "position": {
-                "x": 49,
-                "y": 804
+                "x": 290,
+                "y": 761
             }
         },
         "next": [
             "Lobby_Tribute_Popup"
         ],
         "interrupt": [
-            "Lobby_Tribute_Enter",
+            "Lobby_Tribute_Enter_Percentage",
+            "Lobby_Tribute_Enter_Any",
             "BackToLobby"
         ]
     },
@@ -402,7 +404,7 @@
         "__mpe_code": {
             "position": {
                 "x": 1160,
-                "y": 1191
+                "y": 2601
             }
         }
     },
@@ -410,7 +412,7 @@
         "__mpe_code": {
             "position": {
                 "x": 1160,
-                "y": 802
+                "y": 745
             }
         }
     },
@@ -436,8 +438,8 @@
         },
         "__mpe_code": {
             "position": {
-                "x": 901,
-                "y": 787
+                "x": 870,
+                "y": 1195
             }
         },
         "next": [
@@ -469,8 +471,8 @@
         },
         "__mpe_code": {
             "position": {
-                "x": 590,
-                "y": 584
+                "x": 580,
+                "y": 1086
             }
         },
         "next": [
@@ -503,8 +505,8 @@
         "post_delay": 5000,
         "__mpe_code": {
             "position": {
-                "x": 302,
-                "y": 403
+                "x": 870,
+                "y": 90
             }
         }
     },
@@ -530,8 +532,8 @@
         },
         "__mpe_code": {
             "position": {
-                "x": 247,
-                "y": 155
+                "x": 870,
+                "y": 369
             }
         },
         "next": [
@@ -556,7 +558,7 @@
         "__mpe_code": {
             "position": {
                 "x": 0,
-                "y": 1994
+                "y": 1648
             }
         },
         "next": [
@@ -590,7 +592,7 @@
         "__mpe_code": {
             "position": {
                 "x": 290,
-                "y": 1623
+                "y": 2950
             }
         },
         "next": [
@@ -633,7 +635,7 @@
         "__mpe_code": {
             "position": {
                 "x": 580,
-                "y": 1314
+                "y": 3217
             }
         },
         "next": [
@@ -674,7 +676,206 @@
         "__mpe_code": {
             "position": {
                 "x": 870,
-                "y": 1732
+                "y": 2829
+            }
+        }
+    },
+    "Lobby_SpecialOps_Entry": {
+        "recognition": {
+            "type": "DirectHit",
+            "param": {}
+        },
+        "action": {
+            "type": "DoNothing",
+            "param": {}
+        },
+        "timeout": 5000,
+        "__mpe_code": {
+            "position": {
+                "x": 290,
+                "y": 1833
+            }
+        },
+        "next": [
+            "Lobby_SpecialOps_Front"
+        ],
+        "interrupt": [
+            "Lobby_SpecialOps_Enter_Any",
+            "Lobby_SpecialOps_Enter_Percentage",
+            "BackToLobby"
+        ]
+    },
+    "Lobby_SpecialOps_Enter_Any": {
+        "enabled": false,
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": [
+                    720,
+                    372,
+                    48,
+                    12
+                ],
+                "lower": [
+                    42,
+                    45,
+                    47
+                ],
+                "upper": [
+                    99,
+                    164,
+                    164
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {}
+        },
+        "post_delay": 1000,
+        "__mpe_code": {
+            "position": {
+                "x": 580,
+                "y": 1870
+            }
+        }
+    },
+    "Lobby_SpecialOps_Front": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "Resource Management"
+                ]
+            }
+        },
+        "action": {
+            "type": "DoNothing",
+            "param": {}
+        },
+        "__mpe_code": {
+            "position": {
+                "x": 580,
+                "y": 2149
+            }
+        },
+        "interrupt": [
+            "Lobby_SpecialOps_Claim",
+            "TouchToContinue"
+        ],
+        "next": [
+            "Lobby_SpecialOps_Claimed"
+        ]
+    },
+    "Lobby_SpecialOps_Enter_Percentage": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    701,
+                    278,
+                    90,
+                    104
+                ],
+                "expected": [
+                    "[5-9][0-9]"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {}
+        },
+        "post_delay": 1000,
+        "__mpe_code": {
+            "position": {
+                "x": 580,
+                "y": 1621
+            }
+        }
+    },
+    "Lobby_SpecialOps_Claim": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "Retrieve"
+                ],
+                "roi": [
+                    592,
+                    540,
+                    467,
+                    180
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {}
+        },
+        "__mpe_code": {
+            "position": {
+                "x": 870,
+                "y": 2303
+            }
+        }
+    },
+    "Lobby_SpecialOps_Claimed": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "0.*%"
+                ],
+                "roi": [
+                    545,
+                    346,
+                    182,
+                    157
+                ]
+            }
+        },
+        "action": {
+            "type": "DoNothing",
+            "param": {}
+        },
+        "__mpe_code": {
+            "position": {
+                "x": 870,
+                "y": 1951
+            }
+        },
+        "next": [
+            "LobbyFlag"
+        ],
+        "interrupt": [
+            "BackToLobby"
+        ]
+    },
+    "Lobby_Tribute_Enter_Percentage": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    683,
+                    213,
+                    128,
+                    78
+                ],
+                "expected": [
+                    "[5-9][0-9]"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {}
+        },
+        "post_delay": 1000,
+        "__mpe_code": {
+            "position": {
+                "x": 580,
+                "y": 538
             }
         }
     }

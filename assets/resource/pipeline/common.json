@@ -27,8 +27,8 @@
         },
         "__mpe_code": {
             "position": {
-                "x": 290,
-                "y": 159
+                "x": 285,
+                "y": 434
             }
         }
     },
@@ -135,8 +135,8 @@
         },
         "__mpe_code": {
             "position": {
-                "x": 285,
-                "y": 373
+                "x": 290,
+                "y": 648
             }
         }
     },
@@ -181,7 +181,8 @@
                     "back-button-2.png",
                     "close-button-1.png",
                     "close-button-2.png",
-                    "close-button-3.png"
+                    "close-button-3.png",
+                    "close-button-4.png"
                 ],
                 "roi": [
                     6,
@@ -190,8 +191,7 @@
                     111
                 ],
                 "green_mask": true,
-                "order_by": "Horizontal",
-                "index": -1
+                "order_by": "Score"
             }
         },
         "action": {
