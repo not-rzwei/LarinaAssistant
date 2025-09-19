@@ -3,9 +3,7 @@ name: install
 on:
   push:
     tags:
-      - "v[0-9]+.[0-9]+.[0-9]+*"  
-    branches:
-      - "**"
+      - "v[0-9]+.[0-9]+.[0-9]+*"
     paths:
       - ".github/workflows/install.yml"
       - "assets/**"
@@ -114,7 +112,7 @@ jobs:
           if [ -d "MFA" ]; then
             echo "Copying MFA files to install directory..."
             mkdir -p install
-            rsync -av --ignore-existing MFA/ install/
+            cp -rpvn MFA/. install/
           else
             echo "MFA directory not found, skipping copy."
           fi
