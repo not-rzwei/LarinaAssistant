@@ -49,12 +49,19 @@ jobs:
 
   install:
     needs: meta
-    runs-on: macos-latest
     strategy:
       matrix:
-        os: [win, macos, linux, android]
+        include:
+          - os: win
+            arch: x86_64
+            runner: windows-latest
+          - os: win
+            arch: aarch64
+            runner: windows-11-arm
+        os: [win]
         arch: [aarch64, x86_64]
       fail-fast: false
+    runs-on: ${{ matrix.runner }}
 
     steps:
       - uses: actions/checkout@v4
@@ -71,7 +78,6 @@ jobs:
           extract: true
 
       - name: Download MFAAvalonia
-        if: matrix.os != 'android'
         id: download_mfa
         uses: robinraju/release-downloader@v1
         with:
@@ -82,7 +88,6 @@ jobs:
           extract: true
 
       - name: Clean up MFAAvalonia archive
-        if: matrix.os != 'android'
         shell: bash
         run: |
           ARCHIVE_FILE_PATH="${{ fromJson(steps.download_mfa.outputs.downloaded_files)[0] }}"
