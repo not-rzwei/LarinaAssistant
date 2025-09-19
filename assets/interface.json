@@ -369,6 +369,86 @@
         "Bounty Selection": {
             "cases": [
                 {
+                    "name": "Deity of Weaving",
+                    "pipeline_override": {
+                        "Stage_Bounty_Boss": {
+                            "custom_recognition_param": "Deity of Weaving"
+                        }
+                    }
+                },
+                {
+                    "name": "Contractor of the Stem",
+                    "pipeline_override": {
+                        "Stage_Bounty_Boss": {
+                            "custom_recognition_param": "Contractor of the Stem"
+                        }
+                    }
+                },
+                {
+                    "name": "Skyrogue Mutant",
+                    "pipeline_override": {
+                        "Stage_Bounty_Boss": {
+                            "custom_recognition_param": "Skyrogue Mutant"
+                        }
+                    }
+                },
+                {
+                    "name": "Legionnaire Mutant",
+                    "pipeline_override": {
+                        "Stage_Bounty_Boss": {
+                            "custom_recognition_param": "Legionnaire Mutant"
+                        }
+                    }
+                },
+                {
+                    "name": "Pyromancer Mutant",
+                    "pipeline_override": {
+                        "Stage_Bounty_Boss": {
+                            "custom_recognition_param": "Pyromancer Mutant"
+                        }
+                    }
+                },
+                {
+                    "name": "Colossus Breaker",
+                    "pipeline_override": {
+                        "Stage_Bounty_Boss": {
+                            "custom_recognition_param": "Colossus Breaker"
+                        }
+                    }
+                },
+                {
+                    "name": "Warped Orkean Sharpshooter",
+                    "pipeline_override": {
+                        "Stage_Bounty_Boss": {
+                            "custom_recognition_param": "Warped Orkean Sharpshooter"
+                        }
+                    }
+                },
+                {
+                    "name": "Frost Orb",
+                    "pipeline_override": {
+                        "Stage_Bounty_Boss": {
+                            "custom_recognition_param": "Frost Orb"
+                        }
+                    }
+                },
+                {
+                    "name": "Deity of Thunder",
+                    "pipeline_override": {
+                        "Stage_Bounty_Boss": {
+                            "custom_recognition_param": "Deity of Thunder"
+                        }
+                    }
+                },
+                {
+                    "name": "Shadow Knight",
+                    "pipeline_override": {
+                        "Stage_Bounty_Boss": {
+                            "custom_recognition_param": "Shadow Knight"
+                        }
+                    }
+                },
+                {
                     "name": "Shade Of False Dreams",
                     "pipeline_override": {
                         "Stage_Bounty_Boss": {

@@ -23,8 +23,34 @@ class BossInfo:
 
 
 bounty_map = {
+    "Deity of Weaving": BossInfo(
+        floors=[Floor.II, Floor.III, Floor.IV], recognition=["Weaving"]
+    ),
+    "Contractor of the Stem": BossInfo(
+        floors=[Floor.II, Floor.III, Floor.IV], recognition=["Contractor"]
+    ),
+    "Skyrogue Mutant": BossInfo(floors=[Floor.III, Floor.IV], recognition=["Skyrogue"]),
+    "Legionnaire Mutant": BossInfo(
+        floors=[Floor.III, Floor.IV], recognition=["Legionnaire"]
+    ),
+    "Pyromancer Mutant": BossInfo(
+        floors=[Floor.III, Floor.IV], recognition=["Pyromancer"]
+    ),
+    "Colossus Breaker": BossInfo(
+        floors=[Floor.III, Floor.IV], recognition=["Colossus", "Breaker"]
+    ),
+    "Warped Orkean Sharpshooter": BossInfo(
+        floors=[Floor.III, Floor.IV], recognition=["Warped Orkean", "Sharpshooter"]
+    ),
+    "Frost Orb": BossInfo(floors=[Floor.III, Floor.IV], recognition=["Frost", "Orb"]),
+    "Deity of Thunder": BossInfo(
+        floors=[Floor.III, Floor.IV], recognition=["Deity", "Thunder"]
+    ),
+    "Shadow Knight": BossInfo(
+        floors=[Floor.III, Floor.IV], recognition=["Shadow", "Knight"]
+    ),
     "Shade Of False Dreams": BossInfo(
-        floors=[Floor.III, Floor.IV], recognition=["Shade"]
+        floors=[Floor.III, Floor.IV], recognition=["Shade", "False", "Dreams"]
     ),
 }
 
