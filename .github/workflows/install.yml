@@ -109,7 +109,6 @@ jobs:
       - name: Install
         shell: bash
         run: |
-          find deps
           ./install/python/python.exe ci/install.py ${{ needs.meta.outputs.tag }}
 
           if [ -d "MFA" ]; then
