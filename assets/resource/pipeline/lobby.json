@@ -8,17 +8,23 @@
     },
     "Lobby_Tribute_Enter": {
         "recognition": {
-            "type": "OCR",
+            "type": "ColorMatch",
             "param": {
-                "expected": [
-                    "^Devotion.*$",
-                    "^[0-9]+$"
-                ],
                 "roi": [
-                    707,
-                    131,
-                    80,
-                    133
+                    725,
+                    135,
+                    39,
+                    128
+                ],
+                "lower": [
+                    123,
+                    222,
+                    218
+                ],
+                "upper": [
+                    145,
+                    255,
+                    255
                 ]
             }
         },
@@ -65,6 +71,8 @@
             "type": "OCR",
             "param": {
                 "expected": [
+                    "Claim All",
+                    "Claim all",
                     "^Claim.+$"
                 ]
             }
@@ -113,8 +121,8 @@
         },
         "__mpe_code": {
             "position": {
-                "x": 0,
-                "y": 540
+                "x": 29,
+                "y": 539
             }
         },
         "next": [
@@ -375,10 +383,11 @@
             "type": "DoNothing",
             "param": {}
         },
+        "timeout": 5000,
         "__mpe_code": {
             "position": {
-                "x": 290,
-                "y": 730
+                "x": 49,
+                "y": 804
             }
         },
         "next": [
@@ -460,15 +469,15 @@
         },
         "__mpe_code": {
             "position": {
-                "x": 580,
-                "y": 590
+                "x": 590,
+                "y": 584
             }
         },
-        "interrupt": [
-            "Lobby_Tribute_Claim"
-        ],
         "next": [
             "Lobby_Tribute_NoSupplies"
+        ],
+        "interrupt": [
+            "Lobby_Tribute_Claim"
         ]
     },
     "Lobby_Mail_Enter": {
@@ -476,23 +485,22 @@
             "type": "TemplateMatch",
             "param": {
                 "roi": [
-                    998,
-                    636,
-                    69,
-                    76
+                    958,
+                    602,
+                    148,
+                    118
                 ],
                 "template": [
-                    "exclamation-mark-1.png",
-                    "exclamation-mark-2.png"
+                    "lobby/mail.png"
                 ],
-                "green_mask": true
+                "green_mask": false
             }
         },
         "action": {
             "type": "Click",
             "param": {}
         },
-        "post_wait_freezes": 3000,
+        "post_delay": 5000,
         "__mpe_code": {
             "position": {
                 "x": 302,
@@ -522,8 +530,8 @@
         },
         "__mpe_code": {
             "position": {
-                "x": 306,
-                "y": 130
+                "x": 247,
+                "y": 155
             }
         },
         "next": [

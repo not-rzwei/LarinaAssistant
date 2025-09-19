@@ -26,20 +26,358 @@
     },
     "task": [
         {
-            "name": "Start",
-            "entry": "Startup_Entry",
-            "check": true
+            "name": "Startup",
+            "entry": "Startup_Entry"
         },
         {
             "name": "Devotion Reward",
-            "entry": "Lobby_Tribute_Entry",
-            "check": true
+            "entry": "Lobby_Tribute_Entry"
         },
         {
-            "name": "Collect Mail",
-            "entry": "Lobby_Mail_Entry",
-            "check": true
+            "name": "Mailbox",
+            "entry": "Lobby_Mail_Entry"
+        },
+        {
+            "name": "Fairy Mall",
+            "entry": "Mall_Entry",
+            "option": [
+                "Gift Purchase",
+                "B Rank Contract",
+                "A Rank Contract",
+                "S Rank Contract"
+            ]
+        },
+        {
+            "name": "Daily Wishes",
+            "entry": "Stage_Wish_Entry",
+            "option": [
+                "Vanguard Squad",
+                "Ticket 1",
+                "Ticket 2",
+                "Ticket 3"
+            ]
+        },
+        {
+            "name": "Daily Bounty",
+            "entry": "Stage_Bounty_Entry",
+            "option": [
+                "Vanguard Squad",
+                "Bounty Selection"
+            ]
+        },
+        {
+            "name": "Weekly Rift",
+            "entry": "Stage_Rift_Entry",
+            "option": [
+                "Vanguard Squad"
+            ]
+        },
+        {
+            "name": "Daily Mission",
+            "entry": "Lobby_Mission_Entry"
         }
     ],
-    "option": {}
+    "option": {
+        "Gift Purchase": {
+            "cases": [
+                {
+                    "name": "Enable",
+                    "pipeline_override": {
+                        "Mall_DailyLimited_Buy_GiftBox": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "Disable",
+                    "pipeline_override": {
+                        "Mall_DailyLimited_Buy_GiftBox": {
+                            "enabled": false
+                        }
+                    }
+                }
+            ],
+            "default_case": "Disable"
+        },
+        "B Rank Contract": {
+            "cases": [
+                {
+                    "name": "Enable",
+                    "pipeline_override": {
+                        "Mall_DailyLimited_Buy_BRankContract": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "Disable",
+                    "pipeline_override": {
+                        "Mall_DailyLimited_Buy_BRankContract": {
+                            "enabled": false
+                        }
+                    }
+                }
+            ],
+            "default_case": "Disable"
+        },
+        "A Rank Contract": {
+            "cases": [
+                {
+                    "name": "Enable",
+                    "pipeline_override": {
+                        "Mall_DailyLimited_Buy_ARankContract": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "Disable",
+                    "pipeline_override": {
+                        "Mall_DailyLimited_Buy_ARankContract": {
+                            "enabled": false
+                        }
+                    }
+                }
+            ],
+            "default_case": "Disable"
+        },
+        "S Rank Contract": {
+            "cases": [
+                {
+                    "name": "Enable",
+                    "pipeline_override": {
+                        "Mall_DailyLimited_Buy_SRankContract": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "Disable",
+                    "pipeline_override": {
+                        "Mall_DailyLimited_Buy_SRankContract": {
+                            "enabled": false
+                        }
+                    }
+                }
+            ],
+            "default_case": "Disable"
+        },
+        "Vanguard Squad": {
+            "cases": [
+                {
+                    "name": "01",
+                    "pipeline_override": {
+                        "Stage_Squad_Select": {
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "01"
+                                    ]
+                                }
+                            },
+                        }
+                    }
+                },
+                {
+                    "name": "02",
+                    "pipeline_override": {
+                        "Stage_Squad_Select": {
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "02"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "03",
+                    "pipeline_override": {
+                        "Stage_Squad_Select": {
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "03"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "04",
+                    "pipeline_override": {
+                        "Stage_Squad_Select": {
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "04"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "05",
+                    "pipeline_override": {
+                        "Stage_Squad_Select": {
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "05"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "06",
+                    "pipeline_override": {
+                        "Stage_Squad_Select": {
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "06"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "07",
+                    "pipeline_override": {
+                        "Stage_Squad_Select": {
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "07"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "08",
+                    "pipeline_override": {
+                        "Stage_Squad_Select": {
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "08"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            ],
+            "default_case": "01"
+        },
+        "Ticket 1": {
+            "cases": [
+                {
+                    "name": "Credit",
+                    "pipeline_override": {
+                        "Stage_Wish_Ticket1": {
+                            "custom_recognition_param": "Credit,1"
+                        }
+                    }
+                },
+                {
+                    "name": "Vanguard",
+                    "pipeline_override": {
+                        "Stage_Wish_Ticket1": {
+                            "custom_recognition_param": "Vanguard,1"
+                        }
+                    }
+                },
+                {
+                    "name": "Weapon",
+                    "pipeline_override": {
+                        "Stage_Wish_Ticket1": {
+                            "custom_recognition_param": "Weapon,1"
+                        }
+                    }
+                }
+            ],
+            "default_case": "Credit"
+        },
+        "Ticket 2": {
+            "cases": [
+                {
+                    "name": "Credit",
+                    "pipeline_override": {
+                        "Stage_Wish_Ticket2": {
+                            "custom_recognition_param": "Credit,2"
+                        }
+                    }
+                },
+                {
+                    "name": "Vanguard",
+                    "pipeline_override": {
+                        "Stage_Wish_Ticket2": {
+                            "custom_recognition_param": "Vanguard,2"
+                        }
+                    }
+                },
+                {
+                    "name": "Weapon",
+                    "pipeline_override": {
+                        "Stage_Wish_Ticket2": {
+                            "custom_recognition_param": "Weapon,2"
+                        }
+                    }
+                }
+            ],
+            "default_case": "Credit"
+        },
+        "Ticket 3": {
+            "cases": [
+                {
+                    "name": "Credit",
+                    "pipeline_override": {
+                        "Stage_Wish_Ticket3": {
+                            "custom_recognition_param": "Credit,3"
+                        }
+                    }
+                },
+                {
+                    "name": "Vanguard",
+                    "pipeline_override": {
+                        "Stage_Wish_Ticket3": {
+                            "custom_recognition_param": "Vanguard,3"
+                        }
+                    }
+                },
+                {
+                    "name": "Weapon",
+                    "pipeline_override": {
+                        "Stage_Wish_Ticket3": {
+                            "custom_recognition_param": "Weapon,3"
+                        }
+                    }
+                }
+            ],
+            "default_case": "Vanguard"
+        },
+        "Bounty Selection": {
+            "cases": [
+                {
+                    "name": "Shade Of False Dreams",
+                    "pipeline_override": {
+                        "Stage_Bounty_Boss": {
+                            "custom_recognition_param": "Shade Of False Dreams"
+                        }
+                    }
+                }
+            ],
+            "default_case": "Shade Of False Dreams"
+        }
+    }
 }

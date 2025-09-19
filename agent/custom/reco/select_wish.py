@@ -37,13 +37,14 @@ class SelectHighestLevelWish(CustomRecognition):
 
         # ticket_number 1 = 3/3, 2 = 2/3, 3 = 1/3
         wish_type, ticket_number = wish_type.split(",")
+        ticket_ocr_number = ticket_number
 
         if ticket_number == "1":
-            ticket_number = "^3[/1]"
+            ticket_ocr_number = "^3"
         elif ticket_number == "2":
-            ticket_number = "^2[/1]"
+            ticket_ocr_number = "^2"
         elif ticket_number == "3":
-            ticket_number = "^1[/1]"
+            ticket_ocr_number = "^1"
 
         new_context = context.clone()
 
@@ -57,7 +58,7 @@ class SelectHighestLevelWish(CustomRecognition):
                     "recognition": {
                         "type": "OCR",
                         "param": {
-                            "expected": [ticket_number],
+                            "expected": [ticket_ocr_number],
                             "roi": [1087, 61, 157, 148],
                         },
                     }

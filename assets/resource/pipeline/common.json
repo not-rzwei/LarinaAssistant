@@ -6,31 +6,6 @@
             "version": "v0.5.3"
         }
     },
-    "BackToLobby": {
-        "recognition": {
-            "type": "DirectHit",
-            "param": {}
-        },
-        "action": {
-            "type": "DoNothing",
-            "param": {}
-        },
-        "timeout": 5000,
-        "rate_limit": 1000,
-        "__mpe_code": {
-            "position": {
-                "x": 0,
-                "y": 503
-            }
-        },
-        "next": [
-            "LobbyFlag"
-        ],
-        "interrupt": [
-            "BackToLobby_HomeButton",
-            "ClosePopupX"
-        ]
-    },
     "Confirm": {
         "recognition": {
             "type": "OCR",
@@ -117,7 +92,8 @@
             "type": "TemplateMatch",
             "param": {
                 "template": [
-                    "loading-1.png"
+                    "loading-1.png",
+                    "loading-2.png"
                 ],
                 "roi": [
                     817,
@@ -194,7 +170,7 @@
             }
         }
     },
-    "BackToLobby_HomeButton": {
+    "BackToLobby": {
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -202,7 +178,10 @@
                     "home-button-1.png",
                     "home-button-2.png",
                     "back-button-1.png",
-                    "back-button-2.png"
+                    "back-button-2.png",
+                    "close-button-1.png",
+                    "close-button-2.png",
+                    "close-button-3.png"
                 ],
                 "roi": [
                     6,
@@ -211,7 +190,8 @@
                     111
                 ],
                 "green_mask": true,
-                "order_by": "Score"
+                "order_by": "Horizontal",
+                "index": -1
             }
         },
         "action": {
@@ -220,8 +200,8 @@
         },
         "__mpe_code": {
             "position": {
-                "x": 290,
-                "y": 597
+                "x": 8,
+                "y": 444
             }
         }
     }
