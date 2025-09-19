@@ -40,7 +40,7 @@ Larina Assistant is here to help Human Gods doing their daily chores. This autom
 
 ## Getting Started
 
-1. **Download** the latest release from the [Releases page](https://github.com/your-username/LarinaAssistant/releases)
+1. **Download** the latest release from the [Releases page](https://github.com/not-rzwei/LarinaAssistant/releases)
 2. **Run** the application
 3. **Set** your Android emulator connection
 4. **Configure** the tasks you want to automate
@@ -61,8 +61,3 @@ Please feel free to submit issues and pull requests.
 ## Acknowledgments
 
 **Larina Assistant** is built on [MaaFramework](https://github.com/MaaXYZ/MaaFramework), a next-generation automation framework based on image recognition technology. It combines the refined development experience from [MAA](https://github.com/MaaAssistantArknights/MaaAssistantArknights) to create a powerful, extensible, and practical automation solution.
-
-
-## License
-
-This project is licensed under the same terms as MaaFramework. Please refer to the [MaaFramework license](https://github.com/MaaXYZ/MaaFramework/blob/main/LICENSE) for details.
