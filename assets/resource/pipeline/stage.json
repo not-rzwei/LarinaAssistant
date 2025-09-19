@@ -11,7 +11,7 @@
             "type": "OCR",
             "param": {
                 "expected": [
-                    "^[123]/3$"
+                    "[123]/3"
                 ],
                 "roi": [
                     41,
@@ -26,6 +26,33 @@
             "param": {}
         },
         "post_wait_freezes": 1000,
+        "__mpe_code": {
+            "position": {
+                "x": 4350,
+                "y": 199
+            }
+        }
+    },
+    "Stage_Wish_Enter_Exhausted": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "0/3",
+                    "0"
+                ],
+                "roi": [
+                    41,
+                    377,
+                    220,
+                    191
+                ]
+            }
+        },
+        "action": {
+            "type": "StopTask",
+            "param": {}
+        },
         "__mpe_code": {
             "position": {
                 "x": 4350,
@@ -380,7 +407,7 @@
             "type": "OCR",
             "param": {
                 "expected": [
-                    "Bounty"
+                    "[123]/3"
                 ],
                 "roi": [
                     324,
@@ -395,6 +422,33 @@
             "param": {}
         },
         "post_wait_freezes": 1000,
+        "__mpe_code": {
+            "position": {
+                "x": 4350,
+                "y": 667
+            }
+        }
+    },
+    "Stage_Bounty_Enter_Exhausted": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "0/3",
+                    "0"
+                ],
+                "roi": [
+                    324,
+                    421,
+                    202,
+                    97
+                ]
+            }
+        },
+        "action": {
+            "type": "StopTask",
+            "param": {}
+        },
         "__mpe_code": {
             "position": {
                 "x": 4350,
@@ -768,7 +822,8 @@
         ],
         "interrupt": [
             "Stage_Enter",
-            "Stage_Wish_Enter"
+            "Stage_Wish_Enter",
+            "Stage_Wish_Enter_Exhausted"
         ]
     },
     "Stage_Enter": {
@@ -914,6 +969,7 @@
         "interrupt": [
             "Stage_Enter",
             "Stage_Bounty_Enter",
+            "Stage_Bounty_Enter_Exhausted",
             "Stage_Bounty_DangerLevel_Select",
             "BackToLobby"
         ]
