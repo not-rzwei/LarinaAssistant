@@ -64,7 +64,7 @@ class SelectBounty(CustomRecognition):
     ) -> CustomRecognition.AnalyzeResult:
 
         bounty_name = argv.custom_recognition_param
-        logger.info(f"[SelectBounty] Received bounty_name: {bounty_name}")
+        logger.debug(f"[SelectBounty] Received bounty_name: {bounty_name}")
         if (
             bounty_name
             and len(bounty_name) >= 2
@@ -72,14 +72,14 @@ class SelectBounty(CustomRecognition):
             and bounty_name[0] in ("'", '"')
         ):
             bounty_name = bounty_name[1:-1]
-            logger.info(
+            logger.debug(
                 f"[SelectBounty] Stripped quotes from bounty_name: {bounty_name}"
             )
 
         node_name = argv.node_name + "_" + bounty_name
-        logger.info(f"[SelectBounty] node_name: {node_name}")
+        logger.debug(f"[SelectBounty] node_name: {node_name}")
         bounty_info = bounty_map[bounty_name]
-        logger.info(
+        logger.debug(
             f"[SelectBounty] bounty_info: floors={bounty_info.floors}, recognition={bounty_info.recognition}"
         )
 
@@ -112,15 +112,15 @@ class SelectBounty(CustomRecognition):
             highest_floor = floor_detail
 
         if highest_floor is None:
-            logger.info("[SelectBounty] No floor found")
+            logger.debug("[SelectBounty] No floor found")
             return CustomRecognition.AnalyzeResult(box=None, detail="No floor found")
 
-        logger.info(f"[SelectBounty] Floor found at: {highest_floor.box}")
+        logger.debug(f"[SelectBounty] Floor found at: {highest_floor.box}")
         click_floor_job = context.tasker.controller.post_click(
             highest_floor.box.x, highest_floor.box.y
         )
         click_floor_job.wait()
-        logger.info("[SelectBounty] Clicked floor, waiting for boss selection...")
+        logger.debug("[SelectBounty] Clicked floor, waiting for boss selection...")
 
         # select boss
         start_time = time.time()
@@ -135,7 +135,7 @@ class SelectBounty(CustomRecognition):
             image = screencap_job.get()
 
             if image is None or numpy.array(image).size == 0:
-                logger.info("[SelectBounty] Screencap failed, retrying...")
+                logger.debug("[SelectBounty] Screencap failed, retrying...")
                 continue
 
             boss_detail = context.run_recognition(
@@ -152,14 +152,14 @@ class SelectBounty(CustomRecognition):
             )
 
             if boss_detail is not None and boss_detail.box is not None:
-                logger.info(f"[SelectBounty] Boss found at: {boss_detail.box}")
+                logger.debug(f"[SelectBounty] Boss found at: {boss_detail.box}")
                 return CustomRecognition.AnalyzeResult(
                     box=boss_detail.box, detail="Boss selected"
                 )
 
-            logger.info("[SelectBounty] Boss not found, swiping to next...")
+            logger.debug("[SelectBounty] Boss not found, swiping to next...")
             swipe_job = context.tasker.controller.post_swipe(1100, 400, 350, 400, 1000)
             swipe_job.wait()
 
-        logger.info("[SelectBounty] Bounty not found after timeout")
+        logger.debug("[SelectBounty] Bounty not found after timeout")
         return CustomRecognition.AnalyzeResult(box=None, detail="Bounty not found")

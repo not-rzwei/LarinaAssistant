@@ -59,16 +59,16 @@ def ensure_venv_and_relaunch_if_needed():
     Ensure venv exists, and if not already running in the script-managed venv,
     relaunch the script within it. Supports Linux and Windows systems.
     """
-    logger.info(
+    logger.debug(
         f"Detected system: {sys.platform}. Current Python interpreter: {sys.executable}"
     )
 
     if _is_running_in_our_venv():
-        logger.info(f"Already running in target virtual environment ({VENV_DIR}).")
+        logger.debug(f"Already running in target virtual environment ({VENV_DIR}).")
         return
 
     if not VENV_DIR.exists():
-        logger.info(f"Creating virtual environment at {VENV_DIR}...")
+        logger.debug(f"Creating virtual environment at {VENV_DIR}...")
         try:
             # Use the current Python running this script (system/external Python)
             subprocess.run(
@@ -76,7 +76,7 @@ def ensure_venv_and_relaunch_if_needed():
                 check=True,
                 capture_output=True,
             )
-            logger.info(f"Creation successful")
+            logger.debug(f"Creation successful")
         except subprocess.CalledProcessError as e:
             logger.error(
                 f"Creation failed: {e.stderr.decode(errors='ignore') if e.stderr else e.stdout.decode(errors='ignore')}"
@@ -111,11 +111,11 @@ def ensure_venv_and_relaunch_if_needed():
         )
         sys.exit(1)
 
-    logger.info(f"Restarting using virtual environment Python")
+    logger.debug(f"Restarting using virtual environment Python")
 
     try:
         cmd = [str(python_in_venv)] + sys.argv
-        logger.info(f"Executing command: {' '.join(cmd)}")
+        logger.debug(f"Executing command: {' '.join(cmd)}")
 
         result = subprocess.run(
             cmd,
@@ -167,7 +167,7 @@ def find_local_wheels_dir():
 
     if deps_dir.exists() and any(deps_dir.glob("*.whl")):
         whl_count = len(list(deps_dir.glob("*.whl")))
-        logger.info(f"Found local deps directory containing {whl_count} whl files")
+        logger.debug(f"Found local deps directory containing {whl_count} whl files")
         return deps_dir
 
     logger.debug("deps directory not found or no whl files in directory")
@@ -176,7 +176,7 @@ def find_local_wheels_dir():
 
 def _run_pip_command(cmd_args: list, operation_name: str) -> bool:
     try:
-        logger.info(f"Starting {operation_name}")
+        logger.debug(f"Starting {operation_name}")
         logger.debug(f"Executing command: {' '.join(cmd_args)}")
 
         # Use subprocess.Popen for real-time output
@@ -209,7 +209,7 @@ def _run_pip_command(cmd_args: list, operation_name: str) -> bool:
             logger.debug(f"{operation_name} output:\n{full_output}")
 
         if return_code == 0:
-            logger.info(f"{operation_name} completed")
+            logger.debug(f"{operation_name} completed")
             return True
         else:
             logger.error(f"Error during {operation_name}. Return code: {return_code}")
@@ -231,7 +231,7 @@ def install_requirements(req_file="requirements.txt", pip_config=None) -> bool:
     # Find local deps directory
     deps_dir = find_local_wheels_dir()
     if deps_dir:
-        logger.info(f"Installing using local whl files, directory: {deps_dir}")
+        logger.debug(f"Installing using local whl files, directory: {deps_dir}")
 
         cmd = [
             sys.executable,
@@ -278,11 +278,11 @@ def install_requirements(req_file="requirements.txt", pip_config=None) -> bool:
         # Only add one backup source
         if backup_mirror:
             cmd.extend(["--extra-index-url", backup_mirror])
-            logger.info(
+            logger.debug(
                 f"Installing dependencies using primary source {primary_mirror} and backup source {backup_mirror}"
             )
         else:
-            logger.info(
+            logger.debug(
                 f"Installing dependencies using primary source {primary_mirror}"
             )
 
@@ -320,18 +320,18 @@ def check_and_install_dependencies():
     pip_config = read_pip_config()
     enable_pip_install = pip_config.get("enable_pip_install", True)
 
-    logger.info(f"Enable pip dependency installation: {enable_pip_install}")
+    logger.debug(f"Enable pip dependency installation: {enable_pip_install}")
 
     if enable_pip_install:
-        logger.info("Starting dependency installation/update")
+        logger.debug("Starting dependency installation/update")
         if install_requirements(pip_config=pip_config):
-            logger.info("Dependency check and installation completed")
+            logger.debug("Dependency check and installation completed")
         else:
             logger.warning(
                 "Dependency installation failed, program may not run correctly"
             )
     else:
-        logger.info(
+        logger.debug(
             "Pip dependency installation disabled, skipping dependency installation"
         )
 
@@ -371,13 +371,13 @@ def agent(is_dev_mode=False):
             return
 
         socket_id = sys.argv[-1]
-        logger.info(f"socket_id: {socket_id}")
+        logger.debug(f"socket_id: {socket_id}")
 
         AgentServer.start_up(socket_id)
-        logger.info("AgentServer started")
+        logger.debug("AgentServer started")
         AgentServer.join()
         AgentServer.shut_down()
-        logger.info("AgentServer closed")
+        logger.debug("AgentServer closed")
     except ImportError as e:
         logger.error(f"Failed to import module: {e}")
         logger.error("Consider reconfiguring environment")
@@ -401,7 +401,7 @@ def main():
 
     if is_dev_mode:
         os.chdir(Path("./assets"))
-        logger.info(f"set cwd: {os.getcwd()}")
+        logger.debug(f"set cwd: {os.getcwd()}")
 
     agent(is_dev_mode=is_dev_mode)
 

@@ -45,7 +45,7 @@ class CheckShopItem(CustomRecognition):
         )
 
         if reco_detail is None:
-            logger.info(f"[CheckShopItem] Item '{item_name}' not found.")
+            logger.debug(f"[CheckShopItem] Item '{item_name}' not found.")
             return CustomRecognition.AnalyzeResult(
                 box=None, detail="Item not available"
             )
@@ -76,11 +76,11 @@ class CheckShopItem(CustomRecognition):
         )
 
         if sold_out_detail is not None:
-            logger.info(f"[CheckShopItem] Item '{item_name}' is sold out.")
+            logger.debug(f"[CheckShopItem] Item '{item_name}' is sold out.")
             context.override_pipeline({f"{parent_node_name}": {"enabled": False}})
             return CustomRecognition.AnalyzeResult(box=None, detail="Item sold out")
 
-        logger.info(f"[CheckShopItem] Item '{item_name}' is available for purchase.")
+        logger.debug(f"[CheckShopItem] Item '{item_name}' is available for purchase.")
         return CustomRecognition.AnalyzeResult(
             box=reco_detail.box, detail="Item available"
         )

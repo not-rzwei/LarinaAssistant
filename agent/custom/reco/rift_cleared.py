@@ -41,7 +41,7 @@ class RiftCleared(CustomRecognition):
         )
 
         if best_floor_detail is None or best_floor_detail.best_result is None:
-            logger.info(f"[{node_name}] Best floor not found.")
+            logger.debug(f"[{node_name}] Best floor not found.")
             return CustomRecognition.AnalyzeResult(
                 box=None, detail="Best floor not found"
             )
@@ -50,7 +50,7 @@ class RiftCleared(CustomRecognition):
         best_floor_number = self._parse_floor_number(best_floor_text)
 
         if best_floor_number is None:
-            logger.info(
+            logger.debug(
                 f"[{node_name}] Could not parse best floor number from: {best_floor_text}"
             )
             return CustomRecognition.AnalyzeResult(
@@ -75,7 +75,7 @@ class RiftCleared(CustomRecognition):
         )
 
         if claimed_floor_detail is None or claimed_floor_detail.best_result is None:
-            logger.info(f"[{node_name}] No claimed floor found")
+            logger.debug(f"[{node_name}] No claimed floor found")
             return CustomRecognition.AnalyzeResult(
                 box=best_floor_detail.box, detail="Rift not cleared"
             )
@@ -85,7 +85,7 @@ class RiftCleared(CustomRecognition):
         )
 
         if claimed_floor_number is None:
-            logger.info(
+            logger.debug(
                 f"[{node_name}] "
                 f"Could not parse claimed floor number from: {claimed_floor_text}"
             )
@@ -94,7 +94,7 @@ class RiftCleared(CustomRecognition):
             )
 
         if claimed_floor_number < best_floor_number:
-            logger.info(
+            logger.debug(
                 f"[{node_name}] Rift not cleared - Claimed {claimed_floor_number}F < Best {best_floor_number}F"
             )
             return CustomRecognition.AnalyzeResult(
@@ -102,7 +102,7 @@ class RiftCleared(CustomRecognition):
                 detail="Rift not cleared - has unclaimed rewards",
             )
 
-        logger.info(f"[{node_name}] Rift is cleared")
+        logger.debug(f"[{node_name}] Rift is cleared")
         return CustomRecognition.AnalyzeResult(box=None, detail="Rift is cleared")
 
     def _parse_floor_number(self, text: str) -> int:
@@ -151,12 +151,12 @@ class AllRiftCleared(CustomRecognition):
         )
 
         if detail is None or len(detail.filterd_results) < 5:
-            logger.info(f"[{node_name}] All rifts are not cleared.")
+            logger.debug(f"[{node_name}] All rifts are not cleared.")
             return CustomRecognition.AnalyzeResult(
                 box=None, detail="All rifts are not cleared"
             )
 
-        logger.info(f"[{node_name}] All rifts are cleared")
+        logger.debug(f"[{node_name}] All rifts are cleared")
         return CustomRecognition.AnalyzeResult(
             box=detail.box, detail="All rifts are cleared"
         )

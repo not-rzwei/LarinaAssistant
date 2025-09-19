@@ -31,7 +31,7 @@ class DisableNode(CustomAction):
         ):
             node_name = node_name[1:-1]
 
-        logger.info(f"[DisableNode] Disabling node: {node_name}")
+        logger.debug(f"[DisableNode] Disabling node: {node_name}")
         context.override_pipeline({f"{node_name}": {"enabled": False}})
 
         return CustomAction.RunResult(success=True)
