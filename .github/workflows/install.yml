@@ -62,7 +62,8 @@ jobs:
         shell: bash
         run: |
           mkdir -p ./update
-          rsync -av --exclude='MaaCommonAssets' ./assets/ ./update/
+          rsync -av --exclude='MaaCommonAssets' --exclude='config.json' ./assets/ ./update/
+          rsync -av ./agent/ ./update/agent
           cp ./assets/interface.json ./update/
 
       - uses: actions/upload-artifact@v4
