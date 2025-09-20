@@ -42,6 +42,14 @@ def install_resource():
 
     configure_ocr_model()
 
+    config_path = install_path / "config"
+    config_path.mkdir(parents=True, exist_ok=True)
+
+    shutil.copy2(
+        working_dir / "assets" / "config.json",
+        install_path / "config",
+    )
+
     shutil.copytree(
         working_dir / "assets" / "resource",
         install_path / "resource",
@@ -56,7 +64,10 @@ def install_resource():
         interface = json.load(f)
 
     interface["version"] = version
-    interface["custom_title"] = f"M9A {version} | 亿韭韭韭小助手"
+    current_title = interface["custom_title"]
+
+    if current_title:
+        interface["custom_title"] = f"{current_title} {version}"
 
     with open(install_path / "interface.json", "w", encoding="utf-8") as f:
         json.dump(interface, f, ensure_ascii=False, indent=4)

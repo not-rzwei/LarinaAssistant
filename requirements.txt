@@ -1,9 +1,5 @@
-colorama==0.4.6
 loguru==0.7.3
-MaaAgentBinary==1.0.1
 MaaFw==4.4.1
 numpy==2.3.3
 pillow==11.3.0
 pytz==2025.2
-StrEnum==0.4.15
-win32_setctime==1.2.0

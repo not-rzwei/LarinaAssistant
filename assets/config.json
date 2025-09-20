@@ -1,0 +1,41 @@
+{
+    "ColorTheme": {
+        "DisplayName": "Blue",
+        "Primary": {
+            "A": 255,
+            "R": 10,
+            "G": 89,
+            "B": 247
+        },
+        "PrimaryBrush": "#ff0a59f7",
+        "PrimaryDark": {
+            "A": 255,
+            "R": 5,
+            "G": 44,
+            "B": 123
+        },
+        "PrimaryDarkBrush": "#ff052c7b",
+        "Accent": {
+            "A": 255,
+            "R": 247,
+            "G": 168,
+            "B": 10
+        },
+        "AccentBrush": "#fff7a80a",
+        "AccentDark": {
+            "A": 255,
+            "R": 123,
+            "G": 84,
+            "B": 5
+        },
+        "AccentDarkBrush": "#ff7b5405"
+    },
+    "BaseTheme": "Dark",
+    "CurrentLanguage": "en-us",
+    "AdbDevice": {},
+    "EnableEdit": false,
+    "AdbControlScreenCapType": "EmulatorExtras",
+    "RememberAdb": true,
+    "AllowAdbRestart": false,
+    "AllowAdbHardRestart": false
+}
