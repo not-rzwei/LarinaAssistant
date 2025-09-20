@@ -11,9 +11,9 @@
     ],
     "resource": [
         {
-            "name": "Onestore English",
+            "name": "English",
             "path": [
-                "{PROJECT_DIR}/resource"
+                "{PROJECT_DIR}/resource/base"
             ]
         }
     ],
@@ -27,7 +27,10 @@
     "task": [
         {
             "name": "Startup",
-            "entry": "Startup_Entry"
+            "entry": "Startup_Entry",
+            "option": [
+                "Game Version"
+            ]
         },
         {
             "name": "Devotion Reward",
@@ -88,6 +91,35 @@
         }
     ],
     "option": {
+        "Game Version": {
+            "cases": [
+                {
+                    "name": "OneStore",
+                    "pipeline_override": {
+                        "Startup_LaunchGame": {
+                            "action": {
+                                "param": {
+                                    "package": "com.GentleManiac.HorizonWalker"
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "PlayStore",
+                    "pipeline_override": {
+                        "Startup_LaunchGame": {
+                            "action": {
+                                "param": {
+                                    "package": "com.GentleManiac.HorizonWalkerGoogle"
+                                }
+                            }
+                        }
+                    }
+                }
+            ],
+            "default_case": "OneStore"
+        },
         "Gift Purchase": {
             "cases": [
                 {
