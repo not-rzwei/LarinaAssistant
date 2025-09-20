@@ -7,7 +7,6 @@
         }
     },
     "Lobby_Tribute_Enter_Any": {
-        "enabled": false,
         "recognition": {
             "type": "ColorMatch",
             "param": {
@@ -33,11 +32,12 @@
             "type": "Click",
             "param": {}
         },
+        "enabled": false,
         "post_delay": 1000,
         "__mpe_code": {
             "position": {
                 "x": 580,
-                "y": 807
+                "y": 697
             }
         }
     },
@@ -60,10 +60,11 @@
             "type": "Click",
             "param": {}
         },
+        "post_wait_freezes": 1000,
         "__mpe_code": {
             "position": {
                 "x": 870,
-                "y": 946
+                "y": 1102
             }
         }
     },
@@ -138,7 +139,7 @@
         "__mpe_code": {
             "position": {
                 "x": 1160,
-                "y": 1377
+                "y": 1615
             }
         }
     },
@@ -165,7 +166,7 @@
         "__mpe_code": {
             "position": {
                 "x": 290,
-                "y": 1434
+                "y": 1697
             }
         }
     },
@@ -200,7 +201,7 @@
         "__mpe_code": {
             "position": {
                 "x": 870,
-                "y": 3357
+                "y": 3583
             }
         },
         "next": [
@@ -241,7 +242,7 @@
         "__mpe_code": {
             "position": {
                 "x": 870,
-                "y": 3078
+                "y": 3304
             }
         },
         "next": [
@@ -274,7 +275,7 @@
         "__mpe_code": {
             "position": {
                 "x": 1160,
-                "y": 3307
+                "y": 3533
             }
         }
     },
@@ -310,7 +311,7 @@
         "__mpe_code": {
             "position": {
                 "x": 580,
-                "y": 2667
+                "y": 2893
             }
         },
         "next": [
@@ -360,7 +361,7 @@
         "__mpe_code": {
             "position": {
                 "x": 870,
-                "y": 2550
+                "y": 2776
             }
         },
         "next": [
@@ -371,7 +372,7 @@
         "__mpe_code": {
             "position": {
                 "x": 1160,
-                "y": 2169
+                "y": 2509
             }
         }
     },
@@ -388,7 +389,7 @@
         "__mpe_code": {
             "position": {
                 "x": 290,
-                "y": 761
+                "y": 911
             }
         },
         "next": [
@@ -404,7 +405,7 @@
         "__mpe_code": {
             "position": {
                 "x": 1160,
-                "y": 2601
+                "y": 2691
             }
         }
     },
@@ -412,7 +413,7 @@
         "__mpe_code": {
             "position": {
                 "x": 1160,
-                "y": 745
+                "y": 666
             }
         }
     },
@@ -421,14 +422,15 @@
             "type": "OCR",
             "param": {
                 "expected": [
-                    "No supplies",
-                    "No Supplies"
+                    "NoSupplies",
+                    "No Supplies",
+                    "Supplies"
                 ],
                 "roi": [
-                    436,
-                    452,
-                    399,
-                    89
+                    461,
+                    458,
+                    386,
+                    88
                 ]
             }
         },
@@ -439,7 +441,7 @@
         "__mpe_code": {
             "position": {
                 "x": 870,
-                "y": 1195
+                "y": 1409
             }
         },
         "next": [
@@ -472,13 +474,14 @@
         "__mpe_code": {
             "position": {
                 "x": 580,
-                "y": 1086
+                "y": 1255
             }
         },
         "next": [
             "Lobby_Tribute_NoSupplies"
         ],
         "interrupt": [
+            "Confirm",
             "Lobby_Tribute_Claim"
         ]
     },
@@ -558,7 +561,7 @@
         "__mpe_code": {
             "position": {
                 "x": 0,
-                "y": 1648
+                "y": 2028
             }
         },
         "next": [
@@ -592,7 +595,7 @@
         "__mpe_code": {
             "position": {
                 "x": 290,
-                "y": 2950
+                "y": 3269
             }
         },
         "next": [
@@ -635,7 +638,7 @@
         "__mpe_code": {
             "position": {
                 "x": 580,
-                "y": 3217
+                "y": 3443
             }
         },
         "next": [
@@ -676,7 +679,7 @@
         "__mpe_code": {
             "position": {
                 "x": 870,
-                "y": 2829
+                "y": 3055
             }
         }
     },
@@ -693,7 +696,7 @@
         "__mpe_code": {
             "position": {
                 "x": 290,
-                "y": 1833
+                "y": 2111
             }
         },
         "next": [
@@ -706,7 +709,6 @@
         ]
     },
     "Lobby_SpecialOps_Enter_Any": {
-        "enabled": false,
         "recognition": {
             "type": "ColorMatch",
             "param": {
@@ -732,11 +734,12 @@
             "type": "Click",
             "param": {}
         },
+        "enabled": false,
         "post_delay": 1000,
         "__mpe_code": {
             "position": {
                 "x": 580,
-                "y": 1870
+                "y": 2126
             }
         }
     },
@@ -756,15 +759,15 @@
         "__mpe_code": {
             "position": {
                 "x": 580,
-                "y": 2149
+                "y": 2435
             }
         },
+        "next": [
+            "Lobby_SpecialOps_Claimed"
+        ],
         "interrupt": [
             "Lobby_SpecialOps_Claim",
             "TouchToContinue"
-        ],
-        "next": [
-            "Lobby_SpecialOps_Claimed"
         ]
     },
     "Lobby_SpecialOps_Enter_Percentage": {
@@ -790,7 +793,7 @@
         "__mpe_code": {
             "position": {
                 "x": 580,
-                "y": 1621
+                "y": 1877
             }
         }
     },
@@ -816,7 +819,7 @@
         "__mpe_code": {
             "position": {
                 "x": 870,
-                "y": 2303
+                "y": 2177
             }
         }
     },
@@ -842,7 +845,7 @@
         "__mpe_code": {
             "position": {
                 "x": 870,
-                "y": 1951
+                "y": 2529
             }
         },
         "next": [
@@ -875,7 +878,15 @@
         "__mpe_code": {
             "position": {
                 "x": 580,
-                "y": 538
+                "y": 1006
+            }
+        }
+    },
+    "__mpe_external_Confirm_Lobby": {
+        "__mpe_code": {
+            "position": {
+                "x": 870,
+                "y": 1007
             }
         }
     }
