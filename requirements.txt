@@ -1,5 +1,4 @@
-loguru==0.7.3
-MaaFw==4.4.1
-numpy==2.3.3
-pillow==11.3.0
-pytz==2025.2
+MaaFw==4.5.3
+loguru
+numpy
+pillow

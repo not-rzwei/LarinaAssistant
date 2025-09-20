@@ -29,10 +29,10 @@
         "interrupt": [
             "Startup_Signin_Bonus_Claim",
             "ClosePopupX",
+            "Startup_EnterGame",
             "Startup_Maintenance",
             "Startup_ProceedDownload",
             "Startup_Wait",
-            "Startup_EnterGame",
             "Loading",
             "BackToLobby",
             "Startup_LaunchGame"
@@ -65,26 +65,26 @@
             "param": {
                 "expected": [
                     "Touch the screen to continue",
-                    "Touch the screen"
+                    "Touch the screen",
+                    "continue"
+                ],
+                "roi": [
+                    171,
+                    532,
+                    610,
+                    169
                 ]
             }
         },
         "action": {
             "type": "Click",
-            "param": {
-                "target_offset": [
-                    0,
-                    -100,
-                    100,
-                    100
-                ]
-            }
+            "param": {}
         },
         "post_delay": 800,
         "__mpe_code": {
             "position": {
-                "x": 290,
-                "y": 1096
+                "x": 289,
+                "y": 1092
             }
         }
     },

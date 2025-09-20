@@ -473,6 +473,42 @@
             "default_case": "50%",
             "cases": [
                 {
+                    "name": "30%",
+                    "pipeline_override": {
+                        "Lobby_Tribute_Enter_Any": {
+                            "enabled": false
+                        },
+                        "Lobby_Tribute_Enter_Percentage": {
+                            "enabled": true,
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "[3-9][0-9]"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "40%",
+                    "pipeline_override": {
+                        "Lobby_Tribute_Enter_Any": {
+                            "enabled": false
+                        },
+                        "Lobby_Tribute_Enter_Percentage": {
+                            "enabled": true,
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "[4-9][0-9]"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                {
                     "name": "50%",
                     "pipeline_override": {
                         "Lobby_Tribute_Enter_Any": {
@@ -483,7 +519,7 @@
                             "recognition": {
                                 "param": {
                                     "expected": [
-                                        "50%"
+                                        "[5-9][0-9]"
                                     ]
                                 }
                             }
