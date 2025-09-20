@@ -70,15 +70,15 @@
                 "y": 988
             }
         },
+        "next": [
+            "Mall_StoreFront"
+        ],
         "interrupt": [
             "Mall_DailyLimited_Buy_GiftBox",
             "Mall_DailyLimited_Buy_BRankContract",
             "Mall_DailyLimited_Buy_ARankContract",
             "Mall_DailyLimited_Buy_SRankContract",
             "Mall_Back_StoreFront"
-        ],
-        "next": [
-            "Mall_StoreFront"
         ]
     },
     "Mall_DailyLimited_Buy_BRankContract": {
@@ -86,7 +86,13 @@
             "type": "Custom",
             "param": {
                 "custom_recognition": "CheckShopItem",
-                "custom_recognition_param": "B Rank Contract"
+                "custom_recognition_param": "B Rank Contract",
+                "roi": [
+                    212,
+                    480,
+                    257,
+                    239
+                ]
             }
         },
         "action": {
@@ -202,7 +208,13 @@
             "type": "Custom",
             "param": {
                 "custom_recognition": "CheckShopItem",
-                "custom_recognition_param": "A Rank Contract"
+                "custom_recognition_param": "A Rank Contract",
+                "roi": [
+                    478,
+                    495,
+                    225,
+                    224
+                ]
             }
         },
         "action": {
@@ -224,7 +236,13 @@
             "type": "Custom",
             "param": {
                 "custom_recognition": "CheckShopItem",
-                "custom_recognition_param": "S Rank Contract"
+                "custom_recognition_param": "S Rank Contract",
+                "roi": [
+                    705,
+                    489,
+                    241,
+                    230
+                ]
             }
         },
         "action": {
@@ -246,7 +264,13 @@
             "type": "Custom",
             "param": {
                 "custom_recognition": "CheckShopItem",
-                "custom_recognition_param": "Gift Box"
+                "custom_recognition_param": "Gift Box",
+                "roi": [
+                    926,
+                    188,
+                    250,
+                    307
+                ]
             }
         },
         "action": {
@@ -268,7 +292,13 @@
             "type": "Custom",
             "param": {
                 "custom_recognition": "CheckShopItem",
-                "custom_recognition_param": "FairyNet Support Fund"
+                "custom_recognition_param": "FairyNet Support Fund",
+                "roi": [
+                    207,
+                    193,
+                    271,
+                    296
+                ]
             }
         },
         "action": {

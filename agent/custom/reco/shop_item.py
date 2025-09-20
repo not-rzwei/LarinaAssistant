@@ -29,6 +29,7 @@ class CheckShopItem(CustomRecognition):
             item_name = item_name[1:-1]
 
         parent_node_name = argv.node_name
+        roi = [argv.roi[0], argv.roi[1], argv.roi[2], argv.roi[3]]
         node_name = argv.node_name + "_" + item_name
         reco_detail = context.run_recognition(
             node_name,
@@ -37,7 +38,7 @@ class CheckShopItem(CustomRecognition):
                 node_name: {
                     "recognition": {
                         "type": "OCR",
-                        "param": {"expected": [item_name]},
+                        "param": {"expected": [item_name], "roi": roi},
                         "timeout": 10000,
                     }
                 }
@@ -50,13 +51,6 @@ class CheckShopItem(CustomRecognition):
                 box=None, detail="Item not available"
             )
 
-        item_box = reco_detail.box
-        sold_out_roi = [
-            item_box.x,
-            item_box.y - 50,
-            max(item_box.w + 50, 150),
-            max(item_box.h + 50, 70),
-        ]
         sold_out_node = node_name + "_SoldOut"
         sold_out_detail = context.run_recognition(
             sold_out_node,
@@ -67,7 +61,7 @@ class CheckShopItem(CustomRecognition):
                         "type": "OCR",
                         "param": {
                             "expected": ["Sold Out", "sold out", "sold", "Sold"],
-                            "roi": sold_out_roi,
+                            "roi": roi,
                         },
                         "timeout": 10000,
                     }
