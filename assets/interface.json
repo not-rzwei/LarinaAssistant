@@ -54,7 +54,8 @@
             "name": "Fairy Mall",
             "entry": "Mall_Entry",
             "option": [
-                "Gift Purchase",
+                "Memory Box",
+                "Gift Box",
                 "B Rank Contract",
                 "A Rank Contract",
                 "S Rank Contract"
@@ -120,7 +121,28 @@
             ],
             "default_case": "OneStore"
         },
-        "Gift Purchase": {
+        "Memory Box": {
+            "cases": [
+                {
+                    "name": "Enable",
+                    "pipeline_override": {
+                        "Mall_DailyLimited_Buy_MemoryBox": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "Disable",
+                    "pipeline_override": {
+                        "Mall_DailyLimited_Buy_MemoryBox": {
+                            "enabled": false
+                        }
+                    }
+                }
+            ],
+            "default_case": "Disable"
+        },
+        "Gift Box": {
             "cases": [
                 {
                     "name": "Enable",

@@ -28,8 +28,8 @@
         "post_wait_freezes": 1000,
         "__mpe_code": {
             "position": {
-                "x": 4350,
-                "y": 199
+                "x": 3770,
+                "y": 458
             }
         }
     },
@@ -55,8 +55,8 @@
         },
         "__mpe_code": {
             "position": {
-                "x": 4350,
-                "y": 199
+                "x": 3770,
+                "y": 239
             }
         }
     },
@@ -74,7 +74,7 @@
         },
         "__mpe_code": {
             "position": {
-                "x": 2030,
+                "x": 1740,
                 "y": 0
             }
         },
@@ -96,8 +96,8 @@
         },
         "__mpe_code": {
             "position": {
-                "x": 4640,
-                "y": 1504
+                "x": 4060,
+                "y": 1840
             }
         },
         "next": [
@@ -118,8 +118,8 @@
         },
         "__mpe_code": {
             "position": {
-                "x": 4640,
-                "y": 1743
+                "x": 4060,
+                "y": 1596
             }
         },
         "next": [
@@ -149,8 +149,8 @@
         "rate_limit": 3000,
         "__mpe_code": {
             "position": {
-                "x": 3190,
-                "y": 2895
+                "x": 2610,
+                "y": 2729
             }
         },
         "next": [
@@ -187,13 +187,15 @@
         "pre_wait_freezes": 1000,
         "__mpe_code": {
             "position": {
-                "x": 2320,
-                "y": 3274
+                "x": 2030,
+                "y": 2016
             }
         },
         "next": [
-            "Stage_Deploy_Exhausted",
             "Stage_Bounty_Sweeping",
+            "Stage_Squad_Select"
+        ],
+        "interrupt": [
             "Stage_Squad_Show"
         ]
     },
@@ -202,13 +204,23 @@
             "type": "OCR",
             "param": {
                 "expected": [
-                    "^.[0-9]$"
+                    "0[1-8]"
                 ],
                 "roi": [
                     1075,
                     1,
                     205,
                     149
+                ],
+                "replace": [
+                    [
+                        "o",
+                        "0"
+                    ],
+                    [
+                        "O",
+                        "0"
+                    ]
                 ]
             }
         },
@@ -219,13 +231,10 @@
         "post_wait_freezes": 1000,
         "__mpe_code": {
             "position": {
-                "x": 2610,
-                "y": 3089
+                "x": 2320,
+                "y": 2124
             }
-        },
-        "next": [
-            "Stage_Squad_Select"
-        ]
+        }
     },
     "Stage_Squad_Select": {
         "recognition": {
@@ -267,8 +276,8 @@
         "post_wait_freezes": 1000,
         "__mpe_code": {
             "position": {
-                "x": 2900,
-                "y": 3059
+                "x": 2320,
+                "y": 2565
             }
         },
         "next": [
@@ -301,8 +310,8 @@
         "post_wait_freezes": 1000,
         "__mpe_code": {
             "position": {
-                "x": 3770,
-                "y": 2561
+                "x": 3190,
+                "y": 3145
             }
         }
     },
@@ -328,8 +337,8 @@
         "post_delay": 400,
         "__mpe_code": {
             "position": {
-                "x": 3770,
-                "y": 2027
+                "x": 3190,
+                "y": 3704
             }
         },
         "next": [
@@ -358,8 +367,8 @@
         },
         "__mpe_code": {
             "position": {
-                "x": 3770,
-                "y": 2342
+                "x": 3190,
+                "y": 3424
             }
         },
         "next": [
@@ -388,12 +397,12 @@
         "post_wait_freezes": 1000,
         "__mpe_code": {
             "position": {
-                "x": 4350,
-                "y": 448
+                "x": 3278,
+                "y": 1433
             }
         },
         "next": [
-            "LobbyFlag"
+            "Stage_Wish_Exhausted"
         ],
         "interrupt": [
             "Stage_Wish_Ticket1",
@@ -424,8 +433,8 @@
         "post_wait_freezes": 1000,
         "__mpe_code": {
             "position": {
-                "x": 4350,
-                "y": 667
+                "x": 3770,
+                "y": 1195
             }
         }
     },
@@ -451,8 +460,8 @@
         },
         "__mpe_code": {
             "position": {
-                "x": 4350,
-                "y": 667
+                "x": 3770,
+                "y": 976
             }
         }
     },
@@ -478,8 +487,8 @@
         "post_delay": 400,
         "__mpe_code": {
             "position": {
-                "x": 4350,
-                "y": 916
+                "x": 3770,
+                "y": 727
             }
         }
     },
@@ -505,16 +514,16 @@
         },
         "__mpe_code": {
             "position": {
-                "x": 4350,
-                "y": 1165
+                "x": 3770,
+                "y": 3453
             }
         },
+        "next": [
+            "Stage_Bounty_Exhausted"
+        ],
         "interrupt": [
             "Stage_Bounty_Boss",
             "BackToLobby"
-        ],
-        "next": [
-            "Stage_Bounty_Exhausted"
         ]
     },
     "Stage_Bounty_Boss": {
@@ -531,8 +540,8 @@
         },
         "__mpe_code": {
             "position": {
-                "x": 4640,
-                "y": 1982
+                "x": 4060,
+                "y": 2956
             }
         },
         "next": [
@@ -561,49 +570,17 @@
         "post_wait_freezes": 1000,
         "__mpe_code": {
             "position": {
-                "x": 3190,
-                "y": 2282
+                "x": 2610,
+                "y": 3458
             }
         },
         "next": [
-            "Stage_Deploy_Exhausted"
+            "Stage_Bounty_Front"
         ],
         "interrupt": [
             "Confirm",
-            "Stage_Alert_InventoryFull"
-        ]
-    },
-    "Stage_Deploy_Exhausted": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "expected": [
-                    "0",
-                    "O"
-                ],
-                "roi": [
-                    889,
-                    622,
-                    68,
-                    83
-                ]
-            }
-        },
-        "action": {
-            "type": "DoNothing",
-            "param": {}
-        },
-        "__mpe_code": {
-            "position": {
-                "x": 3480,
-                "y": 902
-            }
-        },
-        "next": [
-            "LobbyFlag"
-        ],
-        "interrupt": [
-            "BackToLobby"
+            "Stage_Alert_InventoryFull",
+            "Back"
         ]
     },
     "Stage_Rift_Enter": {
@@ -629,8 +606,8 @@
         "post_wait_freezes": 1000,
         "__mpe_code": {
             "position": {
-                "x": 290,
-                "y": 4806
+                "x": 580,
+                "y": 2721
             }
         }
     },
@@ -658,8 +635,8 @@
         "post_wait_freezes": 1000,
         "__mpe_code": {
             "position": {
-                "x": 580,
-                "y": 4806
+                "x": 290,
+                "y": 4948
             }
         },
         "next": [
@@ -713,8 +690,8 @@
         "post_delay": 500,
         "__mpe_code": {
             "position": {
-                "x": 1450,
-                "y": 4665
+                "x": 1160,
+                "y": 5002
             }
         },
         "next": [
@@ -746,8 +723,8 @@
         "rate_limit": 5000,
         "__mpe_code": {
             "position": {
-                "x": 4060,
-                "y": 2129
+                "x": 3480,
+                "y": 3572
             }
         },
         "next": [
@@ -783,8 +760,8 @@
         "timeout": 60000,
         "__mpe_code": {
             "position": {
-                "x": 4060,
-                "y": 2641
+                "x": 3480,
+                "y": 3065
             }
         },
         "next": [
@@ -797,8 +774,8 @@
     "__mpe_external_Confirm_Stage": {
         "__mpe_code": {
             "position": {
-                "x": 3770,
-                "y": 3224
+                "x": 3190,
+                "y": 2666
             }
         }
     },
@@ -813,8 +790,8 @@
         },
         "__mpe_code": {
             "position": {
-                "x": 4060,
-                "y": 352
+                "x": 3480,
+                "y": 475
             }
         },
         "next": [
@@ -848,24 +825,24 @@
         "post_wait_freezes": 1000,
         "__mpe_code": {
             "position": {
-                "x": 4350,
-                "y": 2288
+                "x": 3770,
+                "y": 1835
             }
         }
     },
     "__mpe_external_LobbyFlag_Stage": {
         "__mpe_code": {
             "position": {
-                "x": 4930,
-                "y": 1112
+                "x": 4350,
+                "y": 3740
             }
         }
     },
     "__mpe_external_BackToLobby_Stage": {
         "__mpe_code": {
             "position": {
-                "x": 4930,
-                "y": 1923
+                "x": 4350,
+                "y": 2630
             }
         }
     },
@@ -892,8 +869,8 @@
         },
         "__mpe_code": {
             "position": {
-                "x": 3480,
-                "y": 3140
+                "x": 2900,
+                "y": 2604
             }
         },
         "next": [
@@ -927,8 +904,8 @@
         "timeout": 60000,
         "__mpe_code": {
             "position": {
-                "x": 3480,
-                "y": 2414
+                "x": 2900,
+                "y": 3260
             }
         },
         "next": [
@@ -943,8 +920,8 @@
     "__mpe_external_Loading_Stage": {
         "__mpe_code": {
             "position": {
-                "x": 4350,
-                "y": 2723
+                "x": 3770,
+                "y": 3167
             }
         }
     },
@@ -959,8 +936,8 @@
         },
         "__mpe_code": {
             "position": {
-                "x": 4060,
-                "y": 1094
+                "x": 3480,
+                "y": 1085
             }
         },
         "next": [
@@ -986,7 +963,7 @@
         "__mpe_code": {
             "position": {
                 "x": 0,
-                "y": 4333
+                "y": 1530
             }
         },
         "next": [
@@ -1020,8 +997,8 @@
         },
         "__mpe_code": {
             "position": {
-                "x": 1160,
-                "y": 4376
+                "x": 870,
+                "y": 5503
             }
         },
         "next": [
@@ -1053,8 +1030,8 @@
         },
         "__mpe_code": {
             "position": {
-                "x": 1160,
-                "y": 4871
+                "x": 870,
+                "y": 5098
             }
         },
         "next": [
@@ -1086,8 +1063,8 @@
         },
         "__mpe_code": {
             "position": {
-                "x": 1160,
-                "y": 5150
+                "x": 870,
+                "y": 4819
             }
         },
         "next": [
@@ -1120,8 +1097,8 @@
         },
         "__mpe_code": {
             "position": {
-                "x": 870,
-                "y": 5575
+                "x": 580,
+                "y": 4408
             }
         },
         "next": [
@@ -1154,8 +1131,8 @@
         },
         "__mpe_code": {
             "position": {
-                "x": 870,
-                "y": 4003
+                "x": 580,
+                "y": 5937
             }
         },
         "next": [
@@ -1188,8 +1165,8 @@
         "post_wait_freezes": 500,
         "__mpe_code": {
             "position": {
-                "x": 1450,
-                "y": 4121
+                "x": 1160,
+                "y": 5782
             }
         }
     },
@@ -1216,8 +1193,8 @@
         "post_wait_freezes": 500,
         "__mpe_code": {
             "position": {
-                "x": 1450,
-                "y": 5231
+                "x": 1160,
+                "y": 4484
             }
         }
     },
@@ -1246,8 +1223,8 @@
         },
         "__mpe_code": {
             "position": {
-                "x": 1160,
-                "y": 5429
+                "x": 870,
+                "y": 4510
             }
         }
     },
@@ -1274,8 +1251,8 @@
         "post_wait_freezes": 500,
         "__mpe_code": {
             "position": {
-                "x": 1160,
-                "y": 5738
+                "x": 870,
+                "y": 4231
             }
         },
         "next": [
@@ -1307,8 +1284,8 @@
         },
         "__mpe_code": {
             "position": {
-                "x": 1160,
-                "y": 3818
+                "x": 870,
+                "y": 6031
             }
         }
     },
@@ -1334,8 +1311,8 @@
         },
         "__mpe_code": {
             "position": {
-                "x": 1160,
-                "y": 4127
+                "x": 870,
+                "y": 5782
             }
         },
         "next": [
@@ -1355,8 +1332,8 @@
         },
         "__mpe_code": {
             "position": {
-                "x": 4640,
-                "y": 3699
+                "x": 4060,
+                "y": 6256
             }
         },
         "next": [
@@ -1392,8 +1369,8 @@
         "post_wait_freezes": 1000,
         "__mpe_code": {
             "position": {
-                "x": 3770,
-                "y": 2840
+                "x": 3190,
+                "y": 2866
             }
         }
     },
@@ -1419,8 +1396,8 @@
         "post_wait_freezes": 500,
         "__mpe_code": {
             "position": {
-                "x": 1450,
-                "y": 5818
+                "x": 1160,
+                "y": 4073
             }
         }
     },
@@ -1448,8 +1425,8 @@
         "post_delay": 300,
         "__mpe_code": {
             "position": {
-                "x": 1740,
-                "y": 4695
+                "x": 1450,
+                "y": 5032
             }
         },
         "next": [
@@ -1480,8 +1457,8 @@
         },
         "__mpe_code": {
             "position": {
-                "x": 2030,
-                "y": 4710
+                "x": 1740,
+                "y": 5047
             }
         },
         "next": [
@@ -1507,13 +1484,63 @@
             }
         },
         "action": {
-            "type": "Click",
+            "type": "DoNothing",
             "param": {}
         },
         "__mpe_code": {
             "position": {
-                "x": 4640,
-                "y": 1285
+                "x": 4060,
+                "y": 3473
+            }
+        },
+        "next": [
+            "LobbyFlag"
+        ],
+        "interrupt": [
+            "BackToLobby"
+        ]
+    },
+    "__mpe_external_Back_Stage": {
+        "__mpe_code": {
+            "position": {
+                "x": 2900,
+                "y": 3703
+            }
+        }
+    },
+    "Stage_Wish_Exhausted": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "0/3"
+                ],
+                "replace": [
+                    [
+                        "o",
+                        "0"
+                    ],
+                    [
+                        "O",
+                        "0"
+                    ]
+                ],
+                "roi": [
+                    1131,
+                    116,
+                    67,
+                    41
+                ]
+            }
+        },
+        "action": {
+            "type": "DoNothing",
+            "param": {}
+        },
+        "__mpe_code": {
+            "position": {
+                "x": 4126,
+                "y": 1277
             }
         },
         "next": [

@@ -36,7 +36,7 @@
         "__mpe_code": {
             "position": {
                 "x": 290,
-                "y": 162
+                "y": 350
             }
         }
     },
@@ -66,14 +66,15 @@
         "pre_delay": 1000,
         "__mpe_code": {
             "position": {
-                "x": 582,
-                "y": 988
+                "x": 0,
+                "y": 846
             }
         },
         "next": [
             "Mall_StoreFront"
         ],
         "interrupt": [
+            "Mall_DailyLimited_Buy_Memory",
             "Mall_DailyLimited_Buy_GiftBox",
             "Mall_DailyLimited_Buy_BRankContract",
             "Mall_DailyLimited_Buy_ARankContract",
@@ -102,7 +103,7 @@
         "__mpe_code": {
             "position": {
                 "x": 1160,
-                "y": 912
+                "y": 1943
             }
         },
         "next": [
@@ -131,7 +132,7 @@
         "__mpe_code": {
             "position": {
                 "x": 1740,
-                "y": 925
+                "y": 1220
             }
         },
         "next": [
@@ -164,44 +165,18 @@
         "__mpe_code": {
             "position": {
                 "x": 1450,
-                "y": 1019
+                "y": 1389
             }
         },
         "next": [
-            "TouchToContinue",
-            "Mall_OrderForm_SelectMaxQuantity"
+            "Mall_OrderForm_SelectMaxQuantity",
+            "Mall_OrderForm_Purchased",
+            "TouchToContinue"
         ],
         "interrupt": [
             "Confirm",
             "Mall_OrderForm_Purchase"
         ]
-    },
-    "Mall_OrderForm_Purchase": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    543,
-                    607,
-                    176,
-                    39
-                ],
-                "expected": [
-                    "Purchase"
-                ]
-            }
-        },
-        "action": {
-            "type": "Click",
-            "param": {}
-        },
-        "post_wait_freezes": 1000,
-        "__mpe_code": {
-            "position": {
-                "x": 2030,
-                "y": 1174
-            }
-        }
     },
     "Mall_DailyLimited_Buy_ARankContract": {
         "recognition": {
@@ -224,7 +199,7 @@
         "__mpe_code": {
             "position": {
                 "x": 1160,
-                "y": 1131
+                "y": 1694
             }
         },
         "next": [
@@ -252,7 +227,35 @@
         "__mpe_code": {
             "position": {
                 "x": 1160,
-                "y": 1350
+                "y": 1445
+            }
+        },
+        "next": [
+            "Mall_OrderForm"
+        ]
+    },
+    "Mall_DailyLimited_Buy_Memory": {
+        "recognition": {
+            "type": "Custom",
+            "param": {
+                "custom_recognition": "CheckShopItem",
+                "custom_recognition_param": "Memory",
+                "roi": [
+                    238,
+                    179,
+                    241,
+                    325
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {}
+        },
+        "__mpe_code": {
+            "position": {
+                "x": 1160,
+                "y": 1196
             }
         },
         "next": [
@@ -280,7 +283,7 @@
         "__mpe_code": {
             "position": {
                 "x": 1160,
-                "y": 693
+                "y": 947
             }
         },
         "next": [
@@ -308,7 +311,7 @@
         "__mpe_code": {
             "position": {
                 "x": 1160,
-                "y": 45
+                "y": 508
             }
         },
         "next": [
@@ -332,8 +335,8 @@
         },
         "__mpe_code": {
             "position": {
-                "x": 234,
-                "y": 477
+                "x": 290,
+                "y": 668
             }
         },
         "next": [
@@ -349,7 +352,7 @@
         "__mpe_code": {
             "position": {
                 "x": 580,
-                "y": 488
+                "y": 966
             }
         }
     },
@@ -364,8 +367,8 @@
         },
         "__mpe_code": {
             "position": {
-                "x": -29,
-                "y": 379
+                "x": 0,
+                "y": 342
             }
         },
         "next": [
@@ -380,7 +383,7 @@
         "__mpe_code": {
             "position": {
                 "x": 580,
-                "y": 214
+                "y": 0
             }
         }
     },
@@ -395,8 +398,8 @@
         },
         "__mpe_code": {
             "position": {
-                "x": 586,
-                "y": 582
+                "x": 580,
+                "y": 95
             }
         },
         "next": [
@@ -429,16 +432,8 @@
         "post_delay": 400,
         "__mpe_code": {
             "position": {
-                "x": 907,
-                "y": 537
-            }
-        }
-    },
-    "__mpe_external_TouchToContinue_Mall": {
-        "__mpe_code": {
-            "position": {
-                "x": 2030,
-                "y": 888
+                "x": 870,
+                "y": 50
             }
         }
     },
@@ -446,7 +441,7 @@
         "__mpe_code": {
             "position": {
                 "x": 2030,
-                "y": 1079
+                "y": 1282
             }
         }
     },
@@ -472,7 +467,7 @@
         "__mpe_code": {
             "position": {
                 "x": 290,
-                "y": 1469
+                "y": 131
             }
         }
     },
@@ -485,10 +480,11 @@
             "type": "DoNothing",
             "param": {}
         },
+        "timeout": 0,
         "__mpe_code": {
             "position": {
                 "x": 580,
-                "y": 309
+                "y": 678
             }
         },
         "next": [
@@ -521,7 +517,7 @@
         "__mpe_code": {
             "position": {
                 "x": 870,
-                "y": 309
+                "y": 802
             }
         }
     },
@@ -548,15 +544,92 @@
                 "custom_action_param": "Mall_CashShop_Entry"
             }
         },
+        "timeout": 5000,
         "pre_delay": 1000,
         "__mpe_code": {
             "position": {
                 "x": 870,
-                "y": 0
+                "y": 463
             }
         },
         "next": [
             "Mall_CashShop_SupportFund"
         ]
+    },
+    "Mall_OrderForm_Purchased": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    453,
+                    544,
+                    355,
+                    165
+                ],
+                "threshold": 0.8,
+                "template": [
+                    "mall/purchased-1.png",
+                    "mall/purchased-2.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "DoNothing",
+            "param": {}
+        },
+        "__mpe_code": {
+            "position": {
+                "x": 1740,
+                "y": 1439
+            }
+        },
+        "next": [
+            "ClosePopupX"
+        ]
+    },
+    "Mall_OrderForm_Purchase": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    453,
+                    544,
+                    355,
+                    165
+                ],
+                "threshold": 0.8,
+                "template": [
+                    "mall/purchase-1.png",
+                    "mall/purchase-2.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {}
+        },
+        "post_wait_freezes": 1000,
+        "__mpe_code": {
+            "position": {
+                "x": 2030,
+                "y": 1596
+            }
+        }
+    },
+    "__mpe_external_ClosePopupX_Mall": {
+        "__mpe_code": {
+            "position": {
+                "x": 2030,
+                "y": 1501
+            }
+        }
+    },
+    "__mpe_external_TouchToContinue_Mall": {
+        "__mpe_code": {
+            "position": {
+                "x": 2030,
+                "y": 1142
+            }
+        }
     }
 }

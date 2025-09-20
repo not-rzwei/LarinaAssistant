@@ -204,5 +204,34 @@
                 "y": 444
             }
         }
+    },
+    "Back": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "back-button-1.png",
+                    "back-button-2.png"
+                ],
+                "roi": [
+                    6,
+                    2,
+                    1271,
+                    111
+                ],
+                "green_mask": true,
+                "order_by": "Score"
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {}
+        },
+        "__mpe_code": {
+            "position": {
+                "x": 7,
+                "y": 182
+            }
+        }
     }
 }
