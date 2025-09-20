@@ -60,6 +60,7 @@ class SelectHighestLevelWish(CustomRecognition):
                         "param": {
                             "expected": [ticket_ocr_number],
                             "roi": [1131, 116, 67, 41],
+                            "replace": [["o", "0"], ["O", "0"], ["1", "/"]],
                         },
                     }
                 }
