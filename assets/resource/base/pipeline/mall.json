@@ -45,14 +45,14 @@
             "type": "OCR",
             "param": {
                 "expected": [
-                    "refreshed daily",
-                    "daily"
+                    "Refresh",
+                    "refresh"
                 ],
                 "roi": [
-                    219,
-                    119,
-                    702,
-                    69
+                    907,
+                    64,
+                    301,
+                    176
                 ]
             }
         },
@@ -66,19 +66,19 @@
         "pre_delay": 1000,
         "__mpe_code": {
             "position": {
-                "x": 0,
-                "y": 1086
+                "x": 582,
+                "y": 988
             }
         },
-        "next": [
-            "Mall_StoreFront"
-        ],
         "interrupt": [
             "Mall_DailyLimited_Buy_GiftBox",
             "Mall_DailyLimited_Buy_BRankContract",
             "Mall_DailyLimited_Buy_ARankContract",
             "Mall_DailyLimited_Buy_SRankContract",
             "Mall_Back_StoreFront"
+        ],
+        "next": [
+            "Mall_StoreFront"
         ]
     },
     "Mall_DailyLimited_Buy_BRankContract": {
@@ -302,8 +302,8 @@
         },
         "__mpe_code": {
             "position": {
-                "x": 290,
-                "y": 441
+                "x": 234,
+                "y": 477
             }
         },
         "next": [
@@ -334,8 +334,8 @@
         },
         "__mpe_code": {
             "position": {
-                "x": 0,
-                "y": 381
+                "x": -29,
+                "y": 379
             }
         },
         "next": [
@@ -365,8 +365,8 @@
         },
         "__mpe_code": {
             "position": {
-                "x": 580,
-                "y": 583
+                "x": 586,
+                "y": 582
             }
         },
         "next": [
@@ -399,8 +399,8 @@
         "post_delay": 400,
         "__mpe_code": {
             "position": {
-                "x": 870,
-                "y": 538
+                "x": 907,
+                "y": 537
             }
         }
     },
