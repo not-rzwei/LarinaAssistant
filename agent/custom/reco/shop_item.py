@@ -3,7 +3,7 @@ from maa.custom_recognition import CustomRecognition
 from maa.context import Context
 
 
-from utils import logger
+from utils import logger, parse_param
 
 
 @AgentServer.custom_recognition("CheckShopItem")
@@ -19,14 +19,7 @@ class CheckShopItem(CustomRecognition):
         argv: CustomRecognition.AnalyzeArg,
     ) -> CustomRecognition.AnalyzeResult:
 
-        item_name = argv.custom_recognition_param
-        if (
-            item_name
-            and len(item_name) >= 2
-            and item_name[0] == item_name[-1]
-            and item_name[0] in ("'", '"')
-        ):
-            item_name = item_name[1:-1]
+        item_name = parse_param(argv.custom_recognition_param)
 
         parent_node_name = argv.node_name
         roi = [argv.roi[0], argv.roi[1], argv.roi[2], argv.roi[3]]

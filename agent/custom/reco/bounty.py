@@ -6,7 +6,7 @@ from maa.context import Context
 import time
 
 import numpy
-from utils import logger
+from utils import logger, parse_param
 
 
 class Floor(Enum):
@@ -63,18 +63,8 @@ class SelectBounty(CustomRecognition):
         argv: CustomRecognition.AnalyzeArg,
     ) -> CustomRecognition.AnalyzeResult:
 
-        bounty_name = argv.custom_recognition_param
+        bounty_name = parse_param(argv.custom_recognition_param)
         logger.debug(f"[SelectBounty] Received bounty_name: {bounty_name}")
-        if (
-            bounty_name
-            and len(bounty_name) >= 2
-            and bounty_name[0] == bounty_name[-1]
-            and bounty_name[0] in ("'", '"')
-        ):
-            bounty_name = bounty_name[1:-1]
-            logger.debug(
-                f"[SelectBounty] Stripped quotes from bounty_name: {bounty_name}"
-            )
 
         node_name = argv.node_name + "_" + bounty_name
         logger.debug(f"[SelectBounty] node_name: {node_name}")

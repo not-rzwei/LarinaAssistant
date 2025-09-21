@@ -2,7 +2,7 @@ from typing import List
 from maa.agent.agent_server import AgentServer
 from maa.custom_recognition import CustomRecognition, RecognitionResult
 from maa.context import Context
-from utils import logger
+from utils import logger, parse_param
 
 
 @AgentServer.custom_recognition("SelectHighestLevelWish")
@@ -19,15 +19,8 @@ class SelectHighestLevelWish(CustomRecognition):
     ) -> CustomRecognition.AnalyzeResult:
 
         # e.g. wish_type = "Credit/1", "Vanguard/2"
-        wish_type = argv.custom_recognition_param
+        wish_type = parse_param(argv.custom_recognition_param)
         logger.debug(f"[SelectHighestLevelWish] Received wish_type: {wish_type}")
-        if (
-            wish_type
-            and len(wish_type) >= 2
-            and wish_type[0] == wish_type[-1]
-            and wish_type[0] in ("'", '"')
-        ):
-            wish_type = wish_type[1:-1]
 
         if not wish_type:
             logger.debug("[SelectHighestLevelWish] No wish type specified")
