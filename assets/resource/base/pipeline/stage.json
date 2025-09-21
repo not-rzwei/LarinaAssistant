@@ -419,11 +419,17 @@
                 "expected": [
                     "[123]/3"
                 ],
+                "replace": [
+                    [
+                        "13",
+                        "/3"
+                    ]
+                ],
                 "roi": [
-                    324,
-                    421,
-                    202,
-                    97
+                    325,
+                    459,
+                    109,
+                    47
                 ]
             }
         },
@@ -448,10 +454,10 @@
                     "0"
                 ],
                 "roi": [
-                    324,
-                    421,
-                    202,
-                    97
+                    325,
+                    459,
+                    109,
+                    47
                 ]
             }
         },
@@ -801,7 +807,8 @@
         "interrupt": [
             "Stage_Enter",
             "Stage_Wish_Enter",
-            "Stage_Wish_Enter_Exhausted"
+            "Stage_Wish_Enter_Exhausted",
+            "BackToLobby"
         ]
     },
     "Stage_Enter": {
