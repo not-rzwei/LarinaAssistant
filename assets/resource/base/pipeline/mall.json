@@ -74,7 +74,7 @@
             "Mall_StoreFront"
         ],
         "interrupt": [
-            "Mall_DailyLimited_Buy_Memory",
+            "Mall_DailyLimited_Buy_MemoryBox",
             "Mall_DailyLimited_Buy_GiftBox",
             "Mall_DailyLimited_Buy_BRankContract",
             "Mall_DailyLimited_Buy_ARankContract",
@@ -234,7 +234,7 @@
             "Mall_OrderForm"
         ]
     },
-    "Mall_DailyLimited_Buy_Memory": {
+    "Mall_DailyLimited_Buy_MemoryBox": {
         "recognition": {
             "type": "Custom",
             "param": {

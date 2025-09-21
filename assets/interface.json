@@ -48,7 +48,10 @@
         },
         {
             "name": "Mailbox",
-            "entry": "Lobby_Mail_Entry"
+            "entry": "Lobby_Mail_Entry",
+            "option": [
+                "Delete Read Mail"
+            ]
         },
         {
             "name": "Fairy Mall",
@@ -626,6 +629,27 @@
                     }
                 }
             ]
+        },
+        "Delete Read Mail": {
+            "cases": [
+                {
+                    "name": "Enable",
+                    "pipeline_override": {
+                        "Lobby_Mail_Delete": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "Disable",
+                    "pipeline_override": {
+                        "Lobby_Mail_Delete": {
+                            "enabled": false
+                        }
+                    }
+                }
+            ],
+            "default_case": "Disable"
         }
     }
 }
