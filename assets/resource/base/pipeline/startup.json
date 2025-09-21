@@ -20,7 +20,7 @@
         "__mpe_code": {
             "position": {
                 "x": 0,
-                "y": 775
+                "y": 584
             }
         },
         "next": [
@@ -29,7 +29,7 @@
         "interrupt": [
             "Startup_Signin_Bonus_Claim",
             "ClosePopupX",
-            "Startup_EnterGame",
+            "TouchToContinue",
             "Startup_Maintenance",
             "Startup_ProceedDownload",
             "Startup_Wait",
@@ -52,41 +52,12 @@
         "__mpe_code": {
             "position": {
                 "x": 290,
-                "y": 1535
+                "y": 1321
             }
         },
         "next": [
             "Startup_LaunchGame_Disable"
         ]
-    },
-    "Startup_EnterGame": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "expected": [
-                    "Touch the screen to continue",
-                    "Touch the screen",
-                    "continue"
-                ],
-                "roi": [
-                    171,
-                    532,
-                    610,
-                    169
-                ]
-            }
-        },
-        "action": {
-            "type": "Click",
-            "param": {}
-        },
-        "post_delay": 800,
-        "__mpe_code": {
-            "position": {
-                "x": 289,
-                "y": 1092
-            }
-        }
     },
     "Startup_ProceedDownload": {
         "recognition": {
@@ -110,7 +81,7 @@
         "__mpe_code": {
             "position": {
                 "x": 290,
-                "y": 658
+                "y": 693
             }
         },
         "next": [
@@ -154,7 +125,7 @@
         "__mpe_code": {
             "position": {
                 "x": 580,
-                "y": 1520
+                "y": 1306
             }
         }
     },
@@ -170,7 +141,7 @@
         "__mpe_code": {
             "position": {
                 "x": 580,
-                "y": 720
+                "y": 755
             }
         }
     },
@@ -178,7 +149,7 @@
         "__mpe_code": {
             "position": {
                 "x": 290,
-                "y": 1345
+                "y": 1131
             }
         }
     },
@@ -207,35 +178,18 @@
             }
         },
         "action": {
-            "type": "StopApp",
+            "type": "Custom",
             "param": {
-                "package": "com.GentleManiac.HorizonWalker"
+                "custom_action": "StopAllTasks"
             }
         },
-        "focus": "Maintenance is in progress",
+        "focus": {
+            "start": "Maintenance is in progress, stopping all tasks"
+        },
         "__mpe_code": {
             "position": {
                 "x": 290,
-                "y": 379
-            }
-        },
-        "next": [
-            "Startup_Stop"
-        ]
-    },
-    "Startup_Stop": {
-        "recognition": {
-            "type": "DirectHit",
-            "param": {}
-        },
-        "action": {
-            "type": "StopTask",
-            "param": {}
-        },
-        "__mpe_code": {
-            "position": {
-                "x": 580,
-                "y": 439
+                "y": 474
             }
         }
     },
@@ -256,7 +210,7 @@
         "__mpe_code": {
             "position": {
                 "x": 290,
-                "y": 907
+                "y": 942
             }
         }
     },
@@ -264,7 +218,15 @@
         "__mpe_code": {
             "position": {
                 "x": 290,
-                "y": 1440
+                "y": 1226
+            }
+        }
+    },
+    "__mpe_external_TouchToContinue_Startup": {
+        "__mpe_code": {
+            "position": {
+                "x": 290,
+                "y": 379
             }
         }
     }
