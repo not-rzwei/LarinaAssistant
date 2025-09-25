@@ -121,6 +121,7 @@
             "type": "DoNothing",
             "param": {}
         },
+        "timeout": 5000,
         "__mpe_code": {
             "position": {
                 "x": 580,
@@ -558,6 +559,7 @@
             "type": "DoNothing",
             "param": {}
         },
+        "timeout": 5000,
         "__mpe_code": {
             "position": {
                 "x": 0,
@@ -641,6 +643,7 @@
                 "y": 3405
             }
         },
+        "timeout": 5000,
         "next": [
             "Lobby_Mission_Schedule_Daily",
             "Lobby_Mission_Schedule_Weekly"

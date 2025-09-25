@@ -801,6 +801,7 @@
                 "y": 475
             }
         },
+        "timeout": 5000,
         "next": [
             "Stage_Wish_Front"
         ],
@@ -948,6 +949,7 @@
                 "y": 1085
             }
         },
+        "timeout": 5000,
         "next": [
             "Stage_Bounty_Front"
         ],
@@ -1446,8 +1448,7 @@
             "type": "OCR",
             "param": {
                 "expected": [
-                    "Region",
-                    "^[0-9]+$"
+                    "Region"
                 ],
                 "roi": [
                     223,

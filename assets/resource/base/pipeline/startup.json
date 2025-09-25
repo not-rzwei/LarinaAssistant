@@ -85,8 +85,8 @@
             }
         },
         "next": [
-            "Startup_ProceedDownload",
-            "Confirm"
+            "Confirm",
+            "Startup_ProceedDownload"
         ]
     },
     "Startup_Signin_Bonus_Claim": {

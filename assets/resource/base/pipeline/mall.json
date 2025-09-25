@@ -371,6 +371,7 @@
                 "y": 342
             }
         },
+        "timeout": 5000,
         "next": [
             "Mall_StoreFront"
         ],
@@ -402,6 +403,7 @@
                 "y": 95
             }
         },
+        "timeout": 5000,
         "next": [
             "Mall_DailyLimited_Front"
         ],
@@ -480,7 +482,7 @@
             "type": "DoNothing",
             "param": {}
         },
-        "timeout": 0,
+        "timeout": 5000,
         "__mpe_code": {
             "position": {
                 "x": 580,
